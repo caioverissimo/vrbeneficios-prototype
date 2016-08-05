@@ -1,0 +1,9 @@
+<!-- Feedback das ações disparadas pelo usuário -->
+<div class="row" ng-repeat="feedback in feedbacks">
+  <div class="col-xs-12">
+    <div vr-alert="true"
+         vr-alert-type="feedback.type"
+         template-inline="{{feedback.msg}}"></div>
+  </div>
+</div>
+

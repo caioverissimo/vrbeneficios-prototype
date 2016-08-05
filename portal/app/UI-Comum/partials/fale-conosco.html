@@ -1,0 +1,208 @@
+<main class="container main-content" ng-controller="FaleConoscoController">
+  <article class="col-sm-12 col-md-offset-1 col-md-10 top-80-sm">
+    <!-- Título da pagina -->
+    <h2 class="subTitle text-gray-brand">Fale Conosco</h2>
+
+    <!-- Linha separadora -->
+    <hr class="hr-sm">
+
+    <!-- Feedback das áreas disparadas pelo usuário -->
+    <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+    <div class="top-30">
+      <p class="text-summary">Não fique com dúvidas! Entre em contato com a VR Benefícios que resolvemos tudo com
+        você.</p>
+
+      <form class="form row" name="contactUs" novalidate vr-enter-key-form-interceptor="saveContact()">
+
+        <!-- Nome -->
+        <div class="form-group col-sm-12">
+          <label class="form-label with-addon">NOME</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="icon icon-icon_usuario"></i>
+            </span>
+            <input type="text" placeholder="Digite seu nome" class="form-control" name="name" ng-model="contact.name"
+                   required>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.name.$error" ng-if='contactUs.name.$dirty'>
+            <p ng-message when="required" class="text-right">Por favor, digite seu nome completo</p>
+          </div>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">EMAIL</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="icon icon-icon_email"></i>
+            </span>
+            <input type="email" placeholder="Digite seu email" class="form-control" name="email"
+                   ng-model="contact.email"
+                   required>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.email.$error" ng-if='contactUs.email.$dirty'>
+            <p ng-message when="required" class="text-right">Por favor, digite um email</p>
+            <p ng-message when="email" class="text-right text-danger">Por favor, digite um email válido</p>
+          </div>
+        </div>
+
+        <!-- Celular -->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">CELULAR</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-mobile fa-2x"></i>
+            </span>
+            <input type="text" class="form-control left-10" name="celular" ng-model="contact.celular"
+                   ui-options="{clearOnBlur:false}" ui-mask="(99)9999-9999?9" ui-mask-placeholder
+                   ui-mask-placeholder-char="_" required>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.celular.$error"
+               ng-if='contactUs.celular.$dirty && contactUs.celular.$touched'>
+            <p ng-message when="required" class="text-right">Por favor, digite seu número de celular</p>
+            <p ng-message when="mask" class="text-right">Por favor, complete o número de celular</p>
+          </div>
+        </div>
+
+        <!-- Assunto -->
+        <div class="form-group col-sm-10">
+          <label class="form-label with-addon">ASSUNTO</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-certificate fa-2x"></i>
+            </span>
+            <select class="form-control" name="subject" ng-model="contact.subject"
+                    ng-change="updateMainSubjectSelected()"
+                    ng-options="o.name for o in subjectOptions" required>
+              <option value="">Selecione</option>
+            </select>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.subject.$error" ng-if='contactUs.subject.$dirty'>
+            <p ng-message when="required" class="text-right">Por favor, selecione o assunto</p>
+          </div>
+        </div>
+
+        <!-- CNPJ -->
+        <div class="form-group col-sm-6" ng-if="hasToShowOtherFields()">
+          <label class="form-label with-addon">CNPJ </label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="glyphicon glyphicon-barcode"></i>
+            </span>
+            <input type="text" class="form-control" id="cnpj" name="cnpj" ng-model="contact.cnpj" placeholder=" "
+                   ui-options="{clearOnBlur:false}" ui-mask="99.999.999/9999-99" ui-mask-placeholder
+                   ui-mask-placeholder-char="_" required ng-cnpj ng-blur="consultarCNPJ($event)"
+                   required>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.cnpj.$error"
+               ng-if="contactUs.cnpj.$dirty && contactUs.cnpj.$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CNPJ</p>
+            <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CNPJ</p>
+            <p ng-message when="cnpj" class="text-right text-danger">Por favor, digite um CNPJ válido</p>
+          </div>
+        </div>
+
+
+        <!-- Nome da Empresa -->
+        <div class="form-group col-sm-6" ng-if="hasToShowOtherFields()">
+          <label class="form-label with-addon">NOME DA EMPRESA</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="icon icon-icon_usuario"></i>
+            </span>
+            <input type="text" placeholder="Digite o nome da empresa" class="form-control" name="companyName"
+                   ng-model="contact.companyName" required>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.companyName.$error"
+               ng-if='contactUs.companyName.$dirty'>
+            <p ng-message when="required" class="text-right">Por favor, digite o nome da empresa</p>
+          </div>
+        </div>
+
+        <!-- QTDE De Funcionários -->
+        <div class="form-group col-sm-6" ng-if="hasToShowOtherFields()">
+          <label class="form-label with-addon">QTD DE FUNCIONÁRIOS</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-group fa-2x"></i>
+            </span>
+            <input type="text" placeholder="Digite o número de funcionários" class="form-control"
+                   name="numberOfEmployees" ng-model="contact.numberOfEmployees" ui-mask-placeholder ui-mask="9?9?9?9?9?9" positive-number-validation required>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.numberOfEmployees.$error"
+               ng-if='contactUs.numberOfEmployees.$dirty && contactUs.numberOfEmployees.$touched'>
+            <p ng-message when="required" class="text-right">Por favor entre com o número de funcionários</p>
+            <p ng-message when="positiveNumberValidation" class="text-right">O número mínimo aceito é 1</p>
+          </div>
+        </div>
+
+        <!-- Produtos e cartões -->
+        <div class="form-group col-sm-12" ng-if="hasToShowOtherFields()">
+          <p class="text-secundary form-label-required">PRODUTOS E CARTÕES</p>
+          <div class="row">
+            <div class="text-primary col-md-6" ng-repeat="p in contact.availableProducts">
+              <input id="product_{{$index}}" type="checkbox" ng-model="p.selected" ng-change="verifyAtLeastOneMarked()">
+              <label for="product_{{$index}}" class="text-nowrap text-ellipsis">
+                {{p.name}}
+              </label>
+            </div>
+          </div>
+          <div ng-messages class="error-messages" for="contactUs.$error">
+            <p ng-message when="atLeastOneCheckedValidation">Por favor, selecione ao menos 1 produto</p>
+          </div>
+        </div>
+
+        <!-- Mensagem -->
+        <div class="form-group col-sm-12">
+          <label class="form-label with-addon">MENSAGEM</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-wechat fa-2x"></i>
+            </span>
+            <textarea class="form-control" name="message" rows="4" ng-model="contact.message" required></textarea>
+          </div>
+
+          <div ng-messages class="error-messages" for="contactUs.message.$error" ng-if='contactUs.message.$dirty'>
+            <p ng-message when="required" class="text-right">Por favor, digite a mensagem desejada</p>
+          </div>
+        </div>
+
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+
+        <!-- Botão de envio -->
+        <div class="form-group col-sm-offset-4 col-sm-4 top-10">
+          <button class="btn btn-primary btn-xg btn-block btn-left top-10"
+                  ng-disabled="contactUs.$invalid" ng-click="saveContact()">
+            <div class="text-center">
+              <i class="icon icon-icon_seta_botao pull-left top-10"></i>
+              Enviar
+            </div>
+          </button>
+        </div>
+
+      </form>
+
+    </div>
+
+  </article>
+</main>

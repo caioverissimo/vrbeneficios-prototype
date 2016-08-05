@@ -1,0 +1,118 @@
+<article class="panel panel-default panel-height-650" ng-controller="estatisticasCartaoController" id="tutorialBeneficiario6">
+
+  <!-- Diretiva de loading -->
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- Include de mensagem de loader -->
+  <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+  <!-- Include de mensagem de ausencia de conteudo -->
+  <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+  <!-- Área do título -->
+  <!-- Heading contém o título -->
+  <section class="panel-heading" ng-show="hasContent()">
+    <div class="row">
+      <div class="col-sm-9 col-xs-9">
+        ESTATÍSTICAS - FINAL {{activeCard.finalCartao}}
+      </div>
+      <!-- Dado dinamico - final -->
+              <span class="pull-right col-xs-3 col-sm-3 text-right hidden">
+                <button type="button" class="btn btn-default btn-information on-title"></button>
+              </span>
+    </div>
+  </section>
+
+  <!-- Quando bloqueado -->
+  <section class="panel-body text-center panel-message" ng-show="LOCKED">
+    <!-- Icone substituir icone no font-awesome -->
+    <!-- Ponto de mudança -->
+    <i class="icon icon-icon_estatisticas"></i><br>
+    <!-- Texto principal -->
+    <span class="text-secundary col-sm-12 top-10">OPS</span>
+    <!-- Texto menor secundário -->
+    <!-- Alteração de small para "p" -->
+    <p class="text-gray col-sm-12">{{lockedMessage}}</p>
+  </section>
+
+  <!-- Quando bloqueado -->
+  <section class="panel-body text-center panel-message" ng-show="hasError()">
+    <!-- Icone substituir icone no font-awesome -->
+    <!-- Ponto de mudança -->
+    <i class="icon icon-icon_estatisticas"></i><br>
+    <!-- Texto principal -->
+    <span class="text-secundary col-sm-12 top-10">OPS</span>
+    <!-- Texto menor secundário -->
+    <!-- Alteração de small para "p" -->
+    <p class="text-gray col-sm-12">{{errorMessage}}.</p>
+  </section>
+
+  <!-- Área com os dados -->
+  <div class="panel-body" ng-show="hasContent()">
+    <!-- Formulário das estatisticas para gerar o dado -->
+    <form class="form" name="estatistics" novalidate vr-enter-key-form-interceptor="">
+      <div class="form-group">
+        <!-- Seletor com dados do calendário -->
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon icon-icon_data"></i></span>
+          <select ng-change="triggerAction()" class="form-control" name="daysold"
+                  ng-model="daysold" ng-init="daysold = '1'" required>
+            <!-- Opções de dias, duplicar as opções para ter novas -->
+            <option ng-repeat="p in periodos | limitTo: (fromConsultaRapida?1:periodos.length)" value="{{p.value}}">
+              {{p.label}}
+            </option>
+            <!--             <option selected="selected" value="1">30 dias</option> -->
+            <!--             <option ng-if="!fromConsultaRapida" value="3">3 meses</option> -->
+            <!--             <option ng-if="!fromConsultaRapida" value="12">1 ano</option> -->
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- Radio buttons com tipo de filtro -->
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon icon-icon_filtro"></i></span>
+          <!-- PARA CHECKBOX e RADIO BUTTONS FUNCIONAREM COM CSS É NECESSÁRIO COLOCAR IDS E FOR NO LABEL RESPECTIVO -->
+          <div class="col-md-6 col-xs-6 padding-left-0 padding-right-0">
+            <!-- Rádio button de dado do valor -->
+            <div class="radio-inline">
+              <input id="more-visited-filter" type="radio" name="filter" ng-model="filter" value="morevisited"
+                     ng-change='changeFilter(filter)'>
+              <label for="more-visited-filter">Mais visitados</label>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xs-6 padding-left-0 padding-right-0 text-right">
+            <!-- Rádio button de dado do valor -->
+            <div class="radio-inline">
+              <input id="for-value-filter" type="radio" name="filter" ng-model="filter" value="forvalue"
+                     ng-init="filter = 'forvalue'" ng-change='changeFilter(filter)'>
+              <label for="for-value-filter">Por valores</label>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </form>
+
+    <div ng-if="chartist">
+      <!-- Chartist - Usando diretiva do angular angular-chartist -->
+      <chartist class="ct-chart-pie ct-major-third" chartist-data="chartist.data"
+                chartist-chart-type="Pie" chartist-chart-options="chartist.options">
+        <div class="data-chart-center">
+          <span class="data-chart-center-big">{{retrieveMiddleChartData(0)}}</span>
+          <span class="data-chart-center-small">{{ retrieveMiddleChartData(1) | uppercase}}</span>
+        </div>
+      </chartist>
+    </div>
+
+    <!-- Lista de resultados -->
+    <ul class='list-unstyled'>
+      <li ng-repeat="item in data">
+        <i class="fa fa-circle fa-fw text-chart-{{$index+1}}"></i> {{item.descricao}}
+        <span class="pull-right" ng-show="filter == 'forvalue'">R$ {{item.valorFmt}}</span>
+        <span class="pull-right" ng-show="filter == 'morevisited'">{{item.valor}}</span>
+      </li>
+    </ul>
+
+  </div>
+</article>

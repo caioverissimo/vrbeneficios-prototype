@@ -1,0 +1,19 @@
+{
+    "dadosBancariosValidado": false,
+    "produtosDadosBancarios": [
+        {
+            "id": 31,
+            "nome": "VR Refei\u00e7\u00e3o",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": true
+        },
+        {
+            "id": 27,
+            "nome": "VR Alimenta\u00e7\u00e3o",
+            "produtoAlimentacao": true,
+            "produtoRefeicao": false
+        }
+    ],
+    "qualificacaoValidado": false,
+    "validado": false
+}

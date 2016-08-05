@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2015 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/main.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/angular-pickadate.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <script src="//cdn.polyfill.io/v2/polyfill.min.js" async defer></script>
+  <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+  <!-- build:js(.) /portal/js/main-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/portal/js/bower_components/ngmap/build/scripts/ng-map.js"></script>
+  <script src="/portal/js/bower_components/chartist/dist/chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+  <script src="/portal/js/bower_components/lodash/dist/lodash.js"></script>
+  <script src="/portal/js/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+  <script src="/portal/js/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+  <script src="/portal/js/bower_components/pdfjs-dist/build/pdf.combined.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/ui-beneficiario-app.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <script src='/portal/app/mock/ui-beneficiario-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body ng-app="ui-beneficiario-app" class="loading-pane">
+
+<!-- LOADING -->
+<section class="front-loading-wrapper">
+  <div class="front-loading-bar">
+    <section vr-loading-panel="true"></section>
+  </div>
+</section>
+
+<!-- Header -->
+<div ng-include="'/portal/app/mock/cabecalho.html'"></div>
+
+<!-- Inicio do DASHBOARD -->
+<!-- Conteúdo principal -->
+<div class="container main-content" ng-controller="NavigationController as Navigation">
+
+  <!-- Main -->
+  <main class="col-md-12">
+
+    <!-- Conteúdo principal -->
+    <h2 class="title">MINHA CONTA</h2>
+
+    <!-- Navegação -->
+    <nav>
+      <a href="" class="link-main" ng-click="Navigation.setView('notifications')"
+         ng-class="{'active': Navigation.isView('notifications')}">Lista de notificações</a>
+      <a href="" class="link-main" ng-click="Navigation.setView('managenotifications')"
+         ng-class="{'active': Navigation.isView('managenotifications')}">Gerenciar notificações</a>
+    </nav>
+
+    <!-- Notificações - Todas -->
+    <article class="panel panel-default panel-min-heigth-420" ng-if="Navigation.isView('notifications')"
+             ng-controller="NotificationsController">
+
+      <!-- LOADING -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Include de mensagem de loader -->
+      <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+      <!-- Include de mensagem de ausencia de conteudo -->
+      <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+      <section class="panel-body" ng-show="data.length > 0">
+        <ul class="list-inline aside-list">
+          <div ng-repeat="item in data" class="row">
+
+            <!-- Campos numéricos -->
+            <li class="hidden-xs col-sm-1">
+              <div class="aside-list-count aside-sm">
+                <span>{{item.row}}</span>
+              </div>
+            </li>
+
+            <!-- Colunas -->
+            <li class="col-sm-11 row">
+              <!-- Inicio da promoção - Duplicar esta div -->
+              <div class="col-sm-6 top-10" ng-repeat="notification in item.notifications">
+                <!-- Espaço do ícone -->
+                <div class="col-sm-2 col-xs-3 text-secundary text-center text-lg">
+                  <!-- Alteração para icone -->
+                  <i class="icon {{notification.iconClass}}"></i>
+                </div>
+                <div class="col-sm-10 col-xs-9">
+                  <span>{{notification.text}}</span>
+                  <!-- Dados de validade - Eu usaria um filter de 'date' do angular para fazer talvez: Válido até {{ val|date:'dd/MM/yyy' }} -->
+                  <small class="text-block">{{notification.from}}</small>
+                </div>
+                <!-- Separador tem que estar no repeat -->
+                <div class="col-xs-12 col-sm-12">
+                  <hr class="hr">
+                </div>
+              </div>
+            </li>
+
+          </div>
+        </ul>
+
+        <!-- TODO Paginação para listas extensas -->
+      </section>
+    </article>
+    <!-- Fim do article -->
+
+    <!-- Notificacoes - Manage -->
+    <article class="panel panel-default" ng-if="Navigation.isView('managenotifications')">
+
+      <!-- LOADING -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Corpo do painel -->
+      <section class="panel-body">
+        <!-- Texto explicativo -->
+        <p class="text-gray">
+          Configure em que frequencia deseja receber as notificações
+        </p>
+
+        <form name="manageform" vr-enter-key-form-interceptor="">
+          <!-- CHECKBOXS -->
+          <div class="checkbox">
+            <input id="payment" type="checkbox" value="payment" ng-model="manage.payment">
+            <label for="payment" class="text-primary">
+              Confirmação de pagamento
+            </label>
+          </div>
+          <div class="checkbox">
+            <input id="antecipacao" type="checkbox" value="antecipacao" ng-model="manage.antecipacao">
+            <label for="antecipacao" class="text-primary">
+              Antecipação disponível
+            </label>
+          </div>
+          <div class="checkbox">
+            <input id="promotions" type="checkbox" value="promotions" ng-model="manage.promotions">
+            <label for="promotions" class="text-primary">
+              Promoções VR
+            </label>
+          </div>
+        </form>
+      </section>
+    </article>
+    <!-- Fim do article -->
+
+  </main>
+</div>
+
+<!-- Footer -->
+<div ng-include="'/portal/app/mock/rodape.html'"></div>
+</body>
+</html>

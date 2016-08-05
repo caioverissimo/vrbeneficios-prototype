@@ -1,0 +1,9 @@
+#notification {
+  & > .drop-content {
+    & > .list-unstyled {
+      a:hover {
+        cursor: default;
+      }
+    }
+  }
+}

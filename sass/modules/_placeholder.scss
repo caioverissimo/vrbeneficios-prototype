@@ -1,0 +1,13 @@
+.placeholder {
+  max-width: 100%;
+  display: table;
+  position: relative;
+  background: rgb(100,100,100);
+  span {
+    display: table-cell;
+    text-align: center;
+    color: white !important;
+    font-family: 'Gill-Sans-Light';
+    vertical-align: middle;
+  }
+}

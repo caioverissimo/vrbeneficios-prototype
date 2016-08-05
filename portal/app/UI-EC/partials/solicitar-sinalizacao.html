@@ -1,0 +1,118 @@
+<section class="panel-body">
+
+  <!-- Feedback das ações disparadas pelo usuário -->
+  <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+  <p class="text-secundary">1 - SELECIONE UM OU MAIS PRODUTOS PARA SOLICITAR SINALIZAÇÃO</p>
+
+  <!-- Alteração: Para fazer as validações e bloquear o botão form mudou para fora do conteúdo -->
+  <form name="formaddressregistry" vr-enter-key-form-interceptor="">
+
+    <!-- Checkboxes -->
+    <div class="form-group">
+      <div class="checkbox-inline" ng-repeat="p in produtos">
+        <input id="produto_{{$index}}" type="checkbox" ng-model="p.selected" ng-click="selecionarProduto()">
+        <label for="produto_{{$index}}" class="text-primary">{{p.nome}}</label>
+      </div>
+    </div>
+
+    <p class="text-secundary top-10">2 - PARA QUAL ENDEREÇO OS MATERIAIS DEVEM SER ENVIADOS?</p>
+    <!-- Radios para mostrar qual endereço mostrar -->
+    <div class="form-group">
+      <div class="radio-inline">
+        <input id="registryaddress" type="radio" ng-model="registryaddress" value="sameaddress"
+               ng-click="setRegistryaddress('sameaddress')" required>
+        <label for="registryaddress" class="text-primary">Endereço cadastrado</label>
+      </div>
+      <div class="radio-inline">
+        <input id="otheradress" type="radio" ng-model="registryaddress" value="otheraddress"
+               ng-click="setRegistryaddress('otheraddress')" required>
+        <label for="otheradress" class="text-primary">Inserir outro endereço</label>
+      </div>
+    </div>
+
+    <div class="top-10" ng-show="registryaddress == 'sameaddress' || registryaddress == 'otheraddress'">
+      <div class="row">
+        <div class="form-group col-sm-4">
+          <label class="text-gray">CEP</label>
+          <input type="text" class="form-control" ng-model="formSinalizacao.cep" ui-options="{clearOnBlur:false}"
+                 ui-mask="99999-999" required ng-disabled="registryaddress == 'sameaddress'">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-4 col-sm-2">
+          <label class="text-gray">Logadouro</label>
+          <input type="text" class="form-control" ng-model="formSinalizacao.tipoLogradouro" required
+                 ng-disabled="registryaddress == 'sameaddress'">
+        </div>
+        <div class="form-group col-xs-8 col-sm-6">
+          <label class="text-gray">Endereço</label>
+          <input type="text" class="form-control" ng-model="formSinalizacao.endereco" required
+                 ng-disabled="registryaddress == 'sameaddress'">
+        </div>
+        <div class="form-group col-xs-6 col-sm-2">
+          <label class="text-gray">Número</label>
+          <input type="text" class="form-control" ng-model="formSinalizacao.numero" ui-options="{clearOnBlur:false}"
+                 ui-mask="9?9?9?9?9" required ng-disabled="registryaddress == 'sameaddress'">
+        </div>
+        <div class="form-group col-xs-6 col-sm-2">
+          <label class="text-gray">Complemento</label>
+          <input type="text" class="form-control" ng-model="formSinalizacao.complemento"
+                 ng-disabled="registryaddress == 'sameaddress'">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-5 col-sm-2">
+          <label class="text-gray">Estado</label>
+          <select class="form-control" name="uf" ng-model="formSinalizacao.uf" required
+                  ng-disabled="registryaddress == 'sameaddress'">
+            <option selected="" disabled="">Selecione</option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
+          </select>
+        </div>
+        <div class="form-group col-xs-7 col-sm-3">
+          <label class="text-gray">Cidade</label>
+          <input type="text" class="form-control" ng-model="formSinalizacao.cidade" required
+                 ng-disabled="registryaddress == 'sameaddress'">
+        </div>
+      </div>
+    </div>
+
+    <!-- Separador -->
+    <div class="col-sm-12">
+      <small class="text-gray">* Campos obrigatórios</small>
+      <hr class="hr"/>
+    </div>
+
+    <button type="button" ng-click="sendRequest()" class="btn btn-default center-block"
+            ng-disabled="formaddressregistry.$invalid || !produtoSelecionado">
+      Confirmar solicitação
+    </button>
+  </form>
+</section>

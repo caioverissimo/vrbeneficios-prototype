@@ -1,0 +1,314 @@
+// Painels -> Box brancos de informação
+// Tudo relacionado a eles, diretivas etc que tem que morar dentro desse dado
+
+.panel {
+  position: relative;
+  margin-bottom: $panel-margin-bottom;
+
+  .btn-default {
+    background: white;
+  }
+}
+
+.panel-heading {
+  padding: 0;
+  margin: $panel-heading-padding;
+  border-bottom: $panel-heading-border solid $hr-border !important;
+  padding-bottom: 15px;
+}
+
+.panel-modal {
+  border: 14px solid $gray-brand;
+}
+
+.panel-box {
+  padding: 30px;
+}
+
+.no-panel {
+  & .panel {
+    background-color: transparent;
+    box-shadow: initial;
+  }
+  .panel-body {
+    padding: 0;
+    &:after, &:before {
+      content: initial;
+    }
+  }
+  & .row {
+    &:after, &:before {
+      content: initial;
+    }
+  }
+}
+
+.panel-footer-row {
+  width: 100%;
+  position: absolute;
+  bottom: 10px;
+  left: 1.5rem;
+}
+
+.data-display {
+
+  padding: 0 0 18px 0;
+
+  .data-display-big {
+    color: $gray-brand;
+    font-size: 42px;
+    font-family: "Gill-Sans-Semibold";
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .data-display-medium {
+    color: $gray-brand;
+    font-size: 24px;
+    font-family: "Gill-Sans-Semibold";
+    margin-bottom: 0;
+    padding: 0;
+  }
+
+  .data-display-small {
+    color: $gray-brand;
+    margin: 0;
+    padding: 0;
+    font-size: 17px;
+  }
+  .text-gray {
+    color: #969696;
+  }
+  .text-legend {
+    color: $legend-color;
+  }
+  .info {
+    color: $link-color;
+  }
+}
+
+.aside-list {
+  small {
+    margin: 0 0 15px 0;
+    color: $gray-light;
+  }
+}
+
+.text-underlined {
+    font-style: normal;
+    text-decoration: underline;;
+}
+
+
+//Barra de progresso!
+$vr-bar-height: 44px;
+.vr-progress-wrapper {
+  width: 100%;
+  margin: 35px 0 10px 0;
+  height: $vr-bar-height;
+  display: block;
+}
+
+.vr-progress {
+  width: 100%;
+  float: left;
+  height: $vr-bar-height;
+  background: #d3d3d5;
+  position: relative;
+
+  .vr-progress-limit-text {
+    position: absolute;
+    color: #f93417;
+    position: absolute;
+    right: 75px;
+    top: -28px;
+  }
+
+  .vr-progress-bar {
+    height: $vr-bar-height;
+    background: $brand-danger;
+    position: relative;
+  }
+
+  .vr-progress-bar-text {
+    font-size: 20px;
+    position: absolute;
+    color: white;
+    font-weight: 'Gill-Sans-Semibold';
+    padding: 8px 0;
+    right: 2%;
+  }
+
+  .vr-progress-limit {
+    height: $vr-bar-height;
+    width: 2px;
+    top: 0;
+    position: absolute;
+    background: #f93417;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-width: 6px;
+      border-style: solid;
+      left: -5px;
+    }
+
+    &:before {
+      border-color: #f93417 transparent transparent transparent;
+      top: -6px;
+    }
+
+    &:after {
+      border-color: transparent transparent #f93417 transparent;
+      bottom: -6px;
+    }
+  }
+
+  .vr-progress-limit-bar {
+    position: absolute;
+    background: #1d7942;
+    top: 0;
+    right: 0;
+    height: $vr-bar-height;
+  }
+}
+
+// Chart Inner Data
+.data-chart-center {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  top: 40%;
+  .data-chart-center-big {
+    display: block;
+    font-family: 'Gill-Sans-Semibold';
+    font-size: 30px;
+    line-height: 32px;
+  }
+  .data-chart-center-small {
+    font-size: 15px;
+    display: block;
+  }
+}
+
+.panel-navbar {
+  background-color: transparent;
+  .dropdown-menu {
+    background-color: white;
+  }
+  .navbar-left {
+    padding: {
+      left: 0;
+    }
+  }
+}
+
+// Ajuste para font-awesome
+.panel-full {
+  padding: 6em 1em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.panel-min-heigth-420 {
+  min-height: 420px;
+  .panel-message {
+    margin: {
+      top: 110px;
+    }
+  }
+}
+
+.panel-min-heigth-530 {
+  min-height: 530px;
+  .panel-message {
+    margin: {
+      top: 160px;
+    }
+  }
+}
+
+.panel-scroll-480 {
+  max-height: 480px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.panel-scroll-30 {
+  max-height: 30px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.panel-gradient-footer {
+  &:before {
+    content: '';
+    width: 100%;
+    height: 80px;
+    position: absolute;
+    bottom: 50px;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#ffffff', GradientType=0);
+  }
+}
+
+.panel-message-top-reset {
+  .panel-message {
+    margin: {
+      top: 0 !important;
+    }
+  }
+}
+
+.panel-summary {
+  background-color: $navbar-default-bg;
+  color: $label-color;
+}
+
+// desktops
+@media (min-width: $screen-sm) {
+  .panel-height-650 {
+    height: 650px;
+    .panel-message {
+      margin: {
+        top: 200px;
+      }
+    }
+  }
+}
+
+// mobiles
+@media (max-width: $screen-sm) {
+
+  .panel-message {
+    min-height: 250px;
+  }
+
+  // resets
+  .panel-min-heigth-420, .panel-min-heigth-530 {
+
+    // min-height: 0;
+
+    .panel-message {
+      margin: {
+        top: 0;
+      }
+    }
+
+  }
+
+  .vr-panel-body-fix {
+    height: 540px;
+  }
+
+}

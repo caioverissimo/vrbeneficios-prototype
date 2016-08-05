@@ -1,0 +1,113 @@
+// Estilização da área de busca no mapa
+.vr-searchmap {
+  height: 800px;
+  position: relative;
+  overflow: hidden;
+  background: $gray;
+
+  .vr-searchmap-leftcontroller,
+  .vr-searchmap-topcontroller {
+    padding: 5px 15px;
+    border-radius: 1px;
+    -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+  }
+
+  .vr-searchmap-leftcontroller {
+    position: absolute;
+    z-index: 3;
+    width: 35%;
+    margin: 1%;
+    left: -36%;
+
+    &.active {
+      left: 0;
+    }
+  }
+
+  .vr-searchmap-topcontroller {
+    position: absolute;
+    z-index: 2;
+    background: $gray-brand;
+    top: 10px;
+    right: 23%;
+
+    &.active {
+      right: 10px;
+    }
+
+    .vr-searchmap-top-heading {
+      padding: 10px 0;
+      color: white;
+      font-weight: normal;
+      border-bottom: 5px solid lighten($gray-brand, 20%);
+    }
+
+    .vr-searchmap-top-body {
+      padding: 10px 0;
+      & .btn-map {
+        margin-right: 10px;
+      }
+    }
+    & .btn-map {
+        min-width: 99px;
+    }
+  }
+}
+
+.vr-location-info {
+    width: 290px;
+    position: absolute;
+    top: 200px;
+    right: 23%;
+    padding: 15px;
+    z-index: 2;
+    color: white;
+    background-color:  $gray-brand;
+    &:before {
+        content: "";
+        border-style: solid;
+        border-color: transparent transparent $gray-brand transparent;
+        border-width: 15px;
+        position: absolute;
+        top: -30px;
+        left: 50%;
+        margin-left: -15px;
+    }
+    & .hr {
+        margin: 15px 0;
+        border-color: lighten($gray-brand, 20%);
+    }
+    & .results-list {
+        img {
+            margin-right: 15px;
+        }
+
+    }
+    & .results-item {
+        margin: 10px 0;
+    }
+}
+
+.vr-location-info-heading {
+    & .display-info {
+        width: 75%;
+        float: left;
+    }
+    & .title-location {
+        font-size: 17px;
+    }
+    & p {
+        font-size: 12px;
+        & span {
+            clear: both;
+        }
+    }
+}
+
+// smartphones
+@media screen and (max-device-width: 768px) and (orientation: portrait) {
+  .vr-searchmap-leftcontroller {
+    top: 280px;
+  }
+}

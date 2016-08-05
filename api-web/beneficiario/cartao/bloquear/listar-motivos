@@ -1,0 +1,12 @@
+[
+    {
+        "descricao": "O cart\u00e3o \u00e9 bloqueado e ser\u00e1 reemitida a nova via do cart\u00e3o. N\u00e3o ser\u00e1 permitida autoriza\u00e7\u00e3o de compra para a via bloqueada.",
+        "id": "20",
+        "label": "Perda"
+    },
+    {
+        "descricao": "O cart\u00e3o \u00e9 bloqueado e ser\u00e1 reemitida a nova via do cart\u00e3o. N\u00e3o ser\u00e1 permitida autoriza\u00e7\u00e3o de compra para a via bloqueada.",
+        "id": "21",
+        "label": "Roubo"
+    }
+]

@@ -1,0 +1,47 @@
+<!-- Conteúdo principal -->
+<div class="container main-content" ng-controller="RefundAnticipationController" ng-init="init()">
+
+  <!-- Main -->
+  <main class="col-md-12">
+
+    <!-- Conteúdo principal -->
+    <h2 class="title">REEMBOLSOS</h2>
+
+    <!-- Subtexto -->
+    <p class="text-gray">Consultas e solicitações de reembolsos dos seus Produtos VR</p>
+
+    <!-- Vendas -->
+    <article class="panel panel-default panel-min-heigth-420">
+
+      <section vr-loading-panel="LOADING"></section>
+
+      <section class="panel-heading" ng-hide="successConfirmation">ANTECIPAÇÃO DE REEMBOLSOS</section>
+
+      <section class="panel-heading" ng-show="successConfirmation">ANTECIPAÇÃO CONFIRMADA</section>
+
+      <!-- Include de mensagem de loader -->
+      <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+      <!-- Include de mensagem de ausencia de conteudo -->
+      <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+      <!-- Corpo do painel -->
+      <section class="panel-body" ng-show="hasContent()">
+
+        <!-- Antecipação de Reembolso -->
+        <div ng-include="'/portal/app/UI-EC/partials/antecipacao-reembolso.html'"></div>
+
+        <!-- Pesquisa de Reembolso -->
+        <div ng-include="'/portal/app/UI-EC/partials/reembolso-busca.html'"></div>
+
+      </section>
+
+    </article>
+
+  </main>
+
+  <!-- Tooltip lateral -->
+  <div ng-include="'/portal/app/components/partials/links-laterais.html'"></div>
+
+</div>
+

@@ -1,0 +1,95 @@
+<section class="panel-body" ng-show="hasContent()" id="tutorialEC7">
+
+  <!-- Feedback das ações disparadas pelo usuário -->
+  <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+  <div class="row">
+    <!-- Info. Gerais -->
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <p class="text-secundary">
+        INFORMAÇÕES GERAIS
+      </p>
+      <hr class="hr">
+
+      <form class="form row" name="formestab" enctype="multipart/form-data" vr-enter-key-form-interceptor="">
+
+        <div class="col-md-3 text-center form-group">
+
+          <input type="file" accept="image/*" ng-show="showInputFile()" id="establishmentImageUpload" name="file"
+                 onchange="angular.element(this).scope().fileSelected()"/>
+
+          <div ng-show="getCurrentPicture()">
+            <a class="badge badge-primary badge-remove" ng-click="removePicture()">&times;</a>
+            <div class="avatar-selection center-block">
+              <img ng-src="{{getCurrentPicture()}}" class="img-responsive center-block">
+            </div>
+          </div>
+
+          <button ng-hide="getCurrentPicture()" type="button" class="btn btn-default btn-avatar-upload"
+                  ng-click="insertPicture()">
+            <i class="icon icon-icon_camera_off center-block"></i>
+            <i class="icon icon-icon_camera_on center-block"></i>
+          </button>
+
+          <button type="button" class="btn btn-default btn-block top-10" ng-click="insertPicture()">
+            Alterar logo
+          </button>
+
+        </div>
+
+        <div class="col-md-offset-1 col-md-7">
+          <div class="form-group">
+            <label class="text-gray">
+              Nome
+            </label>
+            <input type="text" class="form-control" ng-value="formInfoGerais.nomeFantasia" name="placename"
+                   disabled="true"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="text-gray">
+              Endereço
+            </label>
+            <input type="text" class="form-control"
+                   ng-value="formInfoGerais.endereco.tipoLogradouro + ' ' + formInfoGerais.endereco.logradouro + ' ' + formInfoGerais.endereco.numero + ' ' + (formInfoGerais.endereco.complemento ? formInfoGerais.endereco.complemento : '')"
+                   name="placeaddress"
+                   disabled="true"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="text-gray">
+              Telefone
+            </label>
+            <input type="text" class="form-control"
+                   ng-value="formInfoGerais.contatos[0].ddd + formInfoGerais.contatos[0].telefone | telefoneFilter"
+                   name="placephone"
+                   disabled="true"
+                   required>
+          </div>
+          <div class="form-group">
+            <label class="text-gray">
+              Atendimento
+            </label>
+            <input type="text" class="form-control" ng-value="getOperationDay()" name="estabname"
+                   disabled="true"
+                   required>
+          </div>
+          <hr class="hr">
+          <a href="/portal/portal-vr/area-restrita/vr-e-estabelecimentos/dados-do-estabelecimento.html"
+             class="btn btn-default btn-block"
+             ng-show="isInDashboard()">
+            Ver Mais
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <div class="row" ng-if="isInDadosEstabelecimento()">
+    <div class="col-xs-12 col-sm-12 col-md-12">
+      <div ng-include="'/portal/app/UI-EC/partials/links-contratos-e-termos.html'"></div>
+    </div>
+  </div>
+
+</section>

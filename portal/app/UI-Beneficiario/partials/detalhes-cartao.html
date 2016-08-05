@@ -1,0 +1,96 @@
+<div class="row">
+  <nav class="col-sm-3">
+    <!-- Lista de cartões -->
+    <button ng-repeat="item in cards" ng-class="cardClass(item)" type="button"
+            class="btn btn-default btn-block btn-lg" update-active ng-click="setActiveCard(item.numeroCartao)">
+      <small class="col-sm-12">(nº final)</small>
+      <span class="col-sm-12 text-bold">{{item.finalCartao}}</span>
+    </button>
+  </nav>
+  <div class="col-sm-9">
+    <div class="row clearfix">
+      <p class="col-md-3 form-label top-10 hidden-sm hidden-xs">
+        FINAL {{activeCard.finalCartao}}
+      </p>
+
+      <p class="col-xs-12 col-sm-3 form-label top-10  text-center hidden-md hidden-lg">
+        FINAL {{activeCard.finalCartao}}
+      </p>
+
+      <div class="col-md-9 text-right hidden-sm hidden-xs">
+        <!-- Chama os modals -->
+        <button type="button" class="btn btn-default" ng-click="blockCardModal()"
+                ng-if="roles.bloquearCartao && !activeCard.bloqueado">
+          Bloquear cartão
+        </button>
+        <button type="button" class="btn btn-default" ng-click="changeCardPasswordModal()"
+                ng-if="roles.alterarSenhaCartao">
+          Alterar senha cartão
+        </button>
+      </div>
+
+      <div class="col-xs-12 col-sm-9 text-center hidden-md hidden-lg">
+        <!-- Chama os modals -->
+        <button type="button" class="btn btn-default btn-block"
+                ng-click="blockCardModal()" ng-if="roles.bloquearCartao">
+          Bloquear cartão
+        </button>
+        <button type="button" class="btn btn-default btn-block"
+                ng-click="Navigation.open('/portal/app/UI-Beneficiario/partials/modals/senhadocartao.html')"
+                ng-if="roles.alterarSenhaCartao">
+          Alterar senha cartão
+        </button>
+      </div>
+
+      <!-- Separador -->
+      <div class="col-xs-12 col-sm-12">
+        <hr class="hr">
+      </div>
+
+      <!-- Display de data basta repetir as divs com data-display para ficar correto -->
+      <!-- Cada elemento tem o seu tamanho no grid e tem que receber o data-display para ficar estilizado -->
+      <div class="col-xs-12 col-sm-4 text-center data-display">
+        <!-- no p.data-display-big sempre vai o maior número -->
+        <p class="data-display-big">{{activeCard.saldo}}</p>
+        <!-- no small.data-display-small vai o label que aquele dado representa -->
+        <small class="data-display-small">Saldo disponível</small>
+      </div>
+
+      <!-- Cada elemento tem o seu tamanho no grid e tem que receber o data-display para ficar estilizado -->
+      <div class="col-xs-12 col-sm-4 text-center data-display" ng-if="activeCard.gastoMedio !== null">
+        <!-- no p.data-display-big sempre vai o maior número -->
+        <p class="data-display-big">{{activeCard.gastoMedio}}</p>
+        <!-- no small.data-display-small vai o label que aquele dado representa -->
+        <small class="data-display-small">* Gasto médio</small>
+      </div>
+
+      <!-- Cada elemento tem o seu tamanho no grid e tem que receber o data-display para ficar estilizado -->
+      <div class="col-xs-12 col-sm-4 text-center data-display">
+        <!-- no p.data-display-big sempre vai o maior número -->
+        <p class="data-display-big">{{activeCard.proximoBeneficio}}</p>
+        <!-- no small.data-display-small vai o label que aquele dado representa -->
+        <small class="data-display-small">Próximo benefício</small>
+      </div>
+      <!-- Bara de porcentagem -->
+      <div class="col-xs-12 col-sm-12">
+        <!-- DIRETIVA PARA GERAR A BARRA -->
+        <div vr-data-bar spent="activeCard.consumo" total="100" limit="activeCard.valorAlertaSaldo"
+             limit-percent="activeCard.pctAlertaSaldo"></div>
+      </div>
+
+      <!-- Texto de aviso -->
+      <div class="col-xs-12 col-sm-6 text-left">
+        <small class="text-gray" ng-if="activeCard.gastoMedio !== null">* Valor estimado de consumo até o final do mês
+        </small>
+      </div>
+
+      <!-- Texto do último benefício -->
+      <div class="col-xs-12 col-sm-6 text-right">
+        <p class="text-brand">
+          Último benefício <span class="text-bold text-nowrap">R$ {{activeCard.ultimoBeneficio}}</span>
+        </p>
+      </div>
+
+    </div>
+  </div>
+</div>

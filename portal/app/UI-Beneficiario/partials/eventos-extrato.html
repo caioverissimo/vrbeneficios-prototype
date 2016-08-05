@@ -1,0 +1,51 @@
+<div ng-repeat="item in activeCard.transacoes" ng-show="hasTransactions()">
+  <!-- Separador -->
+  <hr class="hr" ng-hide="$first">
+  <legend class="legend">
+    <!-- Icone de dinheiro -->
+    <i class="icon icon-icon_cifrao"></i>
+    <!-- Data deve ser inserida aqui ~ CSS já deixa ela UPPERCASE -->
+    {{item.descricao}}
+  </legend>
+
+  <!-- Tabela que contém os dados -->
+  <table class="table table-listing table-small-text">
+    <thead>
+    <tr>
+      <th></th>
+      <th class="text-right">Aut</th>
+      <th class="text-right padding-right-20">Valor</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="subitem in item.itensdetalhe">
+      <!-- Nome do estabecimento -->
+      <td class="table-cell-long-text max-width-100">
+        {{subitem.descricao}}
+      </td>
+      <!-- Valor consumido -->
+      <td class="text-right">
+        {{subitem.aut}}
+      </td>
+      <td class="text-right text-nowrap padding-right-20">
+        R$ {{subitem.valor}}
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Quando nao tem lançamentos -->
+<section class="panel-body text-center" ng-hide="hasTransactions()">
+
+  <!-- Icone substituir icone no font-awesome -->
+  <!-- Ponto de mudança -->
+  <i class="icon icon-icon_erro_carregamento_conteudo"></i><br>
+  <!-- Texto principal -->
+  <span class="text-secundary col-sm-12 top-10">OPS</span>
+  <!-- Texto menor secundário -->
+  <!-- Alteração de small para "p" -->
+  <p class="text-gray col-sm-12">Não existem lançamentos no período.</p>
+
+</section>
+

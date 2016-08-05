@@ -1,0 +1,58 @@
+<div class="container main-content">
+  <main class="col-md-12" ng-controller="IncomeController" ng-init="listar()">
+    <!-- Conteúdo principal -->
+    <h2 class="title">INFORME DE RENDIMENTOS</h2>
+
+    <!-- Tela de informes de rendimento -->
+    <article class="panel panel-default panel-min-heigth-420">
+
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Include de mensagem de loader -->
+      <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+      <!-- Quando nao tem conteudo -->
+      <section class="panel-body text-center panel-message" ng-show="hasNoContent()">
+
+        <!-- Icone substituir icone no font-awesome -->
+        <!-- Ponto de mudança -->
+        <i class="icon icon-icon_erro_carregamento_conteudo"></i><br>
+        <!-- Texto principal -->
+        <span class="text-secundary col-sm-12 top-10">OPS</span>
+        <!-- Texto menor secundário -->
+        <!-- Alteração de small para "p" -->
+        <p class="text-gray col-sm-12">Não existem informes de rendimentos disponíveis</p>
+      </section>
+
+      <section class="panel-body" ng-show="hasContent()">
+        <div class="row">
+          <!-- Texto informativo -->
+          <p class="col-xs-12 col-sm-10 text-gray">
+            Clique no link abaixo para fazer o download do Informe de Rendimentos (referente ao exercício do ano
+            anterior).<br>
+            Para abrir o arquivo é necessário ter instalado no seu computador o Adobe Reader.<br>
+            Para baixa-lo gratuitamente. <a href="https://get.adobe.com/br/reader/" target="_blank">Clique aqui</a>
+          </p>
+        </div>
+
+        <!-- Lista de rendimentos -->
+        <div class="row">
+          <ul class="list-unstyled col-sm-6 col-md-5 col-lg-4">
+            <li ng-repeat="item in data">
+              <a href="javascript:void(0)" ng-click="download(item)">
+                <i class="icon icon-icon_dowload"></i>
+                <span>{{item}}</span>
+              </a>
+              <hr class="hr">
+            </li>
+          </ul>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <!-- Tooltip lateral -->
+  <div ng-include="'/portal/app/components/partials/links-laterais.html'"></div>
+</div>
+
+

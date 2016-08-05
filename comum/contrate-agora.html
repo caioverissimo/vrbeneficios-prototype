@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2016 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/home.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/full-slider.css">
+  <link rel="stylesheet" type="text/css" href="/portal/js/bower_components/animate.css/animate.min.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <!-- build:js(.) /portal/js/home-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body class="body" ng-app="ui-comum-app">
+
+<!-- Header -->
+<div ng-include="'/portal/app/mock/cabecalho-home.html'"></div>
+
+<main class="container main-content" ng-controller="NewContractController">
+  <article class="col-sm-12">
+    <!-- Título da pagina -->
+    <h2 class="subTitle text-gray-brand">
+      <span>CONTRATE AGORA</span>
+    </h2>
+
+    <!-- Linha separadora -->
+    <hr class="hr-sm">
+
+    <!-- Informações do parceiro -->
+    <div class="vr-partner-information">
+
+      <!-- Imagem do parceiro -->
+      <div class="profile-img">
+        <img src="{{partner.imgUri}}"/>
+      </div>
+
+      <!-- Nome do parceiro -->
+      <p class="profile-name">
+        <span ng-bind="partner.name"></span>
+      </p>
+
+    </div>
+
+    <article class="panel panel-default">
+      <section class="panel-body">
+        <div class="row">
+          <div class="col-sm-4 col-md-4 col-lg-4">
+            <img src="/portal/img/img_cartoes.png" title="Grupo de cartão">
+          </div>
+          <div class="col-sm-8 col-md-8 col-lg-8 text-gray">
+            <p>Mais praticidade pra sua empresa e seus colaboradores.</p>
+            <p>Faça parte da gestão de Benefícios mais completa do mercado: VR Refeição, VR Alimentação, VR Auto e VR
+              Cultura. Na web, no celular, no tablet.</p>
+          </div>
+        </div>
+
+        <!-- Breadcrumbs processo de cadastro -->
+        <div class="row hidden-xs hidden-sm">
+          <div class="col-md-3 breadcrumbs-first breadcrumbs-well text-center" ng-class="breadCrumbClass(1)">
+            Vamos começar
+          </div>
+          <div class="col-md-4 breadcrumbs-well text-center" ng-class="breadCrumbClass(2)">
+            Conte-nos sobre seu interesse
+          </div>
+          <div class="col-md-3 breadcrumbs-well text-center" ng-class="breadCrumbClass(3)">
+            Próximo passo
+          </div>
+        </div>
+
+        <!-- Primeiro passo -->
+        <br />
+        <div ng-show="currentStep === 1">
+          <form class="form col-sm-12" name="firstStep" vr-enter-key-form-interceptor="">
+            <p class="text-secundary">DADOS DE CONTATO</p>
+
+            <div class="form-group row">
+              <div class="col-sm-5">
+                <label class="form-label-gray">Nome do contato</label>
+                <input type="text" class="form-control-sm" name="nomeContato" ng-model="nomeContato" required
+                       maxlength="255">
+                <div ng-messages class="error-messages" for="firstStep.nomeContato.$error"
+                     ng-if="firstStep.nomeContato.$dirty">
+                  <p ng-message when="required" class="text-right">Por favor, informe o nome do contato</p>
+                </div>
+              </div>
+              <div class="col-sm-5">
+                <label class="form-label-gray">Email</label>
+                <input type="email" class="form-control-sm" name="email" ng-model="email" required maxlength="255">
+                <div ng-messages class="error-messages" for="firstStep.email.$error" ng-if="firstStep.email.$dirty">
+                  <p ng-message when="required" class="text-right">Por favor, informe o email de contato</p>
+
+                  <p ng-message when="email" class="text-right text-danger">Email inválido</p>
+                </div>
+              </div>
+              <div class="col-sm-2">
+                <label class="form-label-gray">Telefone para contato</label>
+                <input type="text" class="form-control-sm" name="telefone" ng-model="telefone"
+                       ui-options="{clearOnBlur:false}" ui-mask="(99) 9999-9999?9" ui-mask-placeholder
+                       ui-mask-placeholder-char="_" required>
+                <div ng-messages class="error-messages" for="firstStep.telefone.$error"
+                     ng-if="firstStep.telefone.$dirty && firstStep.telefone.$touched">
+                  <p ng-message when="required" class="text-right">Por favor, informe o telefone de contato</p>
+                  <p ng-message when="mask" class="text-right">Por favor digite um número de telefone válido</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="col-sm-12">
+              <small class="text-gray">* Campos obrigatórios</small>
+              <hr class="hr"/>
+            </div>
+
+            <div class="form-group col-sm-4 col-sm-offset-4 top-10 text-center">
+              <button type="button" class="btn btn-default btn-block" ng-disabled="firstStep.$invalid"
+                      ng-click="currentStep = currentStep + 1">
+                Avançar
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <!-- Segundo passo -->
+        <div ng-show="currentStep === 2">
+
+          <form class="form col-sm-12" name="secondStep" vr-enter-key-form-interceptor="">
+            <p class="text-secundary">SOBRE A EMPRESA</p>
+            <div class="form-group row">
+
+              <div vr-alert="'Preenchendo CNPJ somente com zeros dispara modal de pedidos pendentes...'"></div>
+
+              <div class="col-sm-2">
+                <label class="form-label-gray">CNPJ</label>
+                <input type="text" class="form-control-sm" name="CNPJ" ng-model="CNPJ" placeholder=" "
+                       ui-options="{clearOnBlur:false}" ui-mask="99.999.999/9999-99" ui-mask-placeholder
+                       ui-mask-placeholder-char="_" required
+                       ng-cnpj required>
+                <div ng-messages class="error-messages" for="secondStep.CNPJ.$error"
+                     ng-if="secondStep.CNPJ.$dirty && secondStep.CNPJ.$touched">
+                  <p ng-message when="required" class="text-right">Por favor, informe o CNPJ</p>
+                  <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CNPJ</p>
+                  <p ng-message when="cnpj" class="text-right text-danger">Por favor, digite um CNPJ válido</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <label class="form-label-gray">Nome da empresa</label>
+                <input type="text" class="form-control-sm" name="nomeEmpresa" ng-model="nomeEmpresa" required
+                       maxlength="255">
+                <div ng-messages class="error-messages" for="secondStep.nomeEmpresa.$error"
+                     ng-if="secondStep.nomeEmpresa.$dirty">
+                  <p ng-message when="required" class="text-right">Por favor, informe o nome da empresa</p>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <label class="form-label-gray">Qtd. de funcionários</label>
+                <input type="number" class="form-control-sm" name="qtdFuncionarios" ng-model="qtdFuncionarios" min="0"
+                       required>
+                <div ng-messages class="error-messages" for="secondStep.qtdFuncionarios.$error"
+                     ng-if="secondStep.qtdFuncionarios.$dirty">
+                  <p ng-message when="required" class="text-right">Por favor, informe a quantidade de funcionários</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-secundary">PRODUTOS E CARTÕES</p>
+
+
+            <!-- Produtos -->
+            <div class="row">
+
+              <!-- vr refeicao-->
+              <div class="col-sm-3">
+                <div class="checkbox-inline text-primary">
+                  <input id="vrrefeicao" type="checkbox" value="VR Refeicao" ng-model="produtosrefeicao">
+                  <label for="vrrefeicao">
+                    VR Refeição
+                  </label>
+                </div>
+                <div uib-collapse="!produtosrefeicao">
+                  <div class="form-group row" ng-if="produtosrefeicao">
+                    <div class="col-sm-6">
+                      <label class="form-label-gray">Valor</label>
+                      <input type="text" class="form-control-sm" name="produtosrefeicaovalor"
+                             ng-model="produtosrefeicaovalor" pformat prefix="R$ " cents=',' thousands='.'>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label-gray text-nowrap">Qtd. de cartões</label>
+                      <input type="number" class="form-control-sm" name="produtosrefeicaoqtd"
+                             ng-model="produtosrefeicaoqtd" required>
+                      <div ng-messages class="error-messages" for="secondStep.produtosrefeicaoqtd.$error"
+                           ng-if="secondStep.produtosrefeicaoqtd.$dirty">
+                        <p ng-message when="required" class="text-right text-nowrap">Informe a quantidade</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- vr alimentacao -->
+              <div class="col-sm-3">
+                <div class="checkbox-inline text-primary">
+                  <input id="vralimentacao" type="checkbox" value="VR Alimentacao" ng-model="produtosalimentacao">
+                  <label for="vralimentacao">
+                    VR Alimentação
+                  </label>
+                </div>
+                <div uib-collapse="!produtosalimentacao">
+                  <div class="form-group row" ng-if="produtosalimentacao">
+                    <div class="col-sm-6">
+                      <label class="form-label-gray">Valor</label>
+                      <input type="text" class="form-control-sm" name="produtosalimentacaovalor"
+                             ng-model="produtosalimentacaovalor" pformat prefix="R$ " cents=',' thousands='.'>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label-gray text-nowrap">Qtd. de cartões</label>
+                      <input type="number" class="form-control-sm" name="produtosalimentacaoqtd"
+                             ng-model="produtosalimentacaoqtd" required>
+                      <div ng-messages class="error-messages" for="secondStep.produtosalimentacaoqtd.$error"
+                           ng-if="secondStep.produtosalimentacaoqtd.$dirty">
+                        <p ng-message when="required" class="text-right text-nowrap">Informe a quantidade</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- vr auto -->
+              <div class="col-sm-3">
+                <div class="checkbox-inline text-primary">
+                  <input id="vrauto" type="checkbox" value="VR Auto" ng-model="produtosauto">
+                  <label for="vrauto">
+                    VR Auto
+                  </label>
+                </div>
+                <div uib-collapse="!produtosauto">
+                  <div class="form-group row" ng-if="produtosauto">
+                    <div class="col-sm-6">
+                      <label class="form-label-gray">Valor</label>
+                      <input type="text" class="form-control-sm" name="produtosautovalor"
+                             ng-model="produtosautovalor" pformat prefix="R$ " cents=',' thousands='.'>
+                    </div>
+                    <div class="col-sm-6">
+                      <label class="form-label-gray text-nowrap">Qtd. de cartões</label>
+                      <input type="number" class="form-control-sm" name="produtosautoqtd"
+                             ng-model="produtosautoqtd" required>
+                      <div ng-messages class="error-messages" for="secondStep.produtosautoqtd.$error"
+                           ng-if="secondStep.produtosautoqtd.$dirty">
+                        <p ng-message when="required" class="text-right text-nowrap">Informe a quantidade</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- vr transporte -->
+              <div class="col-sm-3">
+                <div class="checkbox-inline text-primary">
+                  <input id="vrtransporte" type="checkbox" value="VR Transporte" ng-model="produtostransporte">
+                  <label for="vrtransporte">
+                    VR Transporte
+                  </label>
+                </div>
+                <div uib-collapse="!produtostransporte">
+                  <p>
+                    Informar que não haverá simulação e que a VR entrará em contato...
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Separador -->
+            <div class="col-sm-12">
+              <small class="text-gray">* Campos obrigatórios</small>
+              <hr class="hr"/>
+            </div>
+
+            <!--Botoes-->
+            <div class="row top-10">
+              <div class="form-group col-md-3 col-md-offset-3 top-10 text-center">
+                <button type="button" class="btn btn-default btn-block" ng-click="currentStep = currentStep - 1">
+                  Voltar
+                </button>
+              </div>
+
+              <div class="form-group col-md-3 top-10 text-center">
+                <button type="button" class="btn btn-default btn-block"
+                        ng-click="validateSecondStep()"
+                        ng-disabled="isSecondStepDisabled()">
+                  Avançar
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+        <!-- Terceiro passo -->
+        <div ng-show="currentStep === 3">
+          <form class="form col-sm-12" name="thirdStep" vr-enter-key-form-interceptor="">
+
+            <!-- Label condicional -->
+            <label class="form-label-gray" ng-show="showContactSelectionOptions()">
+              O que você deseja?
+            </label>
+            <label class="form-label-gray" ng-hide="showContactSelectionOptions()">
+              Deixe seu telefone que em breve entraremos em contato:
+            </label>
+
+            <!-- Radios -->
+            <div class="row" ng-show="showContactSelectionOptions()">
+
+              <!-- Receber e-mail -->
+              <div class="col-sm-4 form-group form-inline-nolabel">
+                <div class="radio-inline form-group bottom-10">
+                  <input id="contactEmailRadio" type="radio" name="contactType" ng-model="contactType" value="email"/>
+                  <label for="contactEmailRadio">Receber e-mail</label>
+                </div>
+                <div uib-collapse="!isContactTypeSelected('email')">
+                  <input type="email" class="form-control-sm" name="email" ng-model="email" required maxlength="255">
+                  <div ng-messages class="error-messages" for="thirdStep.email.$error" ng-if="thirdStep.email.$dirty">
+                    <p ng-message when="required" class="text-right">Por favor, informe o email de contato</p>
+
+                    <p ng-message when="email" class="text-right text-danger">Email inválido</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Receber ligação -->
+              <div class="col-sm-4 form-group form-inline-nolabel">
+                <div class="radio-inline form-group bottom-10">
+                  <input id="contactPhoneRadio" type="radio" name="contactType" ng-model="contactType" value="phone"/>
+                  <label for="contactPhoneRadio">Receber ligação</label>
+                </div>
+                <div uib-collapse="!isContactTypeSelected('phone')">
+                  <input type="text" class="form-control-sm" name="telefone" ng-model="telefone"
+                         ui-options="{clearOnBlur:false}" ui-mask="(99) 9999-9999?9" ui-mask-placeholder
+                         ui-mask-placeholder-char="_" required>
+                  <div ng-messages class="error-messages" for="thirdStep.telefone.$error"
+                       ng-if="thirdStep.telefone.$dirty && thirdStep.telefone.$touched">
+                    <p ng-message when="required" class="text-right">Por favor, informe o telefone de contato</p>
+                    <p ng-message when="mask" class="text-right">Por favor, complete o telefone de contato</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Radio condicional: compre online -->
+              <div class="col-sm-4 form-group form-inline-nolabel" ng-show="showEcommerceOption()">
+                <div class="radio-inline form-group bottom-10">
+                  <input id="contactEcommerceRadio" type="radio" name="contactType" ng-model="contactType"
+                         value="ecommerce"/>
+                  <label for="contactEcommerceRadio">Simular e Comprar online</label>
+                </div>
+              </div>
+
+              <!-- Radio condicional: contrate -->
+              <div class="col-sm-4 form-group form-inline-nolabel" ng-show="showContractOption()">
+                <div class="radio-inline form-group bottom-10">
+                  <input id="contactContractRadio" type="radio" name="contactType" ng-model="contactType"
+                         value="contract"/>
+                  <label for="contactContractRadio">Simular e Contratar</label>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Input de contato telefonico (>300 funcionarios) -->
+            <div class="row" ng-hide="showContactSelectionOptions()">
+              <div class="col-sm-4">
+                <input type="text" class="form-control-sm" name="telefone_lg" ng-model="telefone"
+                       ui-options="{clearOnBlur:false}" ui-mask="(99) 9999-9999?9" ui-mask-placeholder
+                       ui-mask-placeholder-char="_" required>
+                <div ng-messages class="error-messages" for="thirdStep.telefone_lg.$error"
+                     ng-if="thirdStep.telefone_lg.$dirty && thirdStep.telefone_lg.$touched">
+                  <p ng-message when="required" class="text-right">Por favor, informe o telefone de contato</p>
+                  <p ng-message when="mask" class="text-right">Por favor, complete o telefone de contato</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="col-sm-12">
+              <small class="text-gray">* Campos obrigatórios</small>
+              <hr class="hr"/>
+            </div>
+
+            <!--Botoes-->
+            <div class="row top-10">
+              <div class="form-group col-md-3 col-md-offset-3 top-10 text-center">
+                <button type="button" class="btn btn-default btn-block" ng-click="currentStep = currentStep - 1">
+                  Voltar
+                </button>
+              </div>
+
+              <div class="form-group col-md-3 top-10 text-center">
+                <button type="button" class="btn btn-default btn-block" ng-click="validateThirdStep()">
+                  Concluir
+                </button>
+              </div>
+            </div>
+
+          </form>
+        </div>
+
+      </section>
+    </article>
+
+  </article>
+</main>
+
+<!-- Footer -->
+<div ng-include="'/portal/app/mock/rodape.html'"></div>
+
+</body>
+</html>

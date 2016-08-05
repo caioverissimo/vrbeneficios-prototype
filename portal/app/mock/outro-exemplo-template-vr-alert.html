@@ -1,0 +1,34 @@
+<section role="alert" class="alert alert-main"
+         ng-class="{'alert-success':(vrAlertType!=='danger' && vrAlertType!=='warning'), 'alert-warning':vrAlertType==='warning', 'alert-danger':vrAlertType==='danger' }"
+         ng-show="alertDisplay">
+  <div class="row">
+    <div class="col-md-1">
+      <i class="icon"
+         ng-class="{'icon-icon_alerta':vrAlertType==='success', 'icon-icon_informacoes_on':vrAlertType!=='success'}"></i>
+    </div>
+
+    <!--área do conteúdo html-->
+    <div class="col-md-10">
+      <span>
+        <strong>Texto marcado</strong>,
+        <a href="http://www.google.com" target="_blank">link</a>,
+        <span>texto simples e ícone:</span>
+        <i class="fa fa-rocket"></i>
+      </span>
+
+      <p>
+        Múltiplas linhas:<br>
+        Primeira linha. <br>
+        Segunda linha.
+      </p>
+    </div>
+
+    <div class="col-md-1">
+      <a href="javascript:void(0)" role="close" class="pull-right alert-dismiss" ng-click="dismiss()">
+        <i class="icon"
+           ng-class="{'icon-icon_fechar_alerta':vrAlertType==='success', 'icon-icon_fechar_feedback_form':vrAlertType!=='success'}"></i>
+      </a>
+    </div>
+
+  </div>
+</section>

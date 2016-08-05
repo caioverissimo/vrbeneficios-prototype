@@ -1,0 +1,51 @@
+//Cintroles do carousel
+.carousel-control {
+  .icon-next:before,
+  .glyphicon-chevron-left:before,
+  .icon-prev:before,
+  .glyphicon-chevron-right:before {
+    color: $brand-primary;
+    font-family: "FontAwesome";
+    font-size: 90px;
+    text-shadow: none;
+  }
+
+  .icon-prev:before, .glyphicon-chevron-left:before {
+    content: "\f104";
+  }
+
+  .icon-next:before, .glyphicon-chevron-right:before {
+    content: "\f105";
+  }
+
+  &.right,
+  &.left {
+    background: transparent;
+    opacity: 1;
+  }
+
+}
+
+// Botões do caroussel
+.carousel-indicators {
+  li {
+    background: #fff;
+    opacity: 0.2;
+    &.active {
+      opacity: 0.7;
+      border: 0;
+      margin: {
+        left: 6px;
+        right: 6px;
+      }
+    }
+    margin: {
+      left: 6px;
+      right: 6px;
+    }
+  }
+
+  @media screen and (min-width: $screen-xs) {
+    bottom: 40px;
+  }
+}

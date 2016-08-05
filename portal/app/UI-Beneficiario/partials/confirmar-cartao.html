@@ -1,0 +1,51 @@
+<article class="panel panel-default panel-min-heigth-420" ng-if="Navigation.isView('confirm')"
+         ng-controller="confirmarCartaoController" ng-init="init()">
+  <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- Título -->
+  <section class="panel-heading">CONFIRMAR CARTÃO</section>
+  <!-- Corpo -->
+  <section class="panel-body">
+    <div class="col-sm-4 col-md-5 col-lg-4">
+      <img src="/portal/img/img_cartoes.png" title="Grupo de cartão">
+    </div>
+    <div class="col-sm-8 col-md-7 col-lg-8">
+      <p class="text-gray">Agora sim! Basta informar os 4 últimos dígitos de qualquer cartão VR vinculado ao CPF
+        cadastrado.</p>
+
+      <!-- Formulário -->
+      <form name="cardconfirmation" novalidate class="col-sm-12 col-md-8 row" vr-enter-key-form-interceptor="">
+        <!-- Cartão -->
+        <div class="form-group">
+          <div class="input-group">
+            <!-- input group do bootstrap com font do font-awesome -->
+            <span class="input-group-addon"><i class="icon icon-icon_cartao"></i></span>
+            <!-- input -->
+            <input type="text" class="form-control" placeholder="Informe os 4 últimos dígitos"
+                   name="cardnumbersforconfirmation" ng-model="confirmarForm.finalCartao" ui-mask-placeholder
+                   ui-mask-placeholder-char="_" ui-options="{clearOnBlur:false}" ui-mask="9999" required>
+
+            <div ng-messages class="error-messages" for="cardconfirmation['cardnumbersforconfirmation'].$error"
+                 ng-if="cardconfirmation['cardnumbersforconfirmation'].$dirty && cardconfirmation['cardnumbersforconfirmation'].$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe os 4 dígitos</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete os 4 dígitos</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-default btn-block" ng-click="triggerAction()" ng-disabled="cardconfirmation.$invalid">
+            Confirmar cartão <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!LOADING}"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+</article>

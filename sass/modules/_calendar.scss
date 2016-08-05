@@ -1,0 +1,43 @@
+.pickadate {
+  .pickadate-body {
+    margin-top: 25px;
+  }
+  .pickadate-centered-heading {
+    text-transform: uppercase;
+    color: #00963f;
+  }
+  .pickadate-head {
+    background-color: #f5f5f5 !important;
+  }
+  .pickadate-cell {
+    li:not(.pickadate-active) {
+      border: none !important;
+    }
+    li {
+      padding: 18px 8px;
+    }
+  }
+  .pickadate-disabled {
+
+  }
+  .pickadate-today {
+    background: none !important;
+  }
+  .pickadate-head {
+    padding: 5px 0 !important;
+  }
+  .pickadate-active {
+    background: none !important;
+    color: #10ba54 !important;
+    border: 1px solid #10ba54 !important;
+    border-radius: 5px;
+    padding: {
+      top: 17px !important;
+      bottom: 17px !important;
+    }
+  }
+}
+
+.pickadate-dropdown-menu {
+  min-width: 300px !important;
+}

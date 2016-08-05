@@ -1,0 +1,85 @@
+<!-- Fechar o modal -->
+<button class="btn btn-close" ng-click="cancel()" ng-show="hasActiveEstablishment()">&times;</button>
+
+<section class="modal-header text-center">
+  <h3 class="h3 title">
+    SELECIONE UM ESTABELECIMENTO
+  </h3>
+</section>
+<section class="modal-body">
+
+  <!-- Include de mensagem de loader -->
+  <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+  <table class="table" ng-show="establishments.length > 0">
+    <thead class="table-header">
+    <tr>
+      <td>
+        <a href="javascript:void(0)" ng-click="order('cnpj')">
+          <span>CNPJ</span>
+          <span ng-show="predicate === 'cnpj'"
+                ng-class="{'fa fa-chevron-down': reverse, 'fa fa-chevron-up': !reverse}"></span>
+        </a>
+
+        <!-- filtro / pesquisa -->
+        <div class="input-group">
+          <input type="text" class="form-control input-filter" id="cnpj" name="cnpj" ng-model="cnpjBase"
+                 placeholder="filtrar" ng-change="updateCnpjQuery()">
+          <span class="text-secundary">
+            <i class="fa fa-search"></i>
+          </span>
+        </div>
+
+      </td>
+      <td>
+        <a href="javascript:void(0)" ng-click="order('nome')">
+          <span>RAZÃO SOCIAL</span>
+          <span ng-show="predicate === 'nome'"
+                ng-class="{'fa fa-chevron-down': reverse, 'fa fa-chevron-up': !reverse}"></span>
+        </a>
+
+        <!-- filtro / pesquisa -->
+        <div class="input-group">
+          <input type="text" class="form-control input-filter" placeholder="filtrar" ng-model="query.nome">
+            <span class="text-secundary">
+              <i class="fa fa-search"></i>
+            </span>
+        </div>
+      </td>
+      <td class="align-top">
+        <a href="javascript:void(0)" ng-click="order('tipo')">
+          <span>TIPO</span>
+          <span ng-show="predicate === 'tipo'"
+                ng-class="{'fa fa-chevron-down': reverse, 'fa fa-chevron-up': !reverse}"></span>
+        </a>
+      </td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="establishment in establishments | filter:query">
+      <td>
+        <a href="javascript:void(0)" ng-class="highlightClass($index)" ng-mouseover="highlight($index)"
+           ng-click="select(establishment)" ng-mouseleave="cleanHighlight()">
+          <span>{{establishment.cnpj | cnpjFilter}}</span>
+        </a>
+      </td>
+      <td>
+        <a href="javascript:void(0)" ng-class="highlightClass($index)" ng-mouseover="highlight($index)"
+           ng-click="select(establishment)" ng-mouseleave="cleanHighlight()">
+          <span>{{establishment.nome}}</span>
+        </a>
+      </td>
+      <td>
+        <a href="javascript:void(0)" ng-class="highlightClass($index)" ng-mouseover="highlight($index)"
+           ng-click="select(establishment)" ng-mouseleave="cleanHighlight()">
+          <span>{{establishment.tipo}}</span>
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <div ng-show="hasError()" class="panel-body text-center panel-message">
+    <p>{{ERROR}}</p>
+  </div>
+</section>

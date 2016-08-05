@@ -1,0 +1,99 @@
+<article class="panel panel-default panel-min-heigth-420" ng-if="Navigation.isView('unlockcard')"
+         ng-controller="desbloquearCartaoController">
+  <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+  <!-- Diretiva de loading -->
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- Título do painel -->
+  <section class="panel-heading">DESBLOQUEAR NOVO CARTÃO</section>
+
+  <!-- Corpo do painel -->
+  <section class="panel-body">
+    <div class="col-sm-4 col-md-5 col-lg-4">
+      <img src="/portal/img/img_cartoes.png" title="Grupo de cartão">
+    </div>
+    <form class="form col-sm-6" name="newcardunlock" vr-enter-key-form-interceptor="">
+      <p class="text-gray">Preencha o campo abaixo para efetuar o desbloqueio.</p>
+
+      <!-- Cartão -->
+      <div class="form-group">
+        <!-- Label - texto explicando o input -->
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon icon-icon_cartao"></i></span>
+          <!-- Alteração no placeholder -->
+          <input type="text" class="form-control" placeholder="Informe todos os dígitos do cartão"
+                 name="cardnumbers" ng-model="formDesbloqueio.cartao" ui-mask-placeholder
+                 ui-mask-placeholder-char="_" ui-options="{clearOnBlur:false}" ui-mask="9999 9999 9999 9999" required>
+        </div>
+        <div ng-messages class="error-messages" for="newcardunlock['cardnumbers'].$error"
+             ng-if="newcardunlock['cardnumbers'].$dirty && newcardunlock['cardnumbers'].$touched">
+          <p ng-message when="required" class="text-right">Por favor, informe todos os dígitos do cartão</p>
+          <p ng-message when="mask" class="text-right">Por favor, complete todos os dígitos do cartão</p>
+        </div>
+      </div>
+
+      <div ng-if="showPersonalInfoInputs()">
+        <!-- CPF -->
+        <div class="form-group">
+          <!-- Label - texto explicando o input -->
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-long-arrow-right"></i></span>
+            <input type="text" ng-model="formDesbloqueio.cpf" class="form-control" placeholder="CPF"
+                   name="ownercpf" ng-cpf ui-mask-placeholder ui-mask-placeholder-char="_"
+                   ui-options="{clearOnBlur:false}" ui-mask="999.999.999-99"
+                   required>
+          </div>
+          <div ng-messages class="error-messages" for="newcardunlock['ownercpf'].$error"
+               ng-if="newcardunlock['ownercpf'].$dirty && newcardunlock['ownercpf'].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CPF</p>
+            <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CPF</p>
+            <p ng-message when="cpf" class="text-right text-danger">Por favor, informe um CPF válido</p>
+          </div>
+        </div>
+
+        <!-- Data  de nascimento -->
+        <div class="form-group">
+          <!-- Label - texto explicando o input -->
+          <div class="input-group">
+            <span class="input-group-addon"><i class="icon icon-icon_data"></i></span>
+            <input type="text" ng-model="formDesbloqueio.dataNascimento" class="form-control"
+                   placeholder="Data de nascimento"
+                   name="ownerbirth" ui-mask-placeholder ui-mask-placeholder-char="_" ui-options="{clearOnBlur:false}"
+                   ui-mask="99/99/9999"
+                   date-validation required>
+          </div>
+          <div ng-messages class="error-messages" for="newcardunlock['ownerbirth'].$error"
+               ng-if="newcardunlock['ownerbirth'].$dirty && newcardunlock['ownerbirth'].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe sua data de nascimento</p>
+            <p ng-message when="dateValidation" class="text-right text-danger">Por favor, preencha uma data válida</p>
+            <p ng-message when="mask" class="text-right">Por favor, complete sua data de nascimento</p>
+          </div>
+        </div>
+      </div>
+
+      <div ng-if="showCodeInput()">
+        <div class="form-group">
+          <!-- Label - texto explicando o input -->
+          <div class="input-group">
+            <span class="input-group-addon"><i class="fa fa-long-arrow-right"></i></span>
+            <input type="text" ng-model="formDesbloqueio.codigoDesbloqueio" class="form-control"
+                   placeholder="Código de desbloqueio"
+                   name="unlockcode" required>
+          </div>
+          <div ng-messages class="error-messages" for="newcardunlock['unlockcode'].$error"
+               ng-if="newcardunlock['unlockcode'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe o Código de desbloqueio</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botão que deve ser usado para desbloquear o cartão -->
+      <button type="button" class="btn btn-default btn-block" ng-disabled="(newcardunlock.$invalid || LOADING)"
+              ng-click="triggerAction()">
+        Desbloquear cartão
+        <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!LOADING}"></i>
+      </button>
+    </form>
+  </section>
+</article>

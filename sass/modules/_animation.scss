@@ -1,0 +1,20 @@
+.fade-in {
+  animation: fadeIn 0.5s;
+}
+
+.rotate-360 {
+  animation: keyframe-rotate-360 1s infinite;
+}
+
+@keyframes keyframe-rotate-360 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(+360deg);
+  }
+}
+
+.transition-500ms {
+  transition: .5s;
+}

@@ -1,0 +1,238 @@
+<div ng-controller="DadosQualificacaoController">
+  <div ng-if="hasProdutoAlimentacao || hasProdutoRefeicao">
+
+    <p class="text-secundary"
+       ng-class="{'text-label-subtitle top-10': Navigation.hasURI('credenciamento-contato'), 'text-uppercase': !Navigation.hasURI('credenciamento-contato')}">
+      Qualificação do Estabelecimento
+    </p>
+
+    <div class="row">
+      <div class="form-group" ng-class="{'col-sm-6':isInProfile(), 'col-sm-4':!isInProfile()}">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Tipo de estabelecimento
+        </label>
+        <select ng-model="formDadosBancariosQualif.tipoEstabelecimento" class="form-control" required>
+          <option selected="" disabled="">Selecione</option>
+          <option ng-repeat="typeOfEstablishment in getDynamicData('TYPE_OF_ESTABLISHMENT')"
+                  value="{{typeOfEstablishment.key}}">{{typeOfEstablishment.label}}
+          </option>
+        </select>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['tipoEstabelecimento'].$error"
+             ng-if="dadosBancQualifForm['tipoEstabelecimento'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o tipo de estabelecimento</p>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div class="row">
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}"
+           ng-if="hasProdutoRefeicao">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Nº de mesas
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9" name="mesas"
+               ng-model="formDadosBancariosQualif.qualificacao.numeroMesas" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['mesas'].$error"
+             ng-if="dadosBancQualifForm['mesas'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o Nº de mesas</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}"
+           ng-if="hasProdutoRefeicao">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Nº de cadeiras
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9" name="cadeiras"
+               ng-model="formDadosBancariosQualif.qualificacao.numeroCadeiras" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['cadeiras'].$error"
+             ng-if="dadosBancQualifForm['cadeiras'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o Nº de cadeiras</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}"
+           ng-if="hasProdutoRefeicao">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Lugares balcão
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9" name="lugares"
+               ng-model="formDadosBancariosQualif.qualificacao.lugaresBalcao" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['lugares'].$error"
+             ng-if="dadosBancQualifForm['lugares'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o Nº de lugares do balção</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}"
+           ng-if="hasProdutoRefeicao">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Atendentes
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9" name="atendentes"
+               ng-model="formDadosBancariosQualif.qualificacao.numerosAtendentes" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['atendentes'].$error"
+             ng-if="dadosBancQualifForm['atendentes'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o Nº de atendentes </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}"
+           ng-if="hasProdutoRefeicao">
+        <label class="text-nowrap"
+               ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Nº Max. Ref./Dia
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9" name="refdia"
+               ng-model="formDadosBancariosQualif.qualificacao.numeroMaximoRefeicaoDia" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['refdia'].$error"
+             ng-if="dadosBancQualifForm['refdia'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o Nº Max. Ref./Dia </p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Área em m²
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9?9" name="m2"
+               ng-model="formDadosBancariosQualif.qualificacao.areaEstabelecimento"
+               ng-pattern="/^[1-9]+[0-9\_]*$/" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['m2'].$error"
+             ng-if="dadosBancQualifForm['m2'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe a Área em m²</p>
+          <p ng-message when="pattern" class="text-right text-nowrap">Área em m² deve ser maior que zero.</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}"
+           ng-if="hasProdutoAlimentacao">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Qtd. de caixas
+        </label>
+        <input type="text" class="form-control" ui-options="{clearOnBlur:false}" ui-mask="9?9?9" name="caixas"
+               ng-model="formDadosBancariosQualif.qualificacao.quantidadeCaixasLoja" required>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['caixas'].$error"
+             ng-if="dadosBancQualifForm['caixas'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe a quantidade de caixas</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="form-group" ng-class="{'col-sm-6':isInProfile(), 'col-sm-4':!isInProfile()}">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Dias de funcionamento
+        </label>
+        <select ng-model="formDadosBancariosQualif.qualificacao.diasFuncionamento" class="form-control" required>
+          <option selected="" disabled="">Selecione</option>
+          <option ng-repeat="operatingDay in getDynamicData('OPERATING_DAYS')" value="{{operatingDay.key}}">
+            {{operatingDay.label}}
+          </option>
+        </select>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['diaFuncionamento'].$error"
+             ng-if="dadosBancQualifForm['diaFuncionamento'].$dirty">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe os dias de funcionamento</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}">
+        <label
+          ng-class="{'form-label-gray text-nowrap': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Hora Abertura
+        </label>
+        <input type="text" class="form-control" name="abertura"
+               ng-model="formDadosBancariosQualif.qualificacao.horaAbertura" ui-options="{clearOnBlur:false}"
+               ui-mask="99:99"
+               ui-mask-placeholder ui-mask-placeholder-char="_" required
+               ng-pattern="/(([0-1][0-9])|([2][0-3])):?([0-5][0-9])/">
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['abertura'].$error"
+             ng-if="dadosBancQualifForm['abertura'].$dirty && dadosBancQualifForm['abertura'].$touched">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o horário de abertura</p>
+          <p ng-message when="pattern" class="text-right text-nowrap">Hora inválida.</p>
+          <p ng-message when="mask" class="text-right text-nowrap">Por favor, complete o horário de abertura</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-3" ng-class="{'col-lg-3':isInProfile(), 'col-lg-2':!isInProfile()}">
+        <label class="text-nowrap"
+               ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Hora Fechamento
+        </label>
+        <input type="text" class="form-control" name="fechamento"
+               ng-model="formDadosBancariosQualif.qualificacao.horaFechamento" ui-options="{clearOnBlur:false}"
+               ui-mask="99:99"
+               ui-mask-placeholder ui-mask-placeholder-char="_"
+               greater-than="formDadosBancariosQualif.qualificacao.horaAbertura" required
+               ng-pattern="/(([0-1][0-9])|([2][0-3])):?([0-5][0-9])/">
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['fechamento'].$error"
+             ng-if="dadosBancQualifForm['fechamento'].$dirty && dadosBancQualifForm['fechamento'].$touched">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o horário de fechamento</p>
+          <p ng-message when="pattern" class="text-right text-nowrap">Hora inválida.</p>
+          <p ng-message when="greaterThan" class="text-right text-nowrap">Hora de Abertura não pode ser maior que a hora
+            de Fechamento.</p>
+          <p ng-message when="mask" class="text-right text-nowrap">Por favor, complete o horário de fechamento</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHECKBOXES -->
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="checkbox">
+          <input id="delivery" type="checkbox" value="delivery"
+                 ng-model="formDadosBancariosQualif.qualificacao.possuiDelivery">
+          <label for="delivery" class="text-primary">
+            Delivery
+          </label>
+        </div>
+      </div>
+      <div class="form-group" ng-class="{'col-lg-6':isInProfile(), 'col-sm-5':!isInProfile()}">
+        <label
+          ng-class="{'form-label-gray': !Navigation.hasURI('credenciamento-contato'), 'text-nowrap text-font-15 form-label-gray-brand text-uppercase text-font-gsmt':Navigation.hasURI('credenciamento-contato') }">
+          Telefone para delivery
+        </label>
+        <input type="text" class="form-control" name="teldelivery"
+               ng-model="formDadosBancariosQualif.qualificacao.telefoneDelivery"
+               ui-options="{clearOnBlur:false}" ui-mask="(99)9999-9999?9" ui-mask-placeholder
+               ui-mask-placeholder-char="_" ng-required='formDadosBancariosQualif.qualificacao.possuiDelivery'>
+        <div ng-messages class="error-messages" for="dadosBancQualifForm['teldelivery'].$error"
+             ng-if="dadosBancQualifForm['teldelivery'].$dirty && dadosBancQualifForm['teldelivery'].$touched">
+          <p ng-message when="required" class="text-right text-nowrap">Por favor, informe o DDD e Telefone para
+            delivery.</p>
+          <p ng-message when="mask" class="text-right">Por favor digite um número de telefone válido</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" ng-if="hasProdutoRefeicao">
+      <div class="col-sm-12">
+        <div class="checkbox">
+          <input id="patnutricionais" type="checkbox" value="PATnutricionais" ng-model="PATnutricionais" required>
+          <label for="patnutricionais" class="text-primary">
+            Estou ciente de que as refeições em meu estabelecimenbto devem atender as exigências nutricionais do
+            PAT, incluindo frutas.
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" ng-if="hasProdutoRefeicao">
+      <div class="col-sm-12">
+        <div class="checkbox">
+          <input id="patsaudavel" type="checkbox" value="PATsaudavel" ng-model="PATsaudavel" required>
+          <label for="patsaudavel" class="text-primary">
+            Estou ciente de que meu estabelecimento deve oferercer sugestão diária de cardápio saudável, em local de
+            fácil consulta, seguindo determinações do PAT.
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

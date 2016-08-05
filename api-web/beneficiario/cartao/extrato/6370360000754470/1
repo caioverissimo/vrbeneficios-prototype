@@ -1,0 +1,119 @@
+{
+   "saldoDisponivel":"4.672,96",
+   "gastoMedio":null,
+   "proximoBeneficio":null,
+   "paginaAtual":1,
+   "qtdPaginas":1,
+   "itensExtrato":[
+      {
+         "descricao":"18 de Abril",
+         "itensdetalhe":[
+            {
+               "descricao":"Descricao 1",
+               "aut":"00000001",
+               "valor":"+ 1,00"
+            },
+            {
+               "descricao":"Descricao 2",
+               "aut":"00000002",
+               "valor":"+ 2,00"
+            },
+            {
+               "descricao":"Descricao 3",
+               "aut":"00000003",
+               "valor":"+ 3,00"
+            },
+            {
+               "descricao":"Descricao 4",
+               "aut":"00000004",
+               "valor":"+ 4,00"
+            },
+            {
+               "descricao":"Descricao 5",
+               "aut":"00000005",
+               "valor":"+ 5,00"
+            },
+            {
+               "descricao":"Descricao 6",
+               "aut":"00000006",
+               "valor":"+ 6,00"
+            },
+            {
+               "descricao":"Descricao 7",
+               "aut":"00000007",
+               "valor":"+ 7,00"
+            },
+            {
+               "descricao":"Descricao 8",
+               "aut":"00000008",
+               "valor":"+ 8,00"
+            },
+            {
+               "descricao":"Descricao 9",
+               "aut":"00000009",
+               "valor":"+ 9,00"
+            },
+            {
+               "descricao":"Descricao 10",
+               "aut":"00000010",
+               "valor":"+ 10,00"
+            }
+         ]
+      },
+      {
+         "descricao":"20 de Maio",
+         "itensdetalhe":[
+            {
+               "descricao":"Descricao 1",
+               "aut":"00000001",
+               "valor":"+ 1,00"
+            },
+            {
+               "descricao":"Descricao 2",
+               "aut":"00000002",
+               "valor":"+ 2,00"
+            },
+            {
+               "descricao":"Descricao 3",
+               "aut":"00000003",
+               "valor":"+ 3,00"
+            },
+            {
+               "descricao":"Descricao 4",
+               "aut":"00000004",
+               "valor":"+ 4,00"
+            },
+            {
+               "descricao":"Descricao 5",
+               "aut":"00000005",
+               "valor":"+ 5,00"
+            },
+            {
+               "descricao":"Descricao 6",
+               "aut":"00000006",
+               "valor":"+ 6,00"
+            },
+            {
+               "descricao":"Descricao 7",
+               "aut":"00000007",
+               "valor":"+ 7,00"
+            },
+            {
+               "descricao":"Descricao 8",
+               "aut":"00000008",
+               "valor":"+ 8,00"
+            },
+            {
+               "descricao":"Descricao 9",
+               "aut":"00000009",
+               "valor":"+ 9,00"
+            },
+            {
+               "descricao":"Descricao 10",
+               "aut":"00000010",
+               "valor":"+ 10,00"
+            }
+         ]
+      }
+   ]
+}

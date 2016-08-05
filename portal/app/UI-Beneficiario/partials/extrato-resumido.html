@@ -1,0 +1,47 @@
+<article class="panel panel-default panel-height-650"
+         ng-controller="extratoResumidoController" id="tutorialBeneficiario5">
+  <!-- Diretiva de loading -->
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- Include de mensagem de loader -->
+  <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+  <!-- Heading contém o título -->
+  <section class="panel-heading" ng-show="hasContent()">
+    <div class="row">
+      <div class="col-sm-9 col-xs-9">EXTRATO - FINAL {{activeCard.finalCartao}}</div>
+      <!-- Dado dinamico - final -->
+			<span class="pull-right col-xs-3 col-sm-3 text-right hidden">
+				<button type="button"
+                class="btn btn-default btn-information on-title"></button>
+			</span>
+    </div>
+  </section>
+
+  <!-- Quando bloqueado -->
+  <section class="panel-body text-center panel-message" ng-show="LOCKED">
+    <!-- Icone substituir icone no font-awesome -->
+    <!-- Ponto de substituição -->
+    <i class="icon icon-icon_extrato"></i><br>
+    <!-- Texto principal -->
+    <span class="text-secundary col-sm-12 top-10">OPS</span>
+    <!-- Texto menor secundário -->
+    <!-- Alteração no "p" -->
+    <p class="text-gray col-sm-12">{{lockedMessage}}</p>
+  </section>
+
+  <section class="panel-body padding-right-10" ng-show="hasContent()">
+
+    <!-- include da tabela de eventos do extrato de um cartao -->
+    <div ng-class="{ 'panel-scroll-480': isResume }"
+         ng-include="'/portal/app/UI-Beneficiario/partials/eventos-extrato.html'"></div>
+
+    <div class="row panel-footer-row panel-gradient-footer" ng-if="!fromConsultaRapida">
+      <div class="col-xs-12">
+        <a class="btn btn-default btn-block" ng-click="verExtratoCompleto()" href="#">Ver
+          extrato completo</a>
+      </div>
+    </div>
+
+  </section>
+</article>

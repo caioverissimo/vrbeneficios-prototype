@@ -1,0 +1,26 @@
+<section class="modal-header">
+  <h3 class="h3 title">
+    CONTRATOS PENDENTES
+  </h3>
+
+  <p class="lead">
+    Você possui os seguintes contratos pendentes.
+  </p>
+</section>
+<section class="modal-body">
+  <table class="table vr-table-modal">
+    <tbody>
+    <tr ng-repeat="contract in pendingContracts">
+      <td>
+        <span class="text-secundary text-uppercase">{{contract.nome}}</span>
+      </td>
+      <td>
+        <button class="btn btn-default" ng-click="select(contract)" ng-disabled="LOADING">
+          Visualizar e dar aceite
+        </button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+  <hr class="hr">
+</section>

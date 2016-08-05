@@ -1,0 +1,252 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-home_products_card_1 {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -3440px;
+  width: 763px;
+  height: 367px;
+}
+.icon-home_products_card_2 {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -3099px;
+  width: 745px;
+  height: 341px;
+}
+.icon-home_products_card_3 {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -2761px;
+  width: 488px;
+  height: 338px;
+}
+.icon-icon_alerta {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -159px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_apple {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -271px;
+  width: 143px;
+  height: 42px;
+}
+.icon-icon_cadastrar {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -75px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_condicoes {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -2573px;
+  width: 188px;
+  height: 188px;
+}
+.icon-icon_controle {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1914px;
+  width: 131px;
+  height: 131px;
+}
+.icon-icon_data {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -131px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_download_android_branco {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -993px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_download_android_cinza {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1081px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_download_ios_branco {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1257px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_download_ios_branco_old {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -905px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_download_ios_cinza {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1169px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_download_ios_cinza_old {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1345px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_email {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -187px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_experimente {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -447px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_facebook {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -825px;
+  width: 80px;
+  height: 80px;
+}
+.icon-icon_fechar_alerta {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -103px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_google {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -313px;
+  width: 143px;
+  height: 42px;
+}
+.icon-icon_linkedin {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -745px;
+  width: 80px;
+  height: 80px;
+}
+.icon-icon_localizacao {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1542px;
+  width: 94px;
+  height: 110px;
+}
+.icon-icon_novo_credenciamento {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -355px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_pin {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1433px;
+  width: 87px;
+  height: 109px;
+}
+.icon-icon_praticidade {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -2385px;
+  width: 188px;
+  height: 188px;
+}
+.icon-icon_presenca {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -2197px;
+  width: 188px;
+  height: 188px;
+}
+.icon-icon_reembolso {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1652px;
+  width: 131px;
+  height: 131px;
+}
+.icon-icon_senha {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -215px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_seta {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -401px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_seta_botao {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px 0px;
+  width: 37px;
+  height: 25px;
+}
+.icon-icon_seta_botao_voltar {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -50px;
+  width: 37px;
+  height: 25px;
+}
+.icon-icon_solicitar_contato {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -493px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_twitter {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -585px;
+  width: 80px;
+  height: 80px;
+}
+.icon-icon_usuario {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -243px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_vendas {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -1783px;
+  width: 131px;
+  height: 131px;
+}
+.icon-icon_video {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -539px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_x_botao {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -25px;
+  width: 26px;
+  height: 25px;
+}
+.icon-icon_youtube {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -665px;
+  width: 80px;
+  height: 80px;
+}
+.icon-img_cartoes {
+  background-image: url(../img/icons-home/icons-home.png);
+  background-position: 0px -2045px;
+  width: 212px;
+  height: 152px;
+}

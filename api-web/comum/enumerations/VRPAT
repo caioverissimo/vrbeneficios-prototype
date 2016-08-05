@@ -1,0 +1,418 @@
+{
+    "operatingDays": [
+        {
+            "key": 1,
+            "label": "Segunda a domingo",
+            "name": "FAIXA_1"
+        },
+        {
+            "key": 2,
+            "label": "Segunda a sexta-feira",
+            "name": "FAIXA_2"
+        },
+        {
+            "key": 3,
+            "label": "Segunda a s\u00e1bado",
+            "name": "FAIXA_3"
+        },
+        {
+            "key": 4,
+            "label": "Ter\u00e7a a domingo",
+            "name": "FAIXA_4"
+        },
+        {
+            "key": 5,
+            "label": "S\u00e1bado e domingo",
+            "name": "FAIXA_5"
+        }
+    ],
+    "products": [
+        {
+            "exibirRede": true,
+            "id": 31,
+            "nome": "VR Refei\u00e7\u00e3o",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": true
+        },
+        {
+            "exibirRede": false,
+            "id": 242,
+            "nome": "VR Refei\u00e7\u00e3o Adicional",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": true,
+            "id": 27,
+            "nome": "VR Alimenta\u00e7\u00e3o",
+            "produtoAlimentacao": true,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": false,
+            "id": 201,
+            "nome": "VR Cesta",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": false,
+            "id": 202,
+            "nome": "VR Natal",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": true,
+            "id": 28,
+            "nome": "VR Auto",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": false,
+            "id": 51,
+            "nome": "VR Sazonal",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": false,
+            "id": 261,
+            "nome": "VR Manuten\u00e7\u00e3o",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        },
+        {
+            "exibirRede": true,
+            "id": 30,
+            "nome": "VR Cultura",
+            "produtoAlimentacao": false,
+            "produtoRefeicao": false
+        }
+    ],
+    "typeOfEstablishment": [
+        {
+            "key": "REFEICAO|PIZZARIA",
+            "label": "Refei\u00e7\u00e3o - Pizzaria",
+            "name": "PIZZARIA"
+        },
+        {
+            "key": "REFEICAO|CHURRASC",
+            "label": "Refei\u00e7\u00e3o - Churrascaria",
+            "name": "CHURRASCARIA"
+        },
+        {
+            "key": "REFEICAO|RESTAURANT",
+            "label": "Refei\u00e7\u00e3o - Restaurante",
+            "name": "RESTAURANTE"
+        },
+        {
+            "key": "REFEICAO|LANCHONETE",
+            "label": "Refei\u00e7\u00e3o - Lanchonete",
+            "name": "LANCHONETE"
+        },
+        {
+            "key": "REFEICAO|BAR",
+            "label": "Refei\u00e7\u00e3o - Bar",
+            "name": "BAR"
+        },
+        {
+            "key": "REFEICAO|OUTROS",
+            "label": "Refei\u00e7\u00e3o - Outros",
+            "name": "OUTROS_REFEICAO"
+        },
+        {
+            "key": "REFEICAO|FASTFOOD",
+            "label": "Refei\u00e7\u00e3o - Fast-Food",
+            "name": "FAST_FOOD"
+        },
+        {
+            "key": "REFEICAO|PADARIA",
+            "label": "Refei\u00e7\u00e3o - Padaria",
+            "name": "PADARIA_REFEICAO"
+        },
+        {
+            "key": "ALIMENT|MERCADO",
+            "label": "Alimenta\u00e7\u00e3o - Mercado",
+            "name": "MERCADO"
+        },
+        {
+            "key": "ALIMENT|ACOUGUE",
+            "label": "Alimenta\u00e7\u00e3o - A\u00e7ougue",
+            "name": "ACOUGUE"
+        },
+        {
+            "key": "ALIMENT|EMPORIO",
+            "label": "Alimenta\u00e7\u00e3o - Emp\u00f3rio",
+            "name": "EMPORIO"
+        },
+        {
+            "key": "ALIMENT|PADARIA",
+            "label": "Alimenta\u00e7\u00e3o - Padaria",
+            "name": "PADARIA_ALIMENTACAO"
+        },
+        {
+            "key": "ALIMENT|HOSPITAL",
+            "label": "Alimenta\u00e7\u00e3o - Hospital",
+            "name": "HOSPITAL"
+        },
+        {
+            "key": "ALIMENT|FARMACIA",
+            "label": "Alimenta\u00e7\u00e3o - Farm\u00e1cia",
+            "name": "FARMACIA"
+        },
+        {
+            "key": "ALIMENT|OUTROS",
+            "label": "Alimenta\u00e7\u00e3o - Outros",
+            "name": "OUTROS_ALIMENTACAO"
+        },
+        {
+            "key": "ALIMENT|SUPERMERCA",
+            "label": "Alimenta\u00e7\u00e3o - Supermercado",
+            "name": "SUPERMERCADO"
+        },
+        {
+            "key": "ALIMENT|HIPERMERCA",
+            "label": "Alimenta\u00e7\u00e3o - Hipermercado",
+            "name": "HIPERMERCADO"
+        },
+        {
+            "key": "ALIMENT|MERCEARIA",
+            "label": "Alimenta\u00e7\u00e3o - Mercearia",
+            "name": "MERCEARIA"
+        },
+        {
+            "key": "ALIMENT|ARMAZEM",
+            "label": "Alimenta\u00e7\u00e3o - Armaz\u00e9m",
+            "name": "TESTE"
+        },
+        {
+            "key": "ALIMENT|PEIXARIA",
+            "label": "Alimenta\u00e7\u00e3o -Peixes/frutos mar",
+            "name": "PEIXES_FRUTOS_DO_MAR"
+        },
+        {
+            "key": "ALIMENT|HORTIMERCA",
+            "label": "Alimenta\u00e7\u00e3o - Hortimercado",
+            "name": "HORTIMERCADO"
+        },
+        {
+            "key": "ALIMENT|LATICFRIOS",
+            "label": "Alimenta\u00e7\u00e3o - Latic\u00ednios/Frios",
+            "name": "LATICINIOS_FRIOS"
+        },
+        {
+            "key": "REFEICAO|ARABE",
+            "label": "Refei\u00e7\u00e3o - \u00c1rabe",
+            "name": "ARABE"
+        },
+        {
+            "key": "REFEICAO|ASIATICOS",
+            "label": "Refei\u00e7\u00e3o - Asi\u00e1ticos",
+            "name": "ASIATICOS"
+        },
+        {
+            "key": "REFEICAO|BATATARECH",
+            "label": "Refei\u00e7\u00e3o - Batata Recheada",
+            "name": "BATATA_RECHEADA"
+        },
+        {
+            "key": "REFEICAO|SUCOS",
+            "label": "Refei\u00e7\u00e3o - Sucos",
+            "name": "SUCOS"
+        },
+        {
+            "key": "REFEICAO|CAFETERIA",
+            "label": "Refei\u00e7\u00e3o - Cafeteria",
+            "name": "CAFETARIA"
+        },
+        {
+            "key": "REFEICAO|CHINESA",
+            "label": "Refei\u00e7\u00e3o - Chinesa",
+            "name": "CHINESA"
+        },
+        {
+            "key": "REFEICAO|CHOCOLATER",
+            "label": "Refei\u00e7\u00e3o - Chocolateria",
+            "name": "CHOCOLATERIA"
+        },
+        {
+            "key": "REFEICAO|COMIDAREGI",
+            "label": "Refei\u00e7\u00e3o - Comida Regional",
+            "name": "COMIDA_REGIONAL"
+        },
+        {
+            "key": "REFEICAO|CONVENIENC",
+            "label": "Refei\u00e7\u00e3o - Conveni\u00eancia",
+            "name": "CONVENIENCIA"
+        },
+        {
+            "key": "REFEICAO|COZINHARAP",
+            "label": "Refei\u00e7\u00e3o - Cozinha r\u00e1pida",
+            "name": "COZINHA_RAPIDA"
+        },
+        {
+            "key": "REFEICAO|CREPERIA",
+            "label": "Refei\u00e7\u00e3o - Creperia",
+            "name": "CREPERIA"
+        },
+        {
+            "key": "REFEICAO|DELICATESS",
+            "label": "Refei\u00e7\u00e3o - Delicatessen",
+            "name": "DELICATESSEN"
+        },
+        {
+            "key": "REFEICAO|DOCERIAS",
+            "label": "Refei\u00e7\u00e3o - Docerias",
+            "name": "DOCERIAS"
+        },
+        {
+            "key": "REFEICAO|ESPANHOLA",
+            "label": "Refei\u00e7\u00e3o - Espanhola",
+            "name": "ESPANHOLA"
+        },
+        {
+            "key": "REFEICAO|FRANCESA",
+            "label": "Refei\u00e7\u00e3o - Francesa",
+            "name": "FRANCESA"
+        },
+        {
+            "key": "REFEICAO|FROZENYOGU",
+            "label": "Refei\u00e7\u00e3o - Frozen Yogurts",
+            "name": "FROZEN_YOGURTS"
+        },
+        {
+            "key": "REFEICAO|GALETERIA",
+            "label": "Refei\u00e7\u00e3o - Galeteria",
+            "name": "GALETERIA"
+        },
+        {
+            "key": "REFEICAO|HAMBURGUER",
+            "label": "Refei\u00e7\u00e3o - Hamburgueria",
+            "name": "HAMBUERGUERIA"
+        },
+        {
+            "key": "REFEICAO|INDIANA",
+            "label": "Refei\u00e7\u00e3o - Indiana",
+            "name": "INDIANA"
+        },
+        {
+            "key": "REFEICAO|INTERNACIO",
+            "label": "Refei\u00e7\u00e3o - Internacional",
+            "name": "INTERNACIONAL"
+        },
+        {
+            "key": "REFEICAO|ITALIANA",
+            "label": "Refei\u00e7\u00e3o - Italiana",
+            "name": "ITALIANA"
+        },
+        {
+            "key": "REFEICAO|JAPONESA",
+            "label": "Refei\u00e7\u00e3o - Japonesa",
+            "name": "JAPONESA"
+        },
+        {
+            "key": "REFEICAO|LIBANESA",
+            "label": "Refei\u00e7\u00e3o - Libanesa",
+            "name": "LIBANESA"
+        },
+        {
+            "key": "REFEICAO|MEDITERRAN",
+            "label": "Refei\u00e7\u00e3o - Mediterr\u00e2nea",
+            "name": "MEDITERRANEA"
+        },
+        {
+            "key": "REFEICAO|MEXICANA",
+            "label": "Refei\u00e7\u00e3o - Mexicana",
+            "name": "MEXICANA"
+        },
+        {
+            "key": "REFEICAO|PASTELARIA",
+            "label": "Refei\u00e7\u00e3o - Pastelaria",
+            "name": "PASTELARIA"
+        },
+        {
+            "key": "REFEICAO|PORTUGUESA",
+            "label": "Refei\u00e7\u00e3o - Portuguesa",
+            "name": "PORTUGUESA"
+        },
+        {
+            "key": "ALIMENT|QUEIJARIA",
+            "label": "Alimenta\u00e7\u00e3o - Queijaria",
+            "name": "QUEIJARIA"
+        },
+        {
+            "key": "ALIMENT|ROTISSERIA",
+            "label": "Alimenta\u00e7\u00e3o - Rotisseria",
+            "name": "ROTISSERIA"
+        },
+        {
+            "key": "REFEICAO|SAUDAVEL",
+            "label": "Refei\u00e7\u00e3o - Saud\u00e1vel",
+            "name": "SAUDAVEL"
+        },
+        {
+            "key": "REFEICAO|SORVETERIA",
+            "label": "Refei\u00e7\u00e3o - Sorveteria",
+            "name": "SORVETERIA"
+        },
+        {
+            "key": "REFEICAO|TAILANDESA",
+            "label": "Refei\u00e7\u00e3o - Tailandesa",
+            "name": "TAILANDESA"
+        },
+        {
+            "key": "REFEICAO|TEMAKERIA",
+            "label": "Refei\u00e7\u00e3o - Temakeria",
+            "name": "TEMAKERIA"
+        },
+        {
+            "key": "REFEICAO|VEGETARIAN",
+            "label": "Refei\u00e7\u00e3o - Vegetarianos",
+            "name": "VEGETARIANOS"
+        }
+    ],
+    "videos": [
+        {
+            "key": "VIDEO_DASHBOARD_ESTAB",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@31629174"
+        },
+        {
+            "key": "VIDEO_VENDAS",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@5cbbe1a9"
+        },
+        {
+            "key": "VIDEO_REEMBOLSO",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@50a6714d"
+        },
+        {
+            "key": "VIDEO_DADOS_DO_ESTABELECIMENTO",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@22a0d06a"
+        },
+        {
+            "key": "VIDEO_INFORME_DE_RENDIMENTOS",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@7ec1c7b"
+        },
+        {
+            "key": "VIDEO_DASHBOARD",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@4d90386"
+        },
+        {
+            "key": "VIDEO_EXTRATO",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@67962649"
+        },
+        {
+            "key": "VIDEO_GUIA_VR",
+            "label": "https://www.youtube.com/embed/e1zoj8ypNmU",
+            "name": "br.com.vr.agwcomum.domain.common.VideoURL@43119951"
+        }
+    ]
+}

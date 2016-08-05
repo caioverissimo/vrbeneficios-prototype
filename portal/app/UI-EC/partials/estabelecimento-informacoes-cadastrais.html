@@ -1,0 +1,246 @@
+<section class="panel-body" ng-show="hasContent()">
+
+  <!-- Feedback das ações disparadas pelo usuário -->
+  <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+  <!-- Formulário -->
+  <form name="registryinfo" vr-enter-key-form-interceptor="">
+    <div class="row">
+      <!-- Dados da empresa -->
+      <div class="col-sm-12 col-md-6 top-10">
+
+        <div class="text-secundary">
+          DADOS DA EMPRESA
+        </div>
+        <hr class="hr">
+
+        <div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                CNPJ
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.cnpj | cnpjFilter" disabled>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Razão Social
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.razaoSocial" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Tipo de estabelecimento
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.tipoEstabelecimento" disabled>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Nome Fantasia
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.nomeFantasia" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Insc. municipal
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.inscricaoMunicipal" disabled>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Insc. estadual
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.inscricaoEstadual" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Endereço fiscal -->
+      <div class="col-sm-12 col-md-6 top-10">
+        <div class="text-secundary">
+          ENDEREÇO FISCAL
+        </div>
+        <hr class="hr">
+
+        <div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                CEP
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.endereco.cep" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Logradouro
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.endereco.tipoLogradouro" disabled>
+            </div>
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Endereço
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.endereco.logradouro" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <label class="text-gray">
+                Número
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.endereco.numero" disabled>
+            </div>
+
+            <div class="form-group col-sm-3">
+              <label class="text-gray">
+                Estado
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.endereco.uf" disabled>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Cidade
+              </label>
+              <input class="form-control" type="text" ng-value="dadosEC.endereco.cidade" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Pessoas do contato -->
+      <div class="col-sm-12 col-md-6 top-10">
+        <div class="text-secundary">
+          PESSOAS DO CONTATO
+        </div>
+        <hr class="hr">
+
+        <div ng-repeat="contato in dadosEC.contatos">
+
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <label class="text-gray">
+                Nome
+              </label>
+              <input class="form-control" type="text" ng-value="contato.nome" disabled>
+            </div>
+            <div class="form-group col-sm-4">
+              <label class="text-gray">
+                Nome do meio
+              </label>
+              <input class="form-control" type="text" ng-value="contato.nomeMeio" disabled>
+            </div>
+            <div class="form-group col-sm-4">
+              <label class="text-gray">
+                Sobrenome
+              </label>
+              <input class="form-control" type="text" ng-value="contato.sobrenome" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Telefone
+              </label>
+              <input class="form-control" type="text" ng-value="contato.ddd + contato.telefone | telefoneFilter" disabled>
+            </div>
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Ramal
+              </label>
+              <input class="form-control" type="text" ng-value="contato.ramal" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Email principal
+              </label>
+              <input class="form-control" type="text" ng-value="contato.emailPrincipal" disabled>
+            </div>
+
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Email secundário
+              </label>
+              <input class="form-control" type="text" ng-value="contato.emailSecundario" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Representantes legais -->
+      <div class="col-sm-12 col-md-6 top-10">
+        <div class="text-secundary">
+          REPRESENTANTES LEGAIS
+        </div>
+        <hr class="hr">
+
+        <div ng-repeat="representante in dadosEC.representantes">
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Nome
+              </label>
+              <input class="form-control" type="text" ng-value="representante.nomeCompleto" disabled>
+            </div>
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                Data de nascimento
+              </label>
+              <input class="form-control" type="text" ng-value="representante.dataNascimento" disabled>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                CPF
+              </label>
+              <input class="form-control" type="text" ng-value="representante.cpf | cpfFilter" disabled>
+            </div>
+            <div class="form-group col-sm-6">
+              <label class="text-gray">
+                RG
+              </label>
+              <input class="form-control" type="text" ng-value="representante.rg" disabled>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Separador -->
+    <div class="col-sm-12">
+      <hr class="hr"/>
+    </div>
+
+    <div class="text-center hidden">
+      <div class="col-md-offset-4 col-md-4">
+        <button type="button" class="btn btn-default btn-block" ng-disabled="registryinfo.$invalid">
+          Salvar alterações
+        </button>
+      </div>
+    </div>
+
+  </form>
+</section>

@@ -1,0 +1,62 @@
+<div class="col-sm-12 col-md-4" ng-controller="RefundCardController">
+  <h2 class="title">REEMBOLSOS</h2>
+  <article class="panel panel-default panel-min-heigth-530" id="tutorialEC6">
+
+    <!-- Loading -->
+    <section vr-loading-panel="LOADING"></section>
+
+    <!-- Include de mensagem de loader -->
+    <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+    <!-- Form -->
+    <section class="panel-body" ng-show="hasProduct()">
+      <form class="form" name="refunds" novalidate vr-enter-key-form-interceptor="">
+        <!-- Seletor com dados do calendário -->
+        <div class="input-group">
+          <span class="input-group-addon"><i class="icon icon-icon_cartao"></i></span>
+          <select class="form-control" name="produto" ng-model="produto" ng-change="consultar()"
+                  ng-options="item.id as item.nome for item in produtos">
+          </select>
+        </div>
+        <!-- Seletor com dados do calendário -->
+        <div class="input-group top-10">
+          <span class="input-group-addon"><i class="icon icon-icon_cifrao2"></i></span>
+          <select class="form-control" name="status" ng-model="status" ng-change="consultar()"
+                  ng-options="status.value as status.name for status in statusList">
+          </select>
+        </div>
+        <!-- Histórico de reembolsos -->
+        <table class="table top-10 table-borders vr-large-table" ng-show="hasContent()">
+          <thead>
+          <tr>
+            <th>Guia</th>
+            <th>Corte</th>
+            <th class="text-nowrap">Pag. Futuro</th>
+            <th class="text-right">Valor</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="row in searchResult | limitTo: 4">
+            <td ng-bind="row.numero"></td>
+            <td class="text-nowrap" ng-bind="row.dataCorte | date: 'dd MMM'"></td>
+            <td class="text-nowrap" ng-bind="row.dataPagamento | date: 'dd MMM'"></td>
+            <td class="text-nowrap" ng-bind="row.valorLiquido | currency: 'R$ '"></td>
+          </tr>
+          </tbody>
+        </table>
+
+        <div class="row panel-footer-row">
+          <div class="col-xs-12">
+            <hr class="hr"/>
+            <a class="btn btn-default btn-block" ng-click="verReembolsoCompleto()" href="#">Ver mais</a>
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- Include de mensagem de ausencia de conteudo -->
+    <div ng-class="{'top-30 panel-message-top-reset':hasProduct()}"
+         ng-include="'/portal/app/UI-EC/partials/sem-conteudo-reembolso.html'"></div>
+
+  </article>
+</div>

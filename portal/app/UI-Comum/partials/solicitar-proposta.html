@@ -1,0 +1,451 @@
+<main class="container main-content top-80-sm" ng-controller="SolicitarPropostaController">
+  <section class="col-sm-10 col-sm-offset-1">
+    <!-- Título da pagina -->
+    <h2 class="subTitle text-gray-brand">Solicite uma proposta</h2>
+
+    <!-- Linha separadora -->
+    <hr class="hr-sm">
+    <!-- Feedback das áreas disparadas pelo usuário -->
+    <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+    <!-- Instruções primeiro passo -->
+    <div ng-show="currentStep === 1">
+      <p class="text-gray">
+        Solicite uma proposta agora mesmo. <br>
+         Ligue: 4004-4938 (Capitais e Regiões Metropolitanas) 0800-596-3838 (Demais localidades)
+      </p>
+
+      <p class="text-secundary">
+        Se preferir, ligamos para você!
+      </p>
+
+      <p class="text-gray">
+        Por favor, preencha as informações abaixo para contatá-lo:
+      </p>
+
+      <p class="text-secundary">
+        Atenção:
+      </p>
+
+      <p class="text-gray">
+        Este serviço é específico para contratação de cartões VR Benefícios.
+      </p>
+
+      <p class="text-gray">
+        Se você possui um estabelecimento e deseja se credenciar, <a href="credenciamento-contato.html">clique aqui.</a>
+      </p>
+    </div>
+
+    <!-- Instruções segundo passo -->
+    <div ng-show="currentStep === 2">
+      <p class="text-secundary">
+        Dados complementares
+      </p>
+
+      <p class="text-gray">
+        Agora, preencha as informações abaixo para elaborarmos uma proposta personalizada para sua empresa.
+      </p>
+    </div>
+
+    <!-- Inputs primeiro passo -->
+    <div ng-if="currentStep === 1">
+
+      <!-- Form primeiro passo -->
+      <form class="form row top-80" name="formPropostaPrimeiroPasso" novalidate vr-enter-key-form-interceptor="">
+
+        <!-- Input CNPJ-->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">CNPJ</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_empresa"></i>
+          </span>
+            <input type="text" class="form-control" id="cnpj" name="cnpj" ng-model="formSolicitarProposta.cnpj"
+                   ui-options="{clearOnBlur:false}"
+                   ui-mask="99.999.999/9999-99" ui-mask-placeholder
+                   ui-mask-placeholder-char="_" required ng-cnpj>
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaPrimeiroPasso.cnpj.$error"
+               ng-if="formPropostaPrimeiroPasso.cnpj.$dirty && formPropostaPrimeiroPasso.cnpj.$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CNPJ</p>
+            <p ng-message when="cnpj" class="text-right text-danger">Por favor, digite um CNPJ válido</p>
+            <p ng-message when="mask" class="text-right">Por favor, complete o CNPJ</p>
+          </div>
+
+        </div>
+
+        <!-- Input Empresa -->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">EMPRESA</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_empresa"></i>
+          </span>
+            <input type="text" class="form-control" id="empresa" name="empresa" ng-model="formSolicitarProposta.empresa"
+                   required maxlength="40">
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaPrimeiroPasso.empresa.$error"
+               ng-if="formPropostaPrimeiroPasso.empresa.$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe a razão social da Empresa</p>
+          </div>
+        </div>
+
+        <!-- Input nome do contato -->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">NOME DO CONTATO</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_usuario"></i>
+          </span>
+            <input type="text" class="form-control" id="nomeContato" name="nomeContato"
+                   ng-model="formSolicitarProposta.contato"
+                   required maxlength="40">
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaPrimeiroPasso.nomeContato.$error"
+               ng-if="formPropostaPrimeiroPasso.nomeContato.$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe um nome para contato</p>
+          </div>
+        </div>
+
+        <!-- Input telefone comercial -->
+        <div class="form-group col-sm-3">
+          <label class="form-label with-addon text-nowrap">TELEFONE COMERCIAL</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="fa fa-phone fa-lg"></i>
+          </span>
+            <input type="text" class="form-control" id="telefoneComercialContato" name="telefoneComercialContato"
+                   ng-model="formSolicitarProposta.telefone" ui-options="{clearOnBlur:false}" ui-mask="(99)9999-9999?9"
+                   ui-mask-placeholder ui-mask-placeholder-char="_"
+                   required>
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaPrimeiroPasso.telefoneComercialContato.$error"
+               ng-if="formPropostaPrimeiroPasso.telefoneComercialContato.$dirty && formPropostaPrimeiroPasso.telefoneComercialContato.$touched">
+            <p ng-message when="required" class="text-right">Informe um telefone comercial</p>
+            <p ng-message when="mask" class="text-right">Complete o telefone comercial</p>
+          </div>
+        </div>
+
+        <!-- Input telefone celular -->
+        <div class="form-group col-sm-3">
+          <label class="form-label with-addon text-nowrap">TELEFONE CELULAR</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="fa fa-mobile fa-lg"></i>
+          </span>
+            <input type="text" class="form-control" id="telefoneCelularContato" name="telefoneCelularContato"
+                   ng-model="formSolicitarProposta.telefoneCelular" ui-options="{clearOnBlur:false}"
+                   ui-mask="(99)9999-9999?9"
+                   ui-mask-placeholder ui-mask-placeholder-char="_">
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaPrimeiroPasso.telefoneCelularContato.$error"
+               ng-if="formPropostaPrimeiroPasso.telefoneCelularContato.$dirty && formPropostaPrimeiroPasso.telefoneCelularContato.$touched">
+            <p ng-message when="mask" class="text-right">Complete o telefone celular</p>
+          </div>
+
+        </div>
+
+        <!-- Input email -->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">EMAIL</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_email"></i>
+          </span>
+            <input type="email" class="form-control" name="email" ng-model="formSolicitarProposta.email" maxlength="70">
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaPrimeiroPasso.email.$error"
+               ng-if='formPropostaPrimeiroPasso.email.$dirty'>
+            <p ng-message when="email" class="text-right text-danger">Por favor, digite um email válido</p>
+          </div>
+        </div>
+
+        <!-- Input Codigo promocional -->
+        <div class="form-group col-sm-6">
+          <label class="form-label with-addon">CÓDIGO PROMOCIONAL</label>
+
+          <div class="input-group">
+          <span class="input-group-addon">
+             <i class="fa fa-check fa-lg"></i>
+          </span>
+            <input type="text" class="form-control" id="codigoPromocional" name="codigoPromocional"
+                   ng-model="formSolicitarProposta.codigoPromocao" maxlength="40">
+          </div>
+        </div>
+
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+
+        <!-- Botão proximo -->
+        <div class="form-group col-sm-offset-4 col-sm-4 top-30">
+          <button class="btn btn-primary btn-xg btn-block btn-left top-10"
+                  ng-disabled="formPropostaPrimeiroPasso.$invalid" ng-click="salvar(1)">
+            <div class="text-center">
+              <i class="icon icon-icon_seta_botao pull-left top-10"></i>
+              Próximo
+            </div>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+
+    <!-- Inputs segundo passo -->
+    <div ng-if="currentStep === 2">
+      <form class="form row top-80" name="formPropostaSegundoPasso" novalidate vr-enter-key-form-interceptor="">
+
+        <!-- Select segmento-->
+        <div class="form-group col-sm-4">
+          <label class="form-label with-addon">SEGMENTO</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-list fa-lg"></i>
+            </span>
+
+            <select class="form-control" name="segmento" ng-model="formSolicitarProposta.segmento"
+                    required>
+              <option value="">Selecione</option>
+              <option value="1">Privado</option>
+              <option value="2">Público</option>
+            </select>
+
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaSegundoPasso.segmento.$error"
+               ng-if="formPropostaSegundoPasso.segmento.$dirty">
+            <p ng-message when="required" class="text-right">Informe o segmento</p>
+          </div>
+
+        </div>
+
+        <!-- Select uf-->
+        <div class="form-group col-sm-4">
+          <label class="form-label with-addon">UF</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-map fa-lg"></i>
+            </span>
+            <select class="form-control" name="uf" ng-model="formSolicitarProposta.uf"
+                    ng-change="changeUf(formSolicitarProposta.uf)" required>
+              <option selected="" disabled="">Selecione</option>
+              <option value="AC">AC</option>
+              <option value="AL">AL</option>
+              <option value="AP">AP</option>
+              <option value="AM">AM</option>
+              <option value="BA">BA</option>
+              <option value="CE">CE</option>
+              <option value="DF">DF</option>
+              <option value="ES">ES</option>
+              <option value="GO">GO</option>
+              <option value="MA">MA</option>
+              <option value="MT">MT</option>
+              <option value="MS">MS</option>
+              <option value="MG">MG</option>
+              <option value="PA">PA</option>
+              <option value="PB">PB</option>
+              <option value="PR">PR</option>
+              <option value="PE">PE</option>
+              <option value="PI">PI</option>
+              <option value="RJ">RJ</option>
+              <option value="RN">RN</option>
+              <option value="RS">RS</option>
+              <option value="RO">RO</option>
+              <option value="RR">RR</option>
+              <option value="SC">SC</option>
+              <option value="SP">SP</option>
+              <option value="SE">SE</option>
+              <option value="TO">TO</option>
+            </select>
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaSegundoPasso.uf.$error"
+               ng-if="formPropostaSegundoPasso.uf.$dirty">
+            <p ng-message when="required" class="text-right">Informe a UF</p>
+          </div>
+
+        </div>
+
+        <!-- Select cidade-->
+        <div class="form-group col-sm-4">
+          <label class="form-label with-addon">CIDADE</label>
+
+          <div class="input-group">
+            <span class="input-group-addon">
+               <i class="fa fa-map fa-lg"></i>
+            </span>
+
+            <select class="form-control" ng-model="formSolicitarProposta.cidade"
+                    ng-options="m.nome as m.nome for m in municipios" required>
+              <option value="">Selecione</option>
+            </select>
+
+          </div>
+
+          <div ng-messages class="error-messages" for="formPropostaSegundoPasso.cidade.$error"
+               ng-if="formPropostaSegundoPasso.cidade.$dirty">
+            <p ng-message when="required" class="text-right">Informe a cidade</p>
+          </div>
+
+        </div>
+
+
+        <!-- Labels estilo Tabela -->
+        <div class="form-group col-sm-4 bottom-10">
+          <label class="form-label">PRODUTOS</label>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <label class="form-label">VALOR MENSAL (R$)</label>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <label class="form-label">QUANTIDADE DE CARTÕES</label>
+        </div>
+
+        <!-- VR Refeicao -->
+        <div class="form-group col-sm-4 bottom-10">
+          <div class="checkbox">
+            <input id="produtoRefeicao" name="produtoRefeicao" ng-model="produtos[0].selecionado" type="checkbox">
+            <label class="text-primary" for="produtoRefeicao">
+              VR Refeição
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoRefeicaoValor" name="produtoRefeicaoValor"
+                 ng-model="produtos[0].valor" vr-initial="0" ng-required="produtoRefeicao"
+                 ng-disabled="!produtos[0].selecionado" pformat>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoRefeicaoQtd" name="produtoRefeicaoQtd"
+                 ng-model="produtos[0].qtdeFuncionarios" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9?9"
+                 ui-mask-placeholder ui-mask-placeholder-char="_" ng-required="produtoRefeicao"
+                 ng-disabled="!produtos[0].selecionado">
+        </div>
+
+        <!-- VR Alimentacao -->
+        <div class="form-group col-sm-4 bottom-10">
+          <div class="checkbox">
+            <input id="produtoAlimentacao" name="produtoAlimentacao" ng-model="produtos[1].selecionado" type="checkbox">
+            <label class="text-primary" for="produtoAlimentacao">
+              VR Alimentação
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoAlimentacaoValor" name="produtoAlimentacaoValor"
+                 ng-model="produtos[1].valor" vr-initial="0" ng-required="produtoAlimentacao"
+                 ng-disabled="!produtos[1].selecionado" pformat>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoAlimentacaoQtd" name="produtoAlimentacaoQtd"
+                 ng-model="produtos[1].qtdeFuncionarios" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9?9"
+                 ui-mask-placeholder ui-mask-placeholder-char="_" ng-required="produtoAlimentacao"
+                 ng-disabled="!produtos[1].selecionado">
+        </div>
+
+
+        <!-- VR Auto -->
+        <div class="form-group col-sm-4 bottom-10">
+          <div class="checkbox">
+            <input id="produtoAuto" name="produtoAuto" ng-model="produtos[2].selecionado" type="checkbox">
+            <label class="text-primary" for="produtoAuto">
+              VR Auto
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoAutoValor" name="produtoAutoValor"
+                 ng-model="produtos[2].valor" vr-initial="0" ng-required="produtoAuto"
+                 ng-disabled="!produtos[2].selecionado" pformat>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoAutoQtd" name="produtoAutoQtd"
+                 ng-model="produtos[2].qtdeFuncionarios" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9?9"
+                 ui-mask-placeholder ui-mask-placeholder-char="_" ng-required="produtoAuto"
+                 ng-disabled="!produtos[2].selecionado">
+        </div>
+
+
+        <!-- VR Cultura -->
+        <div class="form-group col-sm-4 bottom-10">
+          <div class="checkbox">
+            <input id="produtoCultura" name="produtoCultura" ng-model="produtos[3].selecionado" type="checkbox">
+            <label class="text-primary" for="produtoCultura">
+              VR Cultura
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoCulturaValor" name="produtoCulturaValor"
+                 ng-model="produtos[3].valor" vr-initial="0" ng-required="produtoCultura"
+                 ng-disabled="!produtos[3].selecionado" pformat>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoCulturaQtd" name="produtoCulturaQtd"
+                 ng-model="produtos[3].qtdeFuncionarios" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9?9"
+                 ui-mask-placeholder ui-mask-placeholder-char="_" ng-required="produtoCultura"
+                 ng-disabled="!produtos[3].selecionado">
+        </div>
+
+        <!-- VR Transporte -->
+        <div class="form-group col-sm-4 bottom-10">
+          <div class="checkbox">
+            <input id="produtoTransporte" name="produtoTransporte" ng-model="produtos[4].selecionado" type="checkbox">
+            <label class="text-primary" for="produtoTransporte">
+              VR Transporte
+            </label>
+          </div>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoTransporteValor" name="produtoTransporteValor"
+                 ng-model="produtos[4].valor" vr-initial="0" ng-required="produtoTransporte"
+                 ng-disabled="!produtos[4].selecionado" pformat>
+        </div>
+        <div class="form-group col-sm-4 bottom-10">
+          <input type="text" class="form-control" id="produtoTransporteQtd" name="produtoTransporteQtd"
+                 ng-model="produtos[4].qtdeFuncionarios" ui-options="{clearOnBlur:false}" ui-mask="9?9?9?9?9?9"
+                 ui-mask-placeholder ui-mask-placeholder-char="_" ng-required="produtoTransporte"
+                 ng-disabled="!produtos[4].selecionado">
+        </div>
+
+
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+
+        <!-- Botão proximo -->
+        <div class="form-group col-sm-offset-4 col-sm-4 top-10">
+          <button class="btn btn-primary btn-xg btn-block btn-left top-30"
+                  ng-disabled="formPropostaSegundoPasso.$invalid" ng-click="salvar(2)">
+            <div class="text-center">
+              <i class="icon icon-icon_seta_botao pull-left top-10"></i>
+              Enviar
+            </div>
+          </button>
+        </div>
+
+      </form>
+    </div>
+
+
+  </section>
+</main>

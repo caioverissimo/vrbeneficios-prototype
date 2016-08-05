@@ -1,0 +1,112 @@
+<article class="panel panel-default panel-min-heigth-420" ng-if="Navigation.isView('fastsearch')"
+         ng-controller="consultaRapidaController">
+
+  <!-- Diretiva de loading -->
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- Corpo do painel -->
+  <section class="panel-body">
+
+    <!-- Título do painel -->
+    <div class="row">
+
+      <!-- Alteração separação da área de buscas para responsividade -->
+      <!-- Título da primeira área -->
+      <div class="col-sm-6">
+
+        <div class="row">
+          <div class="col-sm-9 col-xs-9 text-secundary">
+            BUSCA
+          </div>
+          <!-- Dado dinamico - final -->
+              <span class="pull-right col-xs-3 col-sm-3 text-right hidden">
+                <button type="button" class="btn btn-default btn-information on-title"
+                        ng-click="helpTooltipIsHidden = !helpTooltipIsHidden"></button>
+              </span>
+        </div>
+
+        <hr class="hr">
+
+        <!-- Área do formulário de desbloquear o cartão -->
+        <form class="form" name="searchcard" vr-enter-key-form-interceptor="">
+          <!-- Texto cinza -->
+          <p class="text-gray">Para acessar o saldo, informe o número completo do cartão.</p>
+
+          <div class="form-group">
+            <!-- Label - texto explicando o input -->
+            <div class="input-group">
+              <span class="input-group-addon"><i class="icon icon-icon_cartao"></i></span>
+              <input type="text" class="form-control" placeholder="informe todos os dígitos do cartão"
+                     name="cardnumbers" ng-model="formConsultaRapida.numeroCartao" ui-mask-placeholder
+                     ui-mask-placeholder-char="_"
+                     ui-options="{clearOnBlur:false}" ui-mask="9999 9999 9999 9999" required>
+
+              <div ng-messages class="error-messages" for="searchcard['cardnumbers'].$error"
+                   ng-if="searchcard['cardnumbers'].$dirty && searchcard['cardnumbers'].$touched">
+                <p ng-message when="required" class="text-right">Por favor, informe todos os dígitos do cartão</p>
+                <p ng-message when="mask" class="text-right">Por favor, complete todos os dígitos do cartão</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Recaptcha dev -->
+          <div class="form-group" vc-recaptcha key="recaptchaKey"
+               size="recapchaSize()"></div>
+
+          <!-- Recaptcha prod (vr.com.br)-->
+          <!--<div class="form-group" vc-recaptcha key="'6LeojBoTAAAAAMYXV-h_vf9hTO2SVQSUUr8t71Rd'" size="recapchaSize()"></div>-->
+
+          <!-- Botão de busca da consulta - deve conter o buscar -->
+          <button type="button" class="btn btn-default btn-block" ng-disabled="searchcard.$invalid"
+                  ng-click="triggerAction()">
+            Consultar
+            <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!LOADING}"></i>
+          </button>
+        </form>
+
+      </div>
+      <!-- fim do form -->
+      <!-- Mensagem de aviso de carregamento -->
+      <div class="col-sm-6 panel-body text-center panel-full" ng-show="LOADING">
+        <i class="icon icon-icon_carregamento_conteudo rotate-360"></i>
+        <!-- Texto principal -->
+        <span class="text-secundary col-sm-12 top-10">AGUARDE</span>
+        <!-- Texto menor secundário -->
+        <!-- Alteração de small para "p" -->
+        <p class="text-gray col-sm-12">O conteúdo está sendo carregado.</p>
+      </div>
+
+      <!-- Mensagem de erro -->
+      <div class="col-sm-6 panel-body text-center panel-full" ng-show="hasError()">
+        <i class="icon icon-icon_erro_carregamento_conteudo"></i><br>
+        <!-- Texto principal -->
+        <span class="text-secundary col-sm-12 top-10">OPS</span>
+        <!-- Texto menor secundário -->
+        <!-- Alteração de small para "p" -->
+        <p class="text-gray col-sm-12">{{formConsultaRapida.erro}}</p>
+      </div>
+
+      <!-- Area resultado da pesquisa -->
+      <div class="col-sm-6" ng-show="hasContent()">
+        <span class="text-secundary">RESULTADO DA PESQUISA</span>
+        <hr class="hr">
+
+        <!-- Lista de cartões -->
+        <ul class="list-unstyled">
+          <div class="hidden-sm hidden-xs">
+            <div class="col-md-4">
+              <i class="icon icon-icon_cartao_lg"></i>
+            </div>
+            <div class="col-md-8 top-10 padding-left-0">
+              <span class="text-block">{{cartao.produto}}  | Final {{cartao.finalCartao}}</span>
+                  <span class="text-secundary text-block">Saldo R$ {{cartao.saldo}}
+                     <span class="text-gray"> &gt; {{dataConsulta | date: 'dd.MM.yy'}}</span>
+                  </span>
+            </div>
+          </div>
+        </ul>
+      </div>
+    </div>
+  </section>
+</article>

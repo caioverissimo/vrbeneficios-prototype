@@ -1,0 +1,432 @@
+/*
+Icon classes can be used entirely standalone. They are named after their original file names.
+
+Example usage in HTML:
+
+`display: block` sprite:
+<div class="icon-home"></div>
+
+To change `display` (e.g. `display: inline-block;`), we suggest using a common CSS class:
+
+// CSS
+.icon {
+  display: inline-block;
+}
+
+// HTML
+<i class="icon icon-home"></i>
+*/
+.icon-icon_alerta {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -749px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_apple {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -963px;
+  width: 143px;
+  height: 42px;
+}
+.icon-icon_ativar_indique {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -861px;
+  width: 24px;
+  height: 30px;
+}
+.icon-icon_ativar_tutorial_video {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -891px;
+  width: 24px;
+  height: 30px;
+}
+.icon-icon_avatar_beneficiario {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -3069px;
+  width: 300px;
+  height: 300px;
+}
+.icon-icon_avatar_ec {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2769px;
+  width: 300px;
+  height: 300px;
+}
+.icon-icon_camera_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1143px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_camera_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1189px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_carregamento_conteudo {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2253px;
+  width: 91px;
+  height: 91px;
+}
+.icon-icon_carrendo_submit {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -286px;
+  width: 26px;
+  height: 24px;
+}
+.icon-icon_carro {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1557px;
+  width: 48px;
+  height: 48px;
+}
+.icon-icon_cartao {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -334px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_cartao_lg {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1751px;
+  width: 87px;
+  height: 60px;
+}
+.icon-icon_cartoes {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2617px;
+  width: 212px;
+  height: 152px;
+}
+.icon-icon_check2_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -102px;
+  width: 22px;
+  height: 22px;
+}
+.icon-icon_check2_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -124px;
+  width: 22px;
+  height: 22px;
+}
+.icon-icon_check_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -146px;
+  width: 22px;
+  height: 22px;
+}
+.icon-icon_check_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -168px;
+  width: 22px;
+  height: 22px;
+}
+.icon-icon_cifrao {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1605px;
+  width: 48px;
+  height: 48px;
+}
+.icon-icon_cifrao2 {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -358px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_cifrao3 {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1811px;
+  width: 85px;
+  height: 85px;
+}
+.icon-icon_compartilhar {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -406px;
+  width: 26px;
+  height: 24px;
+}
+.icon-icon_data {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -430px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_dicas {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1327px;
+  width: 40px;
+  height: 46px;
+}
+.icon-icon_dowload {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1653px;
+  width: 48px;
+  height: 48px;
+}
+.icon-icon_download {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -502px;
+  width: 26px;
+  height: 24px;
+}
+.icon-icon_download_android_cinza {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1984px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_download_ios_cinza {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1896px;
+  width: 72px;
+  height: 88px;
+}
+.icon-icon_empresa {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -574px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_erro_carregamento_conteudo {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2344px;
+  width: 91px;
+  height: 91px;
+}
+.icon-icon_estabelecimento {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1097px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_estatisticas {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2435px;
+  width: 91px;
+  height: 91px;
+}
+.icon-icon_experimente {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1051px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_extrato {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2526px;
+  width: 91px;
+  height: 91px;
+}
+.icon-icon_favoritos_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1511px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_favoritos_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1419px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_fechar {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -80px;
+  width: 22px;
+  height: 22px;
+}
+.icon-icon_fechar_alerta {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -805px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_fechar_feedback_form {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -262px;
+  width: 26px;
+  height: 24px;
+}
+.icon-icon_filtro {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -310px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_google {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -921px;
+  width: 143px;
+  height: 42px;
+}
+.icon-icon_impressora {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -622px;
+  width: 26px;
+  height: 24px;
+}
+.icon-icon_indique {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -833px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_informacoes {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -598px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_informacoes_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -550px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_localizacao {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -526px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_mais {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -478px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_mais_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -454px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_menos_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -382px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_menos_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -238px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_meulocal {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1701px;
+  width: 50px;
+  height: 50px;
+}
+.icon-icon_meus_ajustes {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1465px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_msg_bloqueio {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1005px;
+  width: 40px;
+  height: 46px;
+}
+.icon-icon_notificacao_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1373px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_notificacao_on {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1281px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_pin {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2072px;
+  width: 72px;
+  height: 90px;
+}
+.icon-icon_pin_tabela {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -214px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_promocoes {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -2162px;
+  width: 91px;
+  height: 91px;
+}
+.icon-icon_rota {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -190px;
+  width: 24px;
+  height: 24px;
+}
+.icon-icon_senha {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -1235px;
+  width: 46px;
+  height: 46px;
+}
+.icon-icon_seta_botao {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -646px;
+  width: 37px;
+  height: 25px;
+}
+.icon-icon_seta_botao_voltar {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -671px;
+  width: 37px;
+  height: 25px;
+}
+.icon-icon_seta_direita {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -40px;
+  width: 20px;
+  height: 20px;
+}
+.icon-icon_seta_drop {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -20px;
+  width: 15px;
+  height: 20px;
+}
+.icon-icon_seta_drop_off {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px 0px;
+  width: 15px;
+  height: 20px;
+}
+.icon-icon_seta_esquerda {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -60px;
+  width: 20px;
+  height: 20px;
+}
+.icon-icon_tutorial {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -721px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_video {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -777px;
+  width: 28px;
+  height: 28px;
+}
+.icon-icon_x_botao {
+  background-image: url(../img/icons-painel/icons-painel.png);
+  background-position: 0px -696px;
+  width: 26px;
+  height: 25px;
+}

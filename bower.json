@@ -1,0 +1,39 @@
+{
+  "name": "vrbeneficios",
+  "version": "1.0.0",
+  "dependencies": {
+    "angular": "~1.3.20",
+    "angular-messages": "~1.3.20",
+    "angular-cookies": "~1.3.20",
+    "angular-pickadate": "~1.1.0",
+    "bootstrap-sass": "bootstrap-sass-official#~3.3.6",
+    "ngmap": "~1.16.7",
+    "angular-bootstrap": "~0.14.3",
+    "angular-loading-bar": "~0.8.0",
+    "chartist": "~0.9.5",
+    "angular-i18n": "~1.3.20",
+    "html5shiv": "~3.7.3",
+    "cpf_cnpj": "~0.0.4",
+    "ng-cpf-cnpj": "~0.0.5",
+    "angular-ui-mask": "~1.7.2",
+    "angular-chartist.js": "~3.3.13",
+    "angular-recaptcha": "^2.5.0",
+    "angular-google-maps": "~2.3.2",
+    "angular-price-format": "https://github.com/bsantanna/angular-price-format.git",
+    "angular-animate": "~1.3.20",
+    "angular-scroll": "~0.7.3",
+    "chartist-plugin-tooltip": "^0.0.12",
+    "pdfjs-dist": "^1.5.256",
+    "ngAutocomplete": "^1.0.0",
+    "angular-tour": "https://github.com/bsantanna/angular-tour.git",
+    "animate.css": "^3.5.2"
+  },
+  "devDependencies": {},
+  "appPath": "",
+  "moduleName": "app",
+  "overrides": {},
+  "resolutions": {
+    "jquery": ">= 1.9.0",
+    "angular": "^1.3"
+  }
+}

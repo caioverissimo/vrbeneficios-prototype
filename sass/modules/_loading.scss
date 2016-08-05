@@ -1,0 +1,115 @@
+#loading-bar .bar {
+  -webkit-transition: width 350ms;
+  -moz-transition: width 350ms;
+  -o-transition: width 350ms;
+  transition: width 350ms;
+
+  background: $brand-primary;
+  height: 4px;
+}
+
+#loading-bar .peg {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 4px;
+  opacity: .45;
+  -moz-box-shadow: $brand-primary 1px 0 6px 1px;
+  -ms-box-shadow: $brand-primary 1px 0 6px 1px;
+  -webkit-box-shadow: $brand-primary 1px 0 6px 1px;
+  box-shadow: $brand-primary 1px 0 6px 1px;
+  -moz-border-radius: 100%;
+  -webkit-border-radius: 100%;
+  border-radius: 100%;
+}
+
+.panel-loading {
+  position: relative;
+
+  .panel-loading-bar {
+    position: absolute;
+    top: 0;
+    height: 4px;
+    width: 0;
+    background: $brand-primary;
+
+    -moz-animation: loading 1.5s ease-out 0.5s infinite;
+    -webkit-animation: loading 1.5s ease-out 0.5s infinite;
+    animation: loading 1.5s ease-out 0.5s infinite;
+  }
+}
+
+// Fix para footer do motal
+.modal-footer .panel-loading {
+    top: -14px;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    width: 0;
+    left: 0;
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+
+@-moz-keyframes loading {
+  0% {
+    width: 0;
+    left: 0;
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+
+@keyframes loading {
+  0% {
+    width: 0;
+    left: 0;
+  }
+
+  50% {
+    width: 100%;
+    left: 0;
+  }
+
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+
+
+//***** NEW LOADING SYSTEM ******//
+.loading-pane{
+  overflow: hidden;
+}
+
+.front-loading-wrapper{
+  position: fixed;
+  background: rgba(0,0,0, 0.8);
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  z-index: 9999999999;
+  .front-loading-bar {
+    @extend .panel-loading-bar;
+  }
+}

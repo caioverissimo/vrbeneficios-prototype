@@ -1,0 +1,14 @@
+{
+   "numeroCartao":"6274160000566107",
+   "finalCartao":"6107",
+   "saldo":"50,00",
+   "gastoMedio":"0,00",
+   "proximoBeneficio":"-",
+   "ultimoBeneficio":"0,00",
+   "consumo":60.0,
+   "produto":"VR Refeição",
+   "transacoes":[
+
+   ],
+   "bloqueado":false
+}

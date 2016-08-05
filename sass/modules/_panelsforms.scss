@@ -1,0 +1,315 @@
+// Forms
+
+//Resets para bootstrap
+label {
+  font-weight: normal;
+}
+
+//Layout de formulários com esse unbreak respeita as colunas e não quebra os labels
+//cuidado com o uso!
+.form {
+  &.form-unbreak {
+    label {
+      white-space: nowrap;
+    }
+    .checkbox label {
+      white-space: normal;
+    }
+  }
+}
+
+.checkbox-inline,
+.radio-inline {
+  padding-left: 0;
+}
+
+.form-inline-nolabel {
+  padding-top: 30px;
+}
+
+.form-control {
+  padding-left: 0;
+  border: 0;
+  border-bottom: 1px solid #E3E3E3;
+  box-shadow: none;
+  outline-color: transparent;
+  background: transparent;
+  z-index: 0 !important;
+
+  &[disabled] {
+    background-color: transparent;
+    color: #969696;
+  }
+}
+
+select.form-control {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background: url("/portal/img/icons-painel/icon_seta_drop.png") center right no-repeat;
+}
+
+.input-group-addon {
+  color: $gray-light;
+  border: 0;
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+
+  .fa-lg {
+    padding: {
+      left: 5px;
+      right: 5px;
+    }
+  }
+}
+
+.vanity-url-group {
+  .vanity-url-left {
+    position: absolute;
+    top: 10px;
+    padding-right: 0;
+    padding-left: 0;
+    font-family: 'Gill-sans-light';
+    font-size: 20px;
+    color: $gray-brand;
+  }
+}
+
+.upload-group {
+  .form-control {
+    padding-right: 25%;
+  }
+  .btn-primary {
+    position: absolute;
+    right: 0;
+    top: 8px;
+  }
+}
+
+.form-label {
+  @extend label;
+  @extend .text-secundary;
+  font-size: $form-label-size;
+}
+
+.form-label-gray {
+  font-weight: normal;
+  color: #969696;
+}
+
+.form-label-gray-brand {
+  font-weight: normal;
+  color: $gray-brand;
+}
+
+.form-label-required::after {
+  content: ' *';
+}
+
+// tratamento de required para inputs tipo radio
+input[type=radio] {
+  & + .form-label-required::after {
+    content: '';
+  }
+}
+
+.error-messages {
+  height: 0;
+  color: $brand-warning;
+}
+
+// Remover os arrows do type=Number
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+// Colorização dos formulários
+.ng-dirty {
+  &.ng-valid {
+    color: $brand-success;
+    border-bottom-color: $brand-success;
+  }
+
+  &.ng-invalid {
+    &.ng-invalid::-webkit-input-placeholder,
+    &.ng-invalid:-moz-placeholder,
+    &.ng-invalid::-moz-placeholder,
+    &.ng-invalid:-ms-input-placeholder,
+    &.ng-invalid:placeholder-shown {
+      color: $brand-warning !important;
+    }
+
+    color: $brand-warning;
+    border-bottom-color: $brand-warning;
+
+    .radio-inline {
+      color: $text-color;
+    }
+  }
+
+  &.ng-invalid-cnpj,
+  &.ng-invalid-cpf,
+  &.ng-invalid-email,
+  &.ng-invalid-date-validation {
+    color: $brand-warning !important;
+    border-bottom-color: $brand-warning !important;
+
+    .radio-inline {
+      color: $text-color;
+    }
+  }
+}
+
+// Base for label styling
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked,
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label,
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+// checkbox aspect + radios
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 20px;
+  height: 20px;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  background: #10ba54;
+  border-radius: 3px;
+}
+
+//estilo para radios
+[type="radio"]:not(:checked) + label:before {
+  border-radius: 100%;
+  background: white;
+  border: 2px solid $brand-primary;
+}
+
+[type="radio"]:checked + label:before {
+  border-radius: 100%;
+  background: white;
+  border: 6px solid $brand-primary;
+}
+
+// checked mark aspect
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after {
+  content: '\f00c';
+  position: absolute;
+  top: 6px;
+  left: 2px;
+  font-size: 16px;
+  line-height: 0.8;
+  color: white;
+  transition: all .2s;
+  font-family: 'FontAwesome';
+}
+
+//animação
+[type="checkbox"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+//desabilitadas
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before,
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+  box-shadow: none;
+  background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked + label:after,
+[type="radio"]:disabled:checked + label:after {
+  color: #999;
+}
+
+[type="checkbox"]:disabled + label,
+[type="radio"]:disabled + label {
+  color: #aaa;
+}
+
+// customização de forms especificos
+// Form de estatisticas
+form[name=estatistics] {
+  select, label {
+    color: $brand-primary;
+  }
+}
+
+// form de indicação de estabelecimento
+form[name=createplace] {
+  .btn-get-location {
+    padding: {
+      left: 0;
+    }
+  }
+}
+
+.input-group {
+  .input-filter {
+    height: 26px;
+    padding: 0 25px 0 2px;
+    border: 1px solid #eeeeee;
+    color: #353941;
+    & + span {
+      position: absolute;
+      right: 5px;
+    }
+    &::-webkit-input-placeholder {
+      color: darkgrey;
+    }
+    &::-moz-placeholder {
+      color: darkgrey;
+    }
+    &:-ms-input-placeholder {
+      color: darkgrey;
+    }
+    &:-moz-placeholder {
+      color: darkgrey;
+    }
+  }
+  &.input-group-location {
+    & .icon-icon_localizacao {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+    }
+  }
+  
+}

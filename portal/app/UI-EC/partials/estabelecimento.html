@@ -1,0 +1,21 @@
+<!-- Dados do estabelecimento selecionado -->
+<section
+  class="hidden-xs col-sm-2 col-md-2 navbar-right header-establishment-container no-border"
+  ng-show="hasActiveEstablishment()" id="tutorialEC3">
+  <button type="button" class="btn btn-block"
+          ng-click="openEstablishmentModal()">
+    <div class="profile-img">
+      <img ng-src="{{getCurrentPicture()}}">
+    </div>
+    <div class="profile-name">
+      <ul class="text-left">
+        <li><span class="header-establishment-title">Estabelecimento</span>
+        </li>
+        <li><span class="header-establishment-name"
+                  ng-bind="getActiveEstablishmentName()"></span></li>
+        <li><span class="header-establishment-cnpj"
+                  ng-bind="getActiveEstablishmentCNPJ() | cnpjFilter"></span></li>
+      </ul>
+    </div>
+  </button>
+</section>

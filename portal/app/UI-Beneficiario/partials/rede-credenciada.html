@@ -1,0 +1,32 @@
+<aside class="col-md-4 no-print">
+
+  <!-- Título da aside -->
+  <h2 class="title">
+    GUIA VR
+    <!-- Botão que adiciona um estabelecimento -->
+    <a class="btn btn-default pull-right btn-plus" href="guia-vr.html#addplace">
+      <i class="icon icon-icon_mais"></i>
+      <i class="icon icon-icon_mais_on"></i>
+    </a>
+  </h2>
+
+  <nav>
+    <a href="javascript:void(0)" class="link-main active" ng-click="setSubstate('redecredenciada')"
+       ng-class="{'active': substate == 'redecredenciada'}">Rede credenciada</a>
+  </nav>
+
+  <!-- Área de busca -->
+  <article class="panel panel-default panel-min-heigth-420" id="tutorialBeneficiario4">
+
+    <div class="network-background"></div>
+
+    <div class="row panel-footer-row panel-gradient-footer" ng-if="!fromConsultaRapida">
+      <div class="col-xs-12">
+        <a class="btn btn-primary btn-block bottom-40" href="guia-vr.html#network">
+          Acesse a rede credenciada
+        </a>
+      </div>
+    </div>
+  </article>
+
+</aside>

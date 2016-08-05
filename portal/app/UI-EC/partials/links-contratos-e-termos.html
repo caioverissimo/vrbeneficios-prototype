@@ -1,0 +1,13 @@
+<!-- Contratos e Termos -->
+<p class="text-secundary">
+  CONTRATOS E TERMOS
+</p>
+<hr class="hr">
+<div class="col-xs-12 col-sm-12 col-md-12" ng-controller="ContratosTermosController" ng-init="getDocumentList()">
+  <div class="row" ng-repeat="item in documentList">
+    <a href="javascript:void(0)" ng-click="downloadContrato(item.id,item.nome)">
+      <i class="icon icon-icon_dowload"></i>
+      <span class="active">{{item.nome}}</span>
+    </a>
+  </div>
+</div>

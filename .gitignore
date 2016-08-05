@@ -1,0 +1,12 @@
+/node_modules/
+/mocks/node_modules/
+/.sass-cache/
+/.idea/
+/.tmp/
+/portal/js/bower_components/
+/portal/css/base.css
+/portal/css/home.css
+/build
+*.DS_Store
+*.zip
+npm-debug.log

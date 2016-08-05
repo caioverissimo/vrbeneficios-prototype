@@ -1,0 +1,66 @@
+@import "variables";
+
+.tour-tip {
+  display: none;
+  position: absolute;
+  background: $brand-secundary;
+  color: #FFF;
+  z-index: 101;
+  top: 0;
+  left: 2.5%;
+  font-family: inherit;
+  font-weight: 400;
+  max-width: 400px;
+
+  p {
+    font-size: 17px;
+    line-height: 1.5em;
+    margin: 0 0 1.125em;
+  }
+
+  .tour-arrow {
+    display: none;
+  }
+
+  .tour-content-wrapper {
+    padding: 1.125em 1.25em 1.5em;
+  }
+
+  .btn-primary {
+    background: #FFF;
+    color: $brand-secundary;
+    border-color: #FFF;
+    &:active {
+      background: #FFF;
+      border-color: #FFF;
+    }
+  }
+
+  .btn-default {
+    color: #FFF;
+    &:hover {
+      background: #FFF;
+      color: $brand-secundary;
+      border-color: #FFF;
+    }
+  }
+
+  .fa {
+    font-size: 0.9rem;
+    padding: {
+      left: 0.4rem;
+      right: 0.4rem;
+      bottom: 1rem;
+    }
+
+  }
+
+}
+
+.tour-element-active {
+  border: 3px solid $brand-secundary;
+}
+
+.tour-indicator-inactive {
+  opacity: 0.4;
+}

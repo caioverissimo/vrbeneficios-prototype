@@ -1,0 +1,56 @@
+{
+   "entidade":[
+      {
+         "id":27,
+         "nome":"VR Alimentação",
+         "cartoes":[
+            {
+               "numeroCartao":"6370360000754470",
+               "finalCartao":"4470",
+               "saldo":"120",
+               "gastoMedio":null,
+               "proximoBeneficio":null,
+               "ultimoBeneficio":null,
+               "consumo":0.0,
+               "produto":null,
+               "transacoes":null,
+               "bloqueado":false
+            },
+            {
+               "numeroCartao":"6370360000754471",
+               "finalCartao":"4471",
+               "saldo":"121",
+               "gastoMedio":null,
+               "proximoBeneficio":null,
+               "ultimoBeneficio":null,
+               "consumo":0.0,
+               "produto":null,
+               "transacoes":null,
+               "bloqueado":false
+            }
+         ]
+      },
+      {
+         "id":31,
+         "nome":"VR Refeição",
+         "cartoes":[
+            {
+               "numeroCartao":"6274160000566107",
+               "finalCartao":"6107",
+               "saldo":null,
+               "gastoMedio":null,
+               "proximoBeneficio":null,
+               "ultimoBeneficio":null,
+               "consumo":0.0,
+               "produto":null,
+               "transacoes":null,
+               "bloqueado":false
+            }
+         ]
+      }
+   ],
+   "roles":{
+      "alterarSenhaCartao":true,
+      "bloquearCartao":true
+   }
+}

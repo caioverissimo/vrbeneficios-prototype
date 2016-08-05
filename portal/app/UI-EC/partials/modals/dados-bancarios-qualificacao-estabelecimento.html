@@ -1,0 +1,38 @@
+<section class="modal-header">
+  <h3 class="h3 title text-uppercase">
+    PREENCHA AS INFORMAÇÕES SOLICITADAS PARA CONTINUAR
+  </h3>
+</section>
+<form class="form" name="dadosBancQualifForm" ng-controller="DadosBancariosQualificacaoFormController"
+      vr-enter-key-form-interceptor="">
+  <section class="modal-body">
+    <!-- Feedback das ações disparadas pelo usuário -->
+    <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+    <!--Dados bancarios-->
+    <div class="row">
+      <div ng-include="'/portal/app/UI-EC/partials/dados-bancarios.html'" class="col-sm-12"></div>
+    </div>
+
+    <!--Qualificação do estabelecimento-->
+    <div class="row top-30">
+      <div ng-include="'/portal/app/UI-EC/partials/qualificacao-estabelecimento.html'" class="col-sm-12"></div>
+    </div>
+
+  </section>
+
+  <section class="modal-footer">
+    <div class="row">
+      <!-- Separador -->
+      <div class="col-sm-12 text-left">
+        <small class="text-gray">* Campos obrigatórios</small>
+      </div>
+    </div>
+
+    <button class="btn btn-default" ng-click="return()">
+      Voltar
+    </button>
+    <button ng-disabled="dadosBancQualifForm.$invalid" class="btn btn-primary" ng-click="finish()">
+      Confirmar e concluir
+    </button>
+  </section>
+</form>

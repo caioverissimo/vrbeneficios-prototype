@@ -1,0 +1,21 @@
+<!-- Quando nao tem conteudo -->
+<section class="panel-body text-center panel-message" ng-show="hasNoContent()">
+
+  <!-- Icone substituir icone no font-awesome -->
+  <!-- Ponto de mudança -->
+  <i class="icon icon-icon_erro_carregamento_conteudo"></i><br>
+  <!-- Texto principal -->
+  <span class="text-secundary col-sm-12 top-10">OPS</span>
+  <!-- Texto menor secundário -->
+  <!-- Alteração de small para "p" -->
+  <p class="text-gray col-sm-12">Conteúdo indisponível no momento.</p>
+
+  <div class="row panel-footer-row" ng-if="reload">
+    <div class="col-xs-12">
+      <!-- Botão para recarregar conteúdo -->
+      <a class="btn btn-default btn-block" href="javascript:void(0)" ng-click="reload()"
+         ng-disabled="LOADING">Recarregar conteúdo</a>
+    </div>
+  </div>
+
+</section>

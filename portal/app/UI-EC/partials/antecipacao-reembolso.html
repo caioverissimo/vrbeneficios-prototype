@@ -1,0 +1,124 @@
+<!-- Parte com o form que deve ser escondida -->
+<div class="row" ng-hide="successConfirmation">
+
+  <div class="text-center" ng-show="!data.valorTotalDisponivel && data.status == 3">
+    <i class="icon icon-icon_cifrao3"></i><br>
+    <span class="text-secundary col-sm-12 top-10">OPS</span>
+    <p class="text-gray col-sm-12">Antecipação indisponível para contratação.</p>
+  </div>
+
+  <div class="text-center" ng-show="!data.valorTotalDisponivel && data.status == 1">
+    <i class="icon icon-icon_cifrao3"></i><br>
+    <span class="text-secundary col-sm-12 top-10">ATENÇÃO</span>
+    <p class="text-gray col-sm-12">Antecipação automática já contratada.</p>
+  </div>
+
+  <div ng-show="data.valorTotalDisponivel || data.status == 2">
+
+    <!-- 1ª Metade da tela -->
+    <div class="col-md-6 top-30 text-center text-lg" ng-show="data.valorTotalDisponivel">
+      <div class="well">
+        <label class="text-gray">Valor disponível</label>
+        <h1 class="top-0" ng-bind="data.valorTotalDisponivel | currency : 'R$ '"></h1>
+      </div>
+    </div>
+
+    <!-- 2a metade da tela -->
+    <div class="col-md-6">
+      <div ng-show="data.dataPagamento && data.valorTotalDisponivel">
+        <label class="text-gray">Data de crédito</label>
+        <p ng-bind="data.dataPagamento |date: 'dd/MM/yyyy'"></p>
+      </div>
+
+      <div ng-show="data.dadosBancarios.length > 0 && data.valorTotalDisponivel">
+        <label class="text-gray">Dados para depósito</label>
+        <div ng-class="{ 'panel-scroll-36': isResume }">
+          <p ng-repeat="bankAccount in data.dadosBancarios | limitTo:10">
+            Banco {{bankAccount.banco}} - Ag {{bankAccount.agencia}} | Ct {{bankAccount.conta}}
+          </p>
+        </div>
+      </div>
+
+      <div ng-show="!data.valorTotalDisponivel && data.status == 2">
+        <label class="text-gray">Contrate a antecipação automática e aproveite nossas taxas especiais.</label>
+      </div>
+
+      <!-- Formulário de antecipação -->
+      <form class="form" ng-hide="!data.valorTotalDisponivel && (!data.status || data.status == 1)"
+            vr-enter-key-form-interceptor="">
+
+        <div class="checkbox" ng-show="data.status != 3">
+          <div tooltip-closeable="'Habilite a antecipação do seu crédito de forma automática'"
+               ng-if="data.status == 2"></div>
+          <input id="antecipacao-automatica" type="checkbox"
+                 ng-model="antecipacaoAutomatica" ng-disabled="data.status == 1"/>
+          <label class="text-primary" for="antecipacao-automatica">Antecipação automática</label>
+        </div>
+
+        <div class="checkbox" ng-hide="!data.valorTotalDisponivel && data.status == 3">
+          <input type="checkbox" ng-model="acordo" id="antecipacao-acordo" required>
+          <label class="text-primary" for="antecipacao-acordo">
+            Estou de acordo com as condições comerciais de contratação do serviço.
+          </label>
+        </div>
+
+        <hr>
+
+        <div class="col-md-offset-3 col-md-6 row" ng-hide="!data.valorTotalDisponivel && data.status == 3">
+          <button type="button" class="btn btn-default btn-block" ng-disabled="!acordo"
+                  ng-click="openConfirmationModal()">Contrate agora
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</div>
+
+<!-- Sucesso de reembolso -->
+<div class="row" ng-show="successConfirmation">
+
+  <!-- Aba esquerda -->
+  <div class="col-md-6 top-30 text-center text-lg" ng-show="data.valorTotalDisponivel">
+    <div class="well">
+      <label class="text-gray">Valor a receber</label>
+      <h1 class="top-0" ng-bind="data.valorTotalDisponivel | currency : 'R$ '"></h1>
+    </div>
+  </div>
+
+  <!-- Aba direita que é alteravel -->
+  <div class="col-md-6 top-30" ng-hide="extraRefundPurchased">
+    <div class="row">
+      <div class="col-md-12" ng-show="data.dataPagamento && data.valorTotalDisponivel">
+        <label class="text-gray">Data do crédito</label>
+        <p ng-bind="data.dataPagamento |date: 'dd/MM/yyyy'"></p>
+      </div>
+      <div class="col-md-12" ng-show="antecipacaoConfirmada.id">
+        <label class="text-gray">Nº de protocolo</label>
+        <p ng-bind="antecipacaoConfirmada.id"></p>
+      </div>
+    </div>
+    <div class="well well-empty text-center clearfix" ng-show="data.status == 2">
+      <div class="col-sm-8 col-sm-offset-2">
+        Contrate mensalmente a antecipação do seu crédito de forma automática
+      </div>
+      <h2 class="title col-sm-12">10% MAIS BARATO</h2>
+      <div class="col-sm-8 col-sm-offset-2">
+        <button type="button" class="btn btn-default btn-block" ng-click="openConfirmationModal()">
+          Contratar
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-sm-6 top-30" ng-show="extraRefundPurchased">
+    <div class="well">
+      <div class="text-secundary">Contratação automática confirmada!</div>
+      <p>O serviço começa a valer a partir do próximo ciclo.</p>
+      <small class="top-10 text-gray">Para cancelar o serviço entre em contato com a VR pelo telefone
+        (xx)9999.0099
+      </small>
+    </div>
+  </div>
+
+</div>

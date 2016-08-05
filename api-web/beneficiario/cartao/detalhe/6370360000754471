@@ -1,0 +1,28 @@
+{
+   "numeroCartao":"6370360000754471",
+   "finalCartao":"4471",
+   "saldo":"80,78",
+   "gastoMedio":null,
+   "proximoBeneficio":"-",
+   "ultimoBeneficio":"0,00",
+   "consumo":10.0,
+   "produto":"VR Alimentação",
+   "transacoes":[
+      {
+         "descricao":"01 de Abril",
+         "itensdetalhe":[
+            {
+               "descricao":"Consumo Confirmado - MARIO NAKAYA",
+               "aut":"10207474",
+               "valor":"- 0,04"
+            },
+            {
+               "descricao":"Consumo Confirmado - MARIO NAKAYA",
+               "aut":"10207473",
+               "valor":"- 0,04"
+            }
+         ]
+      }
+   ],
+   "bloqueado":true
+}

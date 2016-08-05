@@ -1,0 +1,72 @@
+<div class="page-tooltip-right no-border" ng-controller="PageTooltipController" id="tutorialFinal">
+  <div class="row text-right">
+    <button ng-hide="tutorial" ng-click="tutorial = true">
+      <i class="icon icon-icon_seta_esquerda"></i>
+      <i class="icon icon-icon_ativar_tutorial_video"></i>
+    </button>
+    <div class="page-tooltip-container-tutorial" ng-show="tutorial">
+      <div class="page-tooltip-panel">
+        <div class="row page-tooltip-panel-head text-left" ng-click="startTutorial();openTour();"
+             ng-show="isTutorialEnabled()">
+          <div class="col-xs-1">
+            <i class="icon icon-icon_tutorial"></i>
+          </div>
+          <div class="col-xs-offset-1 col-xs-10">
+            <span>Tutorial</span>
+          </div>
+        </div>
+        <div class="row page-tooltip-panel-item text-left" ng-click="openVideosModal()">
+          <div class="col-xs-1">
+            <i class="icon icon-icon_video"></i>
+          </div>
+          <div class="col-xs-offset-1 col-xs-10">
+            <span>Vídeo</span>
+          </div>
+        </div>
+        <div class="row page-tooltip-panel-footer text-center" ng-click="tutorial = false">
+          <i class="icon icon-icon_ativar_tutorial_video"></i>
+          <i class="icon icon-icon_seta_direita"></i>
+        </div>
+      </div>
+    </div>
+    <button ng-hide="indication" ng-click="indication = true">
+      <i class="icon icon-icon_seta_esquerda"></i>
+      <i class="icon icon-icon_ativar_indique"></i>
+    </button>
+    <div class="page-tooltip-container-indication" ng-show="indication">
+
+      <!--Menu para Dashboard Beneficiario-->
+      <div class="page-tooltip-panel" ng-show="!isEcDashboard()">
+        <div class="page-tooltip-panel-item text-left row" ng-click="goToIndique()">
+          <div class="col-xs-1">
+            <i class="icon icon-icon_indique"></i>
+          </div>
+          <div class="col-xs-offset-1 col-xs-10">
+            <span>Indique um estabelecimento</span>
+          </div>
+        </div>
+        <div class="row page-tooltip-panel-footer text-center" ng-click="indication = false">
+          <i class="icon icon-icon_ativar_indique"></i>
+          <i class="icon icon-icon_seta_direita"></i>
+        </div>
+      </div>
+
+      <!--Menu para dashboard ec-->
+      <div class="page-tooltip-panel" ng-show="isEcDashboard()">
+        <div class="page-tooltip-panel-item text-left row" ng-click="goToAdicione()">
+          <div class="col-xs-1">
+            <i class="icon icon-icon_indique"></i>
+          </div>
+          <div class="col-xs-offset-1 col-xs-10">
+            <span>Adicione seu estabelecimento</span>
+          </div>
+        </div>
+        <div class="row page-tooltip-panel-footer text-center" ng-click="indication = false">
+          <i class="icon icon-icon_ativar_indique"></i>
+          <i class="icon icon-icon_seta_direita"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

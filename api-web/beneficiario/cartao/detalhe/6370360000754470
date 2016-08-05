@@ -1,0 +1,50 @@
+{
+   "numeroCartao":"6370360000754470",
+   "finalCartao":"5000",
+   "saldo":"8.162,96",
+   "gastoMedio":null,
+   "proximoBeneficio":"-",
+   "ultimoBeneficio":"3.500,00",
+   "produto":"VR Alimentação",
+   "consumo":233.0,
+   "valorAlertaSaldo":56.0,
+   "pctAlertaSaldo":2.0,
+   "transacoes":[
+      {
+         "descricao":"03 de Maio",
+         "itensdetalhe":[
+            {
+               "descricao":"Gera??o Cr?dito Usu?rio - EMPRESATESTE140620   ",
+               "aut":"10207740",
+               "valor":"+ 3.500,00"
+            },
+            {
+               "descricao":"Estorno Confirmado - MARIO NAKAYA         ",
+               "aut":"10207725",
+               "valor":"+ 20,00"
+            },
+            {
+               "descricao":"Consumo Confirmado - MARIO NAKAYA         ",
+               "aut":"10207724",
+               "valor":"- 20,00"
+            },
+            {
+               "descricao":"Consumo Confirmado - MARIO NAKAYA         ",
+               "aut":"10207723",
+               "valor":"- 10,00"
+            }
+         ]
+      },
+      {
+         "descricao":"18 de Abril",
+         "itensdetalhe":[
+            {
+               "descricao":"Estorno Confirmado - FANTASIA 323         ",
+               "aut":"10207626",
+               "valor":"+ 5,00"
+            }
+         ]
+      }
+   ],
+   "bloqueado":false
+}

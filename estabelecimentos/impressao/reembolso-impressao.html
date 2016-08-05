@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2016 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/main.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/angular-pickadate.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <script src="//cdn.polyfill.io/v2/polyfill.min.js" async defer></script>
+  <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+  <!-- build:js(.) /portal/js/main-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/portal/js/bower_components/ngmap/build/scripts/ng-map.js"></script>
+  <script src="/portal/js/bower_components/chartist/dist/chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+  <script src="/portal/js/bower_components/lodash/dist/lodash.js"></script>
+  <script src="/portal/js/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+  <script src="/portal/js/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+  <script src="/portal/js/bower_components/pdfjs-dist/build/pdf.combined.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/ui-ec-app.js"></script>
+  <script src="/portal/app/UI-EC/js/vendas-resumo-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/antecipacao-reembolso-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/reembolso-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/contrato-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/estabelecimentos-modal-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/info-gerais-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/aceite-contrato-controller.js"></script>
+  <script src="/portal/app/UI-EC/js/dados-bancarios-qualif-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <script src='/portal/app/mock/ui-ec-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body ng-app="ui-ec-app" class="loading-pane">
+
+<!-- LOADING -->
+<section class="front-loading-wrapper">
+  <div class="front-loading-bar">
+    <section vr-loading-panel="true"></section>
+  </div>
+</section>
+
+<!-- Header Impressao -->
+<header class="header-print">
+  <div class="container">
+    <h1 class="brand">
+      <img src="/portal/img/logo.png" title="VR" alt="VR Benefícios">
+    </h1>
+  </div>
+</header>
+
+<div ng-controller="ReembolsoImpressaoController">
+  <div class="container">
+
+    <!-- Estrutura inicial para página de impressao de guia de reembolso -->
+    <section class="print-content">
+
+      <p class="text-gray">
+        Estabelecimentos > Reembolsos > Antecipação de reembolsos > Detalhe da guia
+      </p>
+
+      <h2 class="title">DETALHE DA GUIA</h2>
+
+      <hr class="hr">
+
+      <p class="text-gray">
+        Você visualiza os valores referentes às transações, taxas de serviços e tarifas da Guia selecionada.
+      </p>
+
+      <!-- Primeira linha de detalhes-->
+      <div class="row">
+        <div class="col-md-4">
+          <span class="text-gray">Número da Guia:</span>
+          <span ng-bind="searchDrillDownLevelOne.numero">000000000</span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">CNPJ:</span>
+          <span ng-bind="searchDrillDownLevelOne.cnpj | cnpjFilter">000.000.000/0000-00</span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">Contrato:</span>
+          <span ng-bind="searchDrillDownLevelOne.contrato">000000000</span>
+        </div>
+      </div>
+
+      <!-- Segunda linha de detalhes-->
+      <div class="row">
+        <div class="col-md-4">
+          <span class="text-gray">Data do corte:</span>
+          <span ng-bind="searchDrillDownLevelOne.dataCorte | date: 'dd/MM/yyyy'">07/01/2011</span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">Data do pagamento:</span>
+          <span ng-bind="searchDrillDownLevelOne.dataPagamento | date: 'dd/MM/yyyy'">07/01/2011</span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">Status:</span>
+          <span ng-bind="searchDrillDownLevelOne.status">Pagamento Confirmado</span>
+        </div>
+      </div>
+
+      <!-- Tabela com primeiro drilldown -->
+      <div class="row top-10">
+        <div class="col-md-12">
+          <table class="table">
+            <thead>
+            <tr>
+              <td>
+                <span class="text-gray">Descrição</span>
+              </td>
+              <td>
+                <span class="text-gray">Valor</span>
+              </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in searchDrillDownLevelOne.levelOneDetails">
+              <td ng-bind="item.descricao"></td>
+              <td ng-bind="item.valor | currency : 'R$ '"></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <!-- Valor líquido -->
+          <p class="alert panel-summary">
+            <span>VALOR LÍQUIDO</span>
+            <span class="pull-right"
+                      >R$780,00</span>
+          </p>
+
+        </div>
+
+      </div>
+
+    </section>
+    <!-- Fim primeiro Drilldown-->
+
+    <section class="print-content" ng-show="hasLevelTwo">
+      <p class="text-gray">
+        Estabelecimentos > Reembolsos > Antecipação de reembolsos > Detalhe das transações
+      </p>
+
+      <!-- Segundo nivel de drilldown -->
+      <div class="row top-10">
+        <div class="col-md-12">
+
+          <h2 class="title">Detalhes das Transações</h2>
+          <p class="text-gray">Aqui você visualiza as transações pertinentes a Guia de Faturamento selecionada.</p>
+
+          <!-- Tabela com segundo drilldown -->
+          <div class="row top-10">
+            <div class="col-md-12">
+              <table class="table">
+                <thead>
+                <tr>
+                  <td>
+                    <span class="text-gray">Data da transação</span>
+                  </td>
+                  <td>
+                    <span class="text-gray">Cartão benefício</span>
+                  </td>
+                  <td>
+                    <span class="text-gray">Autorização</span>
+                  </td>
+                  <td>
+                    <span class="text-gray">Valor</span>
+                  </td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="item in searchDrillDownLevelTwo.levelTwoDetails">
+                  <td ng-bind="item.dataTransacao | date: 'dd/MM/yyyy HH:mm'"></td>
+                  <td ng-bind="item.cartao | cardMask"></td>
+                  <td ng-bind="item.autorizacao"></td>
+                  <td ng-bind="item.valor | currency : 'R$ '"></td>
+                </tr>
+                </tbody>
+              </table>
+
+              <!-- Valor líquido -->
+              <p class="alert panel-summary">
+                <span>VALOR LÍQUIDO</span>
+                <span class="pull-right"
+                      ng-bind="searchDrillDownLevelOne.valorLiquido | currency : 'R$ '"></span>
+              </p>
+            </div>
+
+            <div vr-pagination page="transacoesPage" page-quantity="transacoesPageQuantity" page-limit="pageLimit"
+                 page-change-request="changeTransacoesPage"></div>
+
+          </div>
+
+        </div>
+      </div>
+      <!-- Fim segundo Drilldown-->
+
+    </section>
+
+  </div>
+
+</div>
+    <!-- Estrutura inicial para página de impressao de guia de reembolso -->
+
+</body>
+</html>

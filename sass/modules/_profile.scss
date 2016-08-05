@@ -1,0 +1,27 @@
+// Imagem de profile
+.profile-img {
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  margin-top: -7px;
+
+  img {
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+  }
+}
+
+.profile-button {
+  background: transparent !important;
+  color: #fff;
+  padding-left: 0;
+  padding-right: 0;
+  text-align: left;
+  white-space: normal;
+}
+
+.profile-name {
+  margin-left: 48px;
+}

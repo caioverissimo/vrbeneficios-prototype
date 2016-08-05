@@ -1,0 +1,48 @@
+<section class="modal-header">
+  <h3 class="h3 title text-uppercase">
+    CONTRATO {{contract.nome}}
+  </h3>
+</section>
+
+<section class="modal-body text-center">
+  <canvas id="contractCanvas"></canvas>
+</section>
+
+<section class="modal-footer">
+
+  <div class="row">
+    <div class="col-sm-12 text-left">
+      <div class="checkbox">
+        <input type="checkbox" ng-model="accepted" id="accepted-checkbox"
+               class="ng-pristine ng-untouched ng-valid">
+        <label class="text-primary" for="accepted-checkbox">
+          Li e concordo com as condições apresentadas.
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 text-center">
+      <button class="btn btn-default" ng-click="currentPage = currentPage - 1" ng-disabled="currentPage == 1">
+        <i class="fa fa-chevron-left"></i>
+      </button>
+      <span class="text-primary">Página {{currentPage}} / {{totalPages}}</span>
+      <button class="btn btn-default" ng-click="currentPage = currentPage + 1" ng-disabled="currentPage == totalPages">
+        <i class="fa fa-chevron-right"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="row top-10">
+    <div class="col-sm-12 text-center">
+      <button class="btn btn-default" ng-click="dontAccept()">
+        Voltar
+      </button>
+      <button class="btn btn-primary" ng-click="accept()" ng-disabled="!accepted">
+        Aceitar
+      </button>
+    </div>
+  </div>
+
+</section>

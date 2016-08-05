@@ -1,0 +1,322 @@
+<div ng-controller="RefundController">
+
+  <!-- Área de formulário de reembolso -->
+  <div class="row top-30">
+    <!-- Tabela Reembolso -->
+    <div class="col-sm-12">
+      <button class="btn btn-default pull-right" ng-click="downloadArquivoLayout()"><i class="fa fa-download"></i>
+        Layout do arquivo da guia
+      </button>
+      <p class="text-secundary top-10">CONSULTA DE REEMBOLSOS</p>
+
+      <!-- Separador -->
+      <hr class="hr">
+
+      <p class="text-gray form-group">Aqui você consulta o Extrato detalhado de Reembolsos com informações sobre
+        transações tarifadas, antecipações, descontos bancários, locações de equipamentos retidas, entre outras.
+        (Período Máximo de 180 dias).</p>
+
+      <p class="top-10 form-group">Preencha as opções que deseja consultar:</p>
+
+      <form class="top-10 row" name="searchrefund" novalidate vr-enter-key-form-interceptor="">
+
+        <div class="col-md-7">
+
+          <!-- Combo Produtos -->
+          <div class="col-md-4 form-group">
+            <label class="text-gray">Produto</label>
+            <select class="form-control" ng-model="produto" ng-options="item.id as item.nome for item in produtos">
+            </select>
+          </div>
+
+          <!-- Radio Pagos / Proximos -->
+          <div class="col-md-4 form-group form-inline-nolabel text-center padding-left-0 padding-right-0">
+            <div class="radio-inline form-group">
+              <input id="paid" type="radio" name="refundtype" ng-model="status" value="1"/>
+              <label for="paid">Pagos</label>
+            </div>
+            <div class="radio-inline form-group">
+              <input id="next" type="radio" name="refundtype" ng-model="status" value="2"/>
+              <label for="next">Próximos</label>
+            </div>
+          </div>
+
+          <!-- Combo Periodo-->
+          <div class="col-md-4 form-group">
+            <label class="text-gray">Período</label>
+            <select class="form-control" ng-model="periodo" ng-disabled="status == 2"
+                    ng-change="alterarPeriodo(periodo)">
+              <option ng-repeat="item in periodos" value="{{item.id}}">{{item.name}}</option>
+            </select>
+          </div>
+
+        </div>
+
+        <div class="col-md-1 text-center form-group form-inline-nolabel padding-left-0 padding-right-0">OU</div>
+
+        <div class="col-md-4">
+          <div class="col-xs-6 col-sm-4 form-group">
+            <label class="text-gray">De</label>
+            <input type="text" class="form-control" name="from"
+                   ng-disabled="periodo > 0 || status == 2" ng-model="from" ui-options="{clearOnBlur:false}"
+                   ui-mask="99/99/9999"/>
+          </div>
+          <div class="col-xs-6 col-sm-4 form-group">
+            <label class="text-gray">Até</label>
+            <input type="text" class="form-control" name="until"
+                   ng-disabled="periodo > 0 || status == 2" ng-model="until" ui-options="{clearOnBlur:false}"
+                   ui-mask="99/99/9999"/>
+          </div>
+          <div class="form-group col-xs-12 col-sm-4 form-inline-nolabel">
+            <button type="button" class="btn btn-default btn-block" ng-click="consultarGuias()">Buscar
+              <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!SEARCHING}"></i>
+            </button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+
+  <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+  <!-- Tabela de resultados -->
+  <div class="row top-10" ng-show="showSearchTable()">
+    <!-- Tabela Reembolso -->
+    <div class="col-sm-12">
+
+      <p class="text-secundary top-10">RESULTADO DA BUSCA</p>
+
+      <!-- Separador -->
+      <hr class="hr">
+
+      <p class="text-gray top-10">Escolha a guia para a qual deseja visualizar detalhes de faturamento.</p>
+
+      <!-- Tabela responsiva -->
+      <table class="table table-responsive">
+        <!-- Header -->
+        <thead class="table-header">
+        <tr>
+          <th>
+            <span class="text-secundary">Nº Guia</span>
+          </th>
+          <th>
+            <span class="text-secundary">CNPJ</span>
+          </th>
+          <th>
+            <span class="text-secundary">Contrato</span>
+          </th>
+          <th>
+            <span class="text-secundary">Status</span>
+          </th>
+          <th>
+            <span class="text-secundary">Corte *</span>
+          </th>
+          <th>
+            <span class="text-secundary">Pagamento *</span>
+          </th>
+          <th>
+            <span class="text-secundary">Valor bruto</span>
+          </th>
+          <th>
+            <span class="text-secundary">Valor líquido</span>
+          </th>
+          <th>
+            <span class="text-secundary">Download</span>
+          </th>
+        </tr>
+        </thead>
+        <!-- Corpo da table -->
+        <tbody>
+        <tr ng-repeat="item in searchResult">
+          <td>
+            <a href="javascript:void(0)" ng-click="drillDownLevelOne(item)" ng-bind="item.numero"></a>
+          </td>
+          <td ng-bind="item.cnpj | cnpjFilter"></td>
+          <td ng-bind="item.contrato"></td>
+          <td class="table-cell-long-text">
+            <span ng-bind="item.status" tooltip-placement="left" ng-show="hasTooltip(item.status)"
+                  uib-tooltip="{{item.status}}"></span>
+            <span ng-bind="item.status" ng-show="!hasTooltip(item.status)"></span>
+          </td>
+          <td ng-bind="item.dataCorte | date: 'dd/MM/yyyy'"></td>
+          <td ng-bind="item.dataPagamento | date: 'dd/MM/yyyy'"></td>
+          <td ng-bind="item.valorBruto | currency : 'R$ '"></td>
+          <td ng-bind="item.valorLiquido | currency : 'R$ '"></td>
+          <td>
+            <a href="javascript:void(0)" ng-click="downloadGuia(item)">Arquivo TXT</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+
+      <!-- Informação rodapé -->
+      <p class="alert alert-gray">
+        <small>* Data do corte - data limite de tarifação das transações processadas.</small>
+        <br>
+        <small>* Data de pagamento - data de geração da fatura de reembolso</small>
+      </p>
+
+      <div vr-pagination page="guiasPage" page-quantity="guiasPageQuantity" page-limit="pageLimit"
+           page-change-request="changeGuiasPage"></div>
+    </div>
+  </div>
+
+  <!-- Primeiro nivel de drilldown -->
+  <div class="row top-10" ng-show="showDrillDownLevelOne()">
+    <div class="col-md-12">
+
+      <button class="btn btn-default pull-right" ng-click="openPrintPage()">
+        <i class="fa fa-print"></i> Imprimir
+      </button>
+
+      <p class="text-secundary top-10">
+        <a class="top-10" href="javascript:void(0)" ng-click="zoomOut()">VOLTAR</a>
+      </p>
+
+      <!-- Separador -->
+      <hr class="hr">
+
+      <p class="text-gray">
+        Você visualiza os valores referentes às transações, taxas de serviços e tarifas da Guia selecionada.
+      </p>
+
+      <!-- Primeira linha de detalhes-->
+      <div class="row">
+        <div class="col-md-4">
+          <span class="text-gray">Número da Guia:</span>
+          <span ng-bind="searchDrillDownLevelOne.numero"></span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">CNPJ:</span>
+          <span ng-bind="searchDrillDownLevelOne.cnpj | cnpjFilter"></span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">Contrato:</span>
+          <span ng-bind="searchDrillDownLevelOne.contrato"></span>
+        </div>
+      </div>
+
+      <!-- Segunda linha de detalhes-->
+      <div class="row">
+        <div class="col-md-4">
+          <span class="text-gray">Data do corte:</span>
+          <span ng-bind="searchDrillDownLevelOne.dataCorte | date: 'dd/MM/yyyy'"></span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">Data do pagamento:</span>
+          <span ng-bind="searchDrillDownLevelOne.dataPagamento | date: 'dd/MM/yyyy'"></span>
+        </div>
+        <div class="col-md-4">
+          <span class="text-gray">Status:</span>
+          <span ng-bind="searchDrillDownLevelOne.status"></span>
+        </div>
+      </div>
+
+      <!-- Tabela com primeiro drilldown -->
+      <div class="row top-10">
+        <div class="col-md-12">
+          <table class="table">
+            <thead class="table-header">
+            <tr>
+              <td>
+                <span class="text-secundary">DESCRIÇÃO</span>
+              </td>
+              <td>
+                <span class="text-secundary">VALOR</span>
+              </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in searchDrillDownLevelOne.levelOneDetails">
+              <td ng-bind="item.descricao"></td>
+              <td ng-bind="item.valor | currency : 'R$ '"></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <!-- Valor líquido -->
+          <p class="alert alert-gray">
+            <span class="text-secundary">VALOR LÍQUIDO</span>
+            <span class="text-secundary pull-right"
+                  ng-bind="searchDrillDownLevelOne.valorLiquido | currency : 'R$ '"></span>
+          </p>
+
+        </div>
+
+        <div class="form-group col-sm-4 col-sm-offset-4 top-10 text-center">
+          <button type="button" class="btn btn-default btn-block"
+                  ng-click="drillDownLevelTwo(searchDrillDownLevelOne)">Detalhar Transações
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <!-- Fim primeiro Drilldown-->
+
+  <!-- Segundo nivel de drilldown -->
+  <div class="row top-10" ng-show="showDrillDownLevelTwo()">
+    <div class="col-md-12">
+
+      <button class="btn btn-default pull-right" ng-click="openPrintPage('transactions')" ng-show="hasTransactions">
+        <i class="fa fa-print"></i> Imprimir
+      </button>
+
+      <p class="text-secundary top-10">
+        <a class="top-10" href="javascript:void(0)" ng-click="zoomOut()">VOLTAR</a>
+      </p>
+
+      <!-- Separador -->
+      <hr class="hr">
+
+      <p class="text-secundary top-10">Detalhes das Transações:</p>
+      <p class="text-gray">Aqui você visualiza as transações pertinentes a Guia de Faturamento selecionada.</p>
+
+      <!-- Tabela com segundo drilldown -->
+      <div class="row top-10">
+        <div class="col-md-12">
+          <table class="table">
+            <thead class="table-header">
+            <tr>
+              <td>
+                <span class="text-secundary">DATA DA TRANSAÇÃO</span>
+              </td>
+              <td>
+                <span class="text-secundary">CARTÃO BENEFÍCIO</span>
+              </td>
+              <td>
+                <span class="text-secundary">AUTORIZAÇÃO</span>
+              </td>
+              <td>
+                <span class="text-secundary">VALOR</span>
+              </td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in searchDrillDownLevelTwo.levelTwoDetails">
+              <td ng-bind="item.dataTransacao | date: 'dd/MM/yyyy HH:mm'"></td>
+              <td ng-bind="item.cartao | cardMask"></td>
+              <td ng-bind="item.autorizacao"></td>
+              <td ng-bind="item.valor | currency : 'R$ '"></td>
+            </tr>
+            </tbody>
+          </table>
+
+          <!-- Valor líquido -->
+          <p class="alert alert-gray">
+            <span class="text-secundary">VALOR LÍQUIDO</span>
+            <span class="text-secundary pull-right"
+                  ng-bind="searchDrillDownLevelOne.valorLiquido | currency : 'R$ '"></span>
+          </p>
+        </div>
+
+        <div vr-pagination page="transacoesPage" page-quantity="transacoesPageQuantity" page-limit="pageLimit"
+             page-change-request="changeTransacoesPage"></div>
+
+      </div>
+
+    </div>
+  </div>
+  <!-- Fim segundo Drilldown-->
+</div>

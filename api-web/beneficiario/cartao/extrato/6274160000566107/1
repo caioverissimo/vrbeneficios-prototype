@@ -1,0 +1,28 @@
+{
+  "saldoDisponivel":"1.008,50",
+  "gastoMedio":"10,00",
+  "proximoBeneficio":null,
+  "paginaAtual":1,
+  "qtdPaginas":1,
+  "itensExtrato":[
+    {
+      "descricao":"27 de Junho",
+      "itensdetalhe":[
+        {
+          "descricao":"Gera??o Cr?dito Usu?rio -  ",
+          "aut":"10288127",
+          "valor":"+ 456,00"
+        }
+      ]
+    },
+    {
+      "descricao":"09 de Junho",
+      "itensdetalhe":[
+        {
+          "descricao":"Consumo Confirmado - FRANCISCO DANTAS DE  ",
+          "aut":"10207793","valor":"- 10,00"
+        }
+      ]
+    }
+  ]
+}

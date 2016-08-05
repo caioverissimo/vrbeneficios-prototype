@@ -1,0 +1,267 @@
+<!-- Fechar o modal -->
+<button class="btn btn-close" ng-click="cancel()">&times;</button>
+
+<!-- Estado awaiting -->
+<div ng-if="onstate == 'awaiting'">
+  <section class="modal-header">
+    <h3 class="h3 title">ALTERAR SENHA CARTÃO</h3>
+
+    <p class="lead">Siga as instruções abaixo para alterar a senha do cartão <span
+      class="text-secundary">Final {{activeCard.finalCartao}}</span>.</p>
+  </section>
+
+  <!-- Formulário de criação de número -->
+  <form class="form" name="cardPassword" vr-enter-key-form-interceptor="">
+    <section class="modal-body">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Número do cartão</label>
+            <input class="form-control" type="text" name="modal-card-number"
+                   ng-model="formAlterarSenha.numeroCartaoInformado"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999 9999 9999 9999" ui-placeholder required>
+
+            <div ng-messages class="error-messages" for="cardPassword['modal-card-number'].$error"
+                 ng-if="cardPassword['modal-card-number'].$dirty && cardPassword['modal-card-number'].$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe o número do cartão</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete o número do cartão</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Insira sua senha atual</label>
+            <input class="form-control" type="password" name="modal-card-oldpass" ng-model="formAlterarSenha.senhaAtual"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999" required>
+
+            <div ng-messages class="error-messages" for="cardPassword['modal-card-oldpass'].$error"
+                 ng-if="cardPassword['modal-card-oldpass'].$dirty && cardPassword['modal-card-oldpass'].$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe sua senha atual</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete sua senha atual</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Nova senha</label>
+            <input class="form-control" type="password" name="modal-card-newpass" ng-model="formAlterarSenha.novaSenha"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999" required>
+
+            <div ng-messages class="error-messages" for="cardPassword['modal-card-newpass'].$error"
+                 ng-if="cardPassword['modal-card-newpass'].$dirty && cardPassword['modal-card-newpass'].$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe uma nova senha</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete a nova senha</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Confirmar nova senha</label>
+            <input class="form-control" type="password" name="modal-card-newpass-confirmation"
+                   ng-model="formAlterarSenha.confirmarNovaSenha" compare-to="formAlterarSenha.novaSenha"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999" required>
+
+            <div ng-messages class="error-messages" for="cardPassword['modal-card-newpass-confirmation'].$error"
+                 ng-if="cardPassword['modal-card-newpass-confirmation'].$dirty && cardPassword['modal-card-newpass-confirmation'].$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe a confirmação da nova senha</p>
+              <p ng-message when="compareTo" class="text-right">A confirmação de senha está diferente.</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete a confirmação da nova senha</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="form-group">
+            <!-- A que vai para esqueci minha senha -->
+            <a href="" class="text-primary" ng-click="changeState('recover-password')">Esqueci minha senha</a>
+          </div>
+        </div>
+
+        <!-- Dicas -->
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-1">
+              <i class="icon icon-icon_dicas pull-left"></i>
+            </div>
+            <div class="col-sm-11 padding-left-0">
+              <span class="text-black">Dicas de senha:</span>
+              <ul class="text-gray padding-left-20">
+                <li>
+                  Crie uma senha com 4 dígitos (apenas números).
+                </li>
+                <li>
+                  Evite senhas com números repetidos e de fácil identificação como 1111, ou sua data de nascimento.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="col-sm-12">
+      <small class="text-gray">* Campos obrigatórios</small>
+      <hr class="hr"/>
+    </div>
+
+    <!-- Footer com botões -->
+    <section class="modal-footer" ng-if="onstate == 'awaiting'">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cancelar</button>
+      <button type="button" class="btn btn-default" ng-click="alterarSenha()"
+              ng-disabled="cardPassword.$invalid || LOADING ">
+        Confirmar alteração
+        <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!LOADING}"></i>
+      </button>
+    </section>
+  </form>
+</div>
+
+<!-- Estado recover-password -->
+<div ng-if="onstate == 'recover-password'">
+  <section class="modal-header">
+    <h3 class="h3 title">ALTERAR SENHA CARTÃO</h3>
+
+    <p class="lead">Siga as instruções abaixo para criar uma nova senha para o cartão <span
+      class="text-secundary">Final {{activeCard.finalCartao}}</span>.</p>
+  </section>
+
+  <!-- Formulário de criação de número -->
+  <form class="form" name="cardForgotPassword" vr-enter-key-form-interceptor="">
+    <section class="modal-body" ng-if="onstate == 'recover-password'">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="form-group">
+            <label class="text-gray">Confirmar número do cartão</label>
+            <input class="form-control" type="text" name="modal-card-number"
+                   ng-model="formEsqueciSenha.numeroCartaoInformado"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999 9999 9999 9999" ui-placeholder required>
+
+            <div ng-messages class="error-messages" for="cardForgotPassword['modal-card-number'].$error"
+                 ng-if="cardForgotPassword['modal-card-number'].$dirty && cardForgotPassword['modal-card-number'].$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe o número do cartão</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete o número do cartão</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">CPF</label>
+            <input class="form-control" type="text" name="modalcardcpf" ng-model="formEsqueciSenha.cpf" ui-placeholder
+                   ng-cpf
+                   ui-options="{clearOnBlur:false}" ui-mask="999.999.999-99" required>
+
+            <div ng-messages class="error-messages" for="cardForgotPassword.modalcardcpf.$error"
+                 ng-if="cardForgotPassword.modalcardcpf.$dirty && cardForgotPassword.modalcardcpf.$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe o CPF</p>
+              <p ng-message when="cpf" class="text-right text-danger">Por favor, digite um CPF válido</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Data de nascimento</label>
+            <input class="form-control" type="text" name="modalcardbirth" ng-model="formEsqueciSenha.dataNascimento"
+                   ui-options="{clearOnBlur:false}" ui-mask="99/99/9999" date-validation
+                   ui-placeholder required>
+
+            <div ng-messages class="error-messages" for="cardForgotPassword.modalcardbirth.$error"
+                 ng-if="cardForgotPassword.modalcardbirth.$dirty && cardForgotPassword.modalcardbirth.$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe uma sua data de nascimento</p>
+              <p ng-message when="dateValidation" class="text-right text-danger">Por favor, preencha uma data válida</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete sua data de nascimento</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Nova senha</label>
+            <input class="form-control" type="password" name="modal-card-newpass" ng-model="formEsqueciSenha.novaSenha"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999" required>
+
+            <div ng-messages class="error-messages" for="cardForgotPassword['modal-card-newpass'].$error"
+                 ng-if="cardForgotPassword['modal-card-newpass'].$dirty && cardForgotPassword['modal-card-newpass'].$touched">
+              <p ng-message when="minlength" class="text-right">A senha deve ter no mínimo 4 caracteres</p>
+              <p ng-message when="required" class="text-right">Por favor, informa uma nova senha</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete a nova senha</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label class="text-gray">Confirmar nova senha</label>
+            <input class="form-control" type="password" name="modalcardnewpassconfirmation"
+                   ng-model="formEsqueciSenha.confirmarNovaSenha" compare-to="formEsqueciSenha.novaSenha"
+                   ui-options="{clearOnBlur:false}" ui-mask="9999" required>
+
+            <div ng-messages class="error-messages" for="cardForgotPassword.modalcardnewpassconfirmation.$error"
+                 ng-if="cardForgotPassword.modalcardnewpassconfirmation.$dirty && cardForgotPassword.modalcardnewpassconfirmation.$touched">
+              <p ng-message when="required" class="text-right">Por favor, informe uma senha válida</p>
+              <p ng-message when="compareTo" class="text-right">A confirmação de senha está diferente</p>
+              <p ng-message when="mask" class="text-right">Por favor, complete a confirmação de senha</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dicas -->
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-1">
+              <i class="icon icon-icon_dicas pull-left"></i>
+            </div>
+            <div class="col-sm-11 padding-left-0">
+              <span class="text-black">Dicas de senha:</span>
+              <ul class="text-gray padding-left-20">
+                <li>
+                  Crie uma senha com 4 dígitos (apenas números).
+                </li>
+                <li>
+                  Evite senhas com números repetidos e de fácil identificação como 1111, ou sua data de nascimento.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Separador -->
+    <div class="col-sm-12">
+      <small class="text-gray">* Campos obrigatórios</small>
+      <hr class="hr"/>
+    </div>
+
+    <!-- Footer com botões -->
+    <section class="modal-footer" ng-if="onstate == 'recover-password'">
+      <button type="button" class="btn btn-default" ng-click="cancel()">Cancelar</button>
+      <button type="button" class="btn btn-default" ng-click="confirmarEsqueciSenha()"
+              ng-disabled="cardForgotPassword.$invalid || LOADING">
+        Confirmar alteração
+        <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!LOADING}"></i>
+      </button>
+    </section>
+  </form>
+</div>
+
+<!-- Estado success -->
+<div ng-if="onstate == 'success'">
+  <section class="modal-header">
+    <h3 class="h3 title">:)</h3>
+
+    <p class="lead">A senha do cartão <span
+      class="text-secundary">Final {{activeCard.finalCartao}}</span> foi alterada com sucesso!</p>
+  </section>
+</div>
+
+<!-- Estado error -->
+<div ng-if="onstate == 'error'">
+  <section class="modal-header" ng-if="onstate == 'error'">
+    <h3 class="h3 title">:(</h3>
+
+    <p class="lead">{{erroMessage}}</p>
+  </section>
+</div>
+
+<!-- Footer com botões -->
+<section class="modal-footer" ng-if="onstate == 'success' || onstate == 'error'">
+  <button type="button" class="btn btn-default" ng-click="ok()">Fechar e voltar</button>
+</section>

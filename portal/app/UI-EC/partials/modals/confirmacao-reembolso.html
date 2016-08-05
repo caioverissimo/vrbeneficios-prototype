@@ -1,0 +1,93 @@
+<section class="modal-header" ng-show="isInModal">
+  <h3 class="h3 title">Confirmar antecipação de reembolso</h3>
+</section>
+
+<section class="panel-body" ng-class="{'panel-modal':!isInModal}">
+
+  <form name="antecipacaodashboardconfirmation" novalidate vr-enter-key-form-interceptor="">
+
+    <p ng-hide="isInModal">Confirmar antecipação de reembolso</p>
+
+    <hr class="hr" ng-hide="isInModal">
+    <table class="table table-borders">
+      <!-- Primeira linha da table valor vendas -->
+      <tr>
+        <td>
+          <span class="text-gray">Valor Vendas</span>
+        </td>
+        <td ng-bind="data.valorBrutoTotal | currency : 'R$ '"></td>
+      </tr>
+      <!-- linha da descontos -->
+      <tr>
+        <td>
+          <span class="text-gray">Descontos</span>
+        </td>
+        <td nowrap ng-bind="data.valorTotalDescontos * -1 | currency : 'R$ '"></td>
+      </tr>
+      <!-- linha da table taxa -->
+      <tr>
+        <td>
+          <span class="text-gray">
+            Taxa {{data.taxaDiaEventual | currency : ""}}% a.d.
+            <br>
+            <small>
+              (Antecipação Eventual)
+            </small>
+          </span>
+        </td>
+        <td nowrap ng-bind="data.valorTarifa * -1 | currency : 'R$ '"></td>
+      </tr>
+      <!-- linha do total -->
+      <tr>
+        <td>
+          <span class="text-gray text-bold">Valor total da antecipação</span>
+        </td>
+        <td class="text-bold" nowrap ng-bind="data.valorLiquido | currency : 'R$ '"></td>
+      </tr>
+      <!-- linha checkbox antecipação automatica-->
+      <tr ng-if="data.status != 3">
+        <td colspan="2" ng-hide="isInModal">
+          <div class="checkbox text-left">
+            <input id="antecipacao-automatica-modal-1" type="checkbox"
+                   ng-model="antecipacaoAutomatica" ng-disabled="data.status == 1">
+            <label class="text-primary" for="antecipacao-automatica-modal-1">
+              Contrate Antecipação Automática
+            </label>
+            <br>
+            <small class="text-gray">
+              (Taxa {{data.taxaDiaAutomatica | currency : ""}}% a.d.)
+            </small>
+          </div>
+        </td>
+      </tr>
+    </table>
+    <div class="text-center" ng-hide="isInModal">
+      <button type="button" class="btn btn-default" ng-click="getExtraRefundDashboard('cancel')">Cancelar
+      </button>
+      <button type="button" class="btn btn-default" ng-click="getExtraRefundDashboard('confirm')">Confirmar
+      </button>
+    </div>
+  </form>
+</section>
+
+<section class="modal-footer" ng-show="isInModal">
+  <table class="table">
+    <tbody>
+    <tr>
+      <td ng-if="data.status != 3">
+        <div class="checkbox text-left">
+          <input id="antecipacao-automatica-modal-2" type="checkbox"
+                 ng-model="antecipacaoAutomatica" ng-disabled="data.status == 1">
+          <label class="text-primary" for="antecipacao-automatica-modal-2">Contrate Antecipação Automática</label>
+          <br>
+          <small class="text-gray">(Taxa {{data.taxaDiaAutomatica | currency : ""}}% a.d.)</small>
+        </div>
+      </td>
+      <td>
+        <button class="btn btn-default" ng-click="cancel()">Cancelar</button>
+        <button class="btn btn-default" ng-click="confirm()">Confirmar</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</section>

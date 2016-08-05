@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2016 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/home.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/full-slider.css">
+  <link rel="stylesheet" type="text/css" href="/portal/js/bower_components/animate.css/animate.min.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <!-- build:js(.) /portal/js/home-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+  <script src="/portal/app/UI-Comum/js/exibicao-midia-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body class="body" ng-app="ui-comum-app">
+
+<!-- Header -->
+<div ng-include="'/portal/app/mock/cabecalho-home.html'"></div>
+
+<!-- Primeiro carrousel -->
+<section id="homeCarousel" class="carousel" ng-controller="CarouselController">
+
+  <uib-carousel active="activeIndex" interval="interval">
+
+    <!-- Primeiro Slide: Bem Vindo! -->
+    <uib-slide>
+      <div class="item">
+        <div class="fill"></div>
+        <div class="home-content-wrapper-lg text-center">
+          <h2 class="text-white title">
+            <small>VR ESTABELECIMENTOS</small>
+            <br>
+            ANTECIPAÇÃO DE REEMBOLSOS
+          </h2>
+          <p class="text-white subTitle bottom-70 top-30">
+            AQUI VOCÊ TEM DINHEIRO RÁPIDO, 
+            <br>
+            SEM BUROCRACIA E COM AS MELHORES CONDIÇÕES
+          </p>
+          <div class="col-md-offset-3 col-md-6">
+            <a class="btn btn-primary btn-xg btn-block btn-long-text"
+               href="/comum/credenciamento-contato.html#/newcontact">
+              <i class="icon-icon_solicitar_contato icon pull-left"></i>
+              <b>Fale com a</b> VR Benefícios
+            </a>
+          </div>
+        </div>
+      </div>
+    </uib-slide>
+
+    <!-- Segundo slide: Empresas-->
+    <uib-slide>
+      <div class="item">
+        <div class="fill"></div>
+        <div class="home-content-wrapper-lg text-center">
+          <h2 class="text-white title">
+            <small>VR EMPRESAS</small>
+            <br>
+            OS MELHORES BENEFÍCIOS
+          </h2>
+
+          <p class="text-white subTitle bottom-70 top-30">
+            ECONOMIA PARA SUA EMPRESA,
+            <br>
+            PRATICIDADE PARA O RH
+            <br>
+            E MOTIVAÇÃO PARA SEUS FUNCIONÁRIOS
+          </p>
+
+          <div class="col-md-offset-3 col-md-6">
+            <a class="btn btn-primary btn-xg btn-block btn-long-text" href="/comum/rh-proposta.html">
+              <i class="icon-icon_solicitar_contato icon pull-left"></i>
+              <b>Solicite</b> uma proposta
+            </a>
+          </div>
+        </div>
+      </div>
+    </uib-slide>
+
+
+    <!-- Terceiro slide: Cross device... -->
+    <uib-slide>
+      <div class="item">
+        <div class="fill"></div>
+        <div class="home-content-wrapper-lg text-center">
+          <h2 class="text-white title">
+            INDIQUE SEU  ESTABELECIMENTO PREFERIDO
+          </h2>
+          <p class="text-white subTitle bottom-70 top-30">
+            PORQUE NA VR BENEFÍCIOS,
+            <br>
+              A REDE CREDENCIADA É SUA
+          </p>
+          <div class="col-md-offset-3 col-md-6">
+            <a class="btn btn-primary btn-xg btn-block btn-long-text" href="/comum/indique-estabelecimento.html">
+              <i class="icon icon-icon_experimente pull-left"></i>
+              <b>Clique aqui </b>e indique
+            </a>
+          </div>
+        </div>
+      </div>
+    </uib-slide>
+  </uib-carousel>
+
+</section>
+
+<!-- Botão de navegação -->
+<section class="navigator text-center" aria-ignore="true">
+  <a href="#produtos" du-smooth-scroll class="fa-stack fa-2x">
+    <i class="fa fa-circle fa-stack-2x"></i>
+    <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
+  </a>
+</section>
+
+
+<!-- Área de produtos -->
+<section id="produtos">
+  <div class="background-cover"></div>
+  <div class="background-radius"></div>
+  <div class="container">
+    <div class="col-sm-12 text-white">
+      <h3 class="subTitle">ADQUIRA AQUI OS</h3>
+      <h2 class="title">PRODUTOS VR</h2>
+    </div>
+    <div class="col-sm-9">
+      <p class="description">
+        Mais que produtos, oferecemos soluções em benefícios que levam praticidade, segurança, comodidade e atendimento
+        ágil às empresas, estabelecimentos e trabalhadores.
+      </p>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-7">
+        <div class="row">
+          <img src="/portal/img/home_products_card_1.png" class="img-block"/>
+          <img src="/portal/img/home_products_card_2.png" class="img-block"/>
+        </div>
+      </div>
+      <div class="col-md-5 top-80 text-center">
+        <img src="/portal/img/home_products_card_3.png" class="img-block"/>
+        <div class="cardtext description">
+          Venha para a VR Benefícios e conte com as melhores condições para todos os tamanhos de empresas.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Buttons de vídeo e experimente - v1.0 -->
+<article class="text-center buttons-section">
+  <section class="container">
+    <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 vr-col-no-padding">
+      <a class="btn btn-primary btn-xg btn-block" href="/comum/experimente.html">
+        <i class="icon-icon_experimente icon pull-left" aria-hidden="true"></i>
+        <span>Experimente</span>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-4 vr-col-no-padding" ng-controller="ExibicaoMidiaController">
+      <a class="btn btn-gray btn-xg btn-block text-white white-bordered" href="javascript:void(0)"
+         ng-click="openVideosModalAreaAberta('VIDEO_HOME_PRODUTO')">
+        <i class="icon-icon_video icon pull-left" aria-hidden="true"></i>
+        <span>Assista o vídeo</span>
+      </a>
+    </div>
+  </section>
+</article>
+
+
+<!-- Aba RH -->
+<section id="rh">
+  <!--  Container principal -->
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
+
+        <h2 class="title text-gray-brand">EMPRESAS</h2>
+
+        <div class="description text-gray-brand">
+          Ficaremos felizes em tê-lo com a gente na  VR Benefícios. Aqui a contratação é rápida,  a implantação
+          assistida por 90 dias e você vai realizar uma gestão 100% online que garante autonomia para sua empresa.
+        </div>
+      </div>
+      <div class="col-md-4">
+        <blockquote class="blockquote">
+          <p>Excelente o atendimento.  Nota 10 pra vocês!</p>
+          <footer>Júlio César</footer>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="content row text-center">
+      <div class="col-xs-12 col-md-4 text-center vr-product-stats">
+        <i class="icon-icon_presenca icon" aria-hidden="true"></i>
+        <hr class="separator">
+        <p class="subTitle top-30">
+          PRESENÇA <br> NACIONAL
+        </p>
+        <p class="bottom-0">
+          <span class="big-display text-inline">+230</span> <span class="small-display text-inline">mil</span>
+        </p>
+        <p class="small-display text-gray-brand">
+          estabelecimentos credenciados
+        </p>
+      </div>
+      <div class="col-xs-12 col-md-4 text-center vr-product-stats">
+        <i class="icon-icon_praticidade icon" aria-hidden="true"></i>
+        <hr class="separator">
+        <p class="subTitle top-30">
+          PRATICIDADE <br> GARANTIDA
+        </p>
+        <p class="big-display">
+          02
+        </p>
+        <p class="small-display">
+          dias de prazo para  <br> crédito no cartão
+        </p>
+      </div>
+
+      <div class="col-xs-12 col-md-4 text-center vr-product-stats">
+        <i class="icon-icon_condicoes icon" aria-hidden="true"></i>
+        <hr class="separator">
+        <p class="subTitle top-30">
+          MELHORES CONDIÇÕES COMERCIAIS
+        </p>
+        <p class="big-display">
+          $$
+        </p>
+        <p class="small-display">
+          menores tarifas <br> do mercado
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Buttons de vídeo e experimente + SPECIAL que faz a transparencia e posicionamento - v1.0 -->
+  <article class="text-center buttons-section special">
+    <!-- Container -->
+    <section class="container">
+      <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-2 vr-col-no-padding">
+        <a class="btn btn-primary btn-xg btn-block" href="/comum/experimente.html">
+          <i class="icon-icon_experimente icon pull-left" aria-hidden="true"></i>
+          <span>Experimente</span>
+        </a>
+      </div>
+      <div class="col-xs-12 col-sm-6 col-md-4 vr-col-no-padding" ng-controller="ExibicaoMidiaController">
+        <a class="btn btn-gray btn-xg btn-block text-white" href="javascript:void(0)"
+           ng-click="openVideosModalAreaAberta('VIDEO_HOME_EC')">
+          <i class="icon-icon_video icon pull-left" aria-hidden="true"></i>
+          <span>Assista o vídeo</span>
+        </a>
+      </div>
+    </section>
+  </article>
+</section>
+
+<!-- Aba Estabelecimento -->
+<section id="ec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="title text-gray-brand">
+          ESTABELECIMENTOS
+        </h2>
+        <div class="row">
+          <p class="description text-gray-brand col-sm-8">
+            Faça parte da Rede que mais cresce no Brasil e responda SIM à pergunta mais feita pelos consumidores: ACEITA
+            VR? 
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-7 text-center">
+        <div class="media top-30 vr-product-benefits">
+          <div class="media-left">
+            <i class="icon-icon_vendas icon" aria-hidden="true"></i>
+          </div>
+          <div class="media-body text-left">
+            <h4 class="media-heading subTitle">AUMENTE SUAS VENDAS</h4>
+            <p class="small-display text-gray">
+              Faça parte da Rede que mais conquista novos clientes.
+            </p>
+          </div>
+        </div>
+        <div class="media top-30 vr-product-benefits">
+          <div class="media-left">
+            <i class="icon-icon_controle icon" aria-hidden="true"></i>
+          </div>
+          <div class="media-body text-left">
+            <h4 class="media-heading subTitle">CONTROLE 100% ONLINE</h4>
+            <p class="small-display text-gray">
+              Vendas detalhadas e reembolso na data que você deseja.
+            </p>
+          </div>
+        </div>
+        <div class="media top-30 vr-product-benefits">
+          <div class="media-left">
+            <i class="icon-icon_reembolso icon" aria-hidden="true"></i>
+          </div>
+          <div class="media-body text-left">
+            <h4 class="media-heading subTitle">REEMBOLSO EM 24H</h4>
+            <p class="small-display text-gray">
+              Solicite a antecipação do seu reembolso e receba no dia seguinte.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-7 col-sm-offset-0 col-md-4 col-md-offset-1">
+        <p class="download-app-text top-10">FAÇA O DOWNLOAD DO<br> APP VR ESTABELECIMENTOS</p>
+        <a class="top-10 text-inline download-vr-app-icon" target="_blank"
+           href="https://itunes.apple.com/br/developer/vr-beneficios-e-servicos-processamento/id649491508">
+          <i class="icon icon-icon_apple"></i>
+        </a>
+        <br>
+        <a class="top-10 text-inline download-vr-app-icon" target="_blank"
+           href="https://play.google.com/store/apps/developer?id=VR+Benef%C3%ADcios">
+          <i class="icon icon-icon_google"></i>
+        </a>
+        <div class="row top-80">
+          <div class="col-xs-12 col-sm-8 col-md-12">
+            <a class="btn btn-primary btn-xg btn-block" href="/comum/experimente.html">
+              <i class="icon-icon_experimente icon pull-left" aria-hidden="true"></i>
+              <span>Experimente</span>
+            </a>
+          </div>
+        </div>
+        <div class="row top-10">
+          <div class="col-xs-12 col-sm-8 col-md-12" ng-controller="ExibicaoMidiaController">
+            <a class="btn btn-gray btn-xg btn-block text-white top-10" href="javascript:void(0)"
+               ng-click="openVideosModalAreaAberta('VIDEO_HOME_RH')">
+              <i class="icon-icon_video icon pull-left" aria-hidden="true"></i>
+              <span>Assista o vídeo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <article class="text-center buttons-section special">
+
+    <!-- ALteração - novo texto -->
+
+    <!-- Container -->
+    <section class="container">
+      <div class="col-md-10 col-md-offset-1">
+        <p class="text-center description text-gray-brand">
+          Faça parte da Rede Credenciada VR Benefícios, a empresa que é sinônimo da categoria. Aceite os cartões VR
+          Refeição, VR Alimentação, VR Auto e VR Cultura.
+        </p>
+      </div>
+
+      <div class="col-md-5 col-md-offset-1">
+        <a type="button" class="btn btn-primary btn-xg btn-block btn-long-text"
+           href="/comum/credenciamento-contato.html#newcredential">
+          <i class="icon-icon_novo_credenciamento icon pull-left" aria-hidden="true"></i>
+          <b>Faça seu</b> credenciamento
+        </a>
+      </div>
+      <div class="col-md-5">
+        <a type="button" class="btn btn-gray btn-xg btn-block text-white btn-long-text"
+           href="/comum/credenciamento-contato.html#newcontact">
+          <i class="icon-icon_solicitar_contato icon pull-left" aria-hidden="true"></i>
+          <b>Solicitar</b> contato
+        </a>
+      </div>
+    </section>
+  </article>
+</section>
+
+<!-- Aba VR e Você -->
+<section id="vc">
+  <div class="container">
+    <div class="row">
+      <!-- Texto na esquerda -->
+      <div class="col-xs-12 col-sm-7 col-lg-7">
+        <h2 class="title text-white">VOCÊ</h2>
+
+        <h3 class="subTitle text-white">TODOS OS BENEFÍCIOS NA PALMA DA SUA MÃO, QUANDO QUISER.</h3>
+
+        <p class="description top-30">
+          Simplificamos e unificamos o acesso ao site e app com um cadastro único. Consulte seu saldo e extrato, data e
+          valor do próximo crédito, estabelecimentos e altere a senha do cartão a qualquer hora, em qualquer tela.
+        </p>
+
+        <div class="row top-10">
+          <div class="col-xs-12 col-sm-8 col-md-7">
+            <a class="btn btn-primary btn-xg btn-block" href="/comum/experimente.html">
+              <i class="icon-icon_experimente icon pull-left" aria-hidden="true"></i>
+              <span>Experimente</span>
+            </a>
+          </div>
+        </div>
+        <div class="row top-10">
+          <div class="col-xs-12 col-sm-8 col-md-7" ng-controller="ExibicaoMidiaController">
+            <a class="btn btn-gray btn-xg btn-block text-white top-10" href="javascript:void(0)"
+               ng-click="openVideosModalAreaAberta('VIDEO_HOME_BENEFICIARIO')">
+              <i class="icon-icon_video icon pull-left" aria-hidden="true"></i>
+              <span>Assista o vídeo</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quadrado na lateral -->
+      <div class="col-xs-12 col-sm-5 col-lg-5 vr-product-indication">
+        <div class="indication text-center">
+
+          <div class="icon-localization-positioning z-index-gt position-relative">
+            <i class="icon-icon_pin center-block"></i>
+          </div>
+
+          <p class="indication-city-text text-white z-index-gt position-relative bottom-10">
+            <span class="text-block">SÃO PAULO</span>
+          </p>
+
+          <hr class="separator z-index-gt position-relative top-0">
+
+          <p class="text-white big-display z-index-gt position-relative">
+            +27mil
+          </p>
+
+          <p class="text-white small-display z-index-gt position-relative">
+            ESTABELECIMENTOS
+            <br>
+            CREDENCIADOS
+          </p>
+
+          <a
+            class="btn btn-gray btn-xg btn-block text-white white-bordered z-index-gt position-relative top-50 btn-long-text"
+            href="/comum/indique-estabelecimento.html">
+            <b>Indique um</b> estabelecimento
+          </a>
+
+          <div class="indication-background z-index-lt"></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DOWNLOAD -->
+    <div class="row top-10">
+      <div class="col-md-offset-5 col-md-3">
+        <p class="text-inline pull-right text-white download-app-text">
+          FAÇA O DOWNLOAD<br> DO APP VR E VOCÊ
+        </p>
+      </div>
+      <div class="col-md-4">
+        <a class="text-inline top-10 download-vr-app-icon" target="_blank"
+           href="https://itunes.apple.com/br/app/vr-e-voce/id667577139?mt=8">
+          <i class="icon icon-icon_apple"></i>
+        </a>
+        <a class="text-inline top-10 download-vr-app-icon" target="_blank"
+           href="https://play.google.com/store/apps/details?id=ws.hanzo.Vrrh">
+          <i class="icon icon-icon_google"></i>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Aba dos testimonials -->
+<section id="ratingCarousel" class="carousel vr-rating-carousel" ng-controller="CarouselController">
+
+  <uib-carousel active="activeIndex" interval="interval">
+
+    <!-- primeiro slide -->
+    <uib-slide>
+      <div class="item active">
+        <!-- Imagem de fundo -->
+        <div class="fill vr-rating-fill"></div>
+        <div class="rating-content-wrapper text-center">
+          <!-- Container da imagem -->
+          <div class="rating-user-image-wrapper">
+            <!-- Mesma imagem que foi usada no fundo -->
+            <img src="/portal/img/rating_carousel_1.jpg" alt="Imagem do usuário" class="rating-user-image">
+          </div>
+          <!-- Quote do usuário -->
+          <blockquote class="blockquote rating-blockquote">
+            <!-- Texto -->
+            <p>
+              Gostaria de agradecer o excelente trabalho que a VR Benefícios vem desenvolvendo junto a nossa empresa. O
+              atendimento é algo primordial, realizado sempre de maneira rápida e eficaz.
+            </p>
+            <!-- Assinatura -->
+            <footer>
+              Ana Paula Vale
+              <br>
+              Analista de Recursos Humanos Prontocord
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </uib-slide>
+
+    <!-- segundo slide -->
+    <uib-slide>
+      <div class="item active">
+        <!-- Imagem de fundo -->
+        <div class="fill"></div>
+        <div class="rating-content-wrapper text-center">
+          <!-- Container da imagem -->
+          <div class="rating-user-image-wrapper">
+            <!-- Mesma imagem que foi usada no fundo -->
+            <img src="/portal/img/rating_carousel_2.jpg" alt="Imagem do usuário" class="rating-user-image">
+          </div>
+          <!-- Quote do usuário -->
+          <blockquote class="blockquote rating-blockquote">
+            <!-- Texto -->
+            <p>
+              Gostaria de externar nossa satisfação com a VR. Foi uma transição sem problemas. Ficamos felizes por ter
+              escolhido uma parceira que realmente se preocupa em dar o melhor atendimento.
+            </p>
+            <!-- Assinatura -->
+            <footer>
+              Márcio Lorenzi
+              <br>
+              Gerente de Recursos Humanos Grupo Fallgatter
+            </footer>
+          </blockquote>
+        </div>
+      </div>
+    </uib-slide>
+
+  </uib-carousel>
+
+</section>
+
+<!-- Botão de navegação -->
+<section class="navigator text-center" aria-ignore="true">
+  <a href="#homeCarousel" du-smooth-scroll class="fa-stack fa-2x">
+    <i class="fa fa-circle fa-stack-2x"></i>
+    <i class="fa fa-angle-up fa-stack-1x fa-inverse"></i>
+  </a>
+</section>
+
+<!-- Footer -->
+<div ng-include="'/portal/app/mock/rodape.html'"></div>
+
+</body>
+</html>

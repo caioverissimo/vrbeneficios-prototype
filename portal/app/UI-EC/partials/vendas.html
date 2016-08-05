@@ -1,0 +1,93 @@
+<section class="row">
+  <div class="col-md-12">
+    <nav class="navbar navbar-default panel-navbar">
+
+      <!-- Seleção de datas -->
+      <form class="navbar-form navbar-left" vr-enter-key-form-interceptor="">
+
+        <!-- Dropdown data início -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+            <span ng-bind="dateStartLabel"></span>&nbsp;<i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-menu pickadate-dropdown-menu" ng-click="setStartDate(); $event.stopPropagation()">
+            <div pickadate ng-model="dateStart" format="dd/mm/yyyy"></div>
+          </div>
+        </div>
+
+        <span class="text-secundary">&nbsp;à&nbsp;</span>
+
+        <!-- Dropdown data fim -->
+        <div class="btn-group">
+          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" ng-disabled="!dateStart">
+            <span ng-bind="dateEndLabel"></span>&nbsp;<i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-menu pickadate-dropdown-menu" ng-click="setEndDate(); $event.stopPropagation()">
+            <div pickadate ng-model="dateEnd" min-date="dateStart" format="dd/mm/yyyy"></div>
+          </div>
+        </div>
+
+        <!-- Botão de busca -->
+        <button class="btn btn-default" ng-click="doSearch()" ng-disabled="!dateEnd">
+          OK
+        </button>
+
+      </form>
+
+      <!-- Botões de ação -->
+      <form class="navbar-form navbar-right" vr-enter-key-form-interceptor="">
+        <button type="button" class="btn btn-default btn-sm" ng-click="downloadLayoytArquivoTXT()" ng-disabled="!dateEnd">
+          <i class="fa fa-download"></i> Layout do arquivo TXT
+        </button>
+        <button type="button" class="btn btn-default btn-sm" ng-click="downloadTxtDasTransacacoes()" ng-disabled="!dateEnd">
+          <i class="fa fa-download"></i> TXT das transações
+        </button>
+        <button type="button" class="btn btn-default btn-sm" ng-disabled="!dateEnd" ng-click="openPrintPage()" ng-show="hasContent()">
+          <i class="fa fa-print"></i> Imprimir
+        </button>
+      </form>
+
+    </nav>
+
+    <div class="row">
+      <div class="col-sm-12">
+        <hr class="hr">
+      </div>
+    </div>
+
+    <!-- conteúdo dinâmico -->
+    <div ng-show="hasContent()">
+      <table class="table table-responsive">
+        <thead>
+        <tr>
+          <th>Cartão</th>
+          <th>Aut</th>
+          <th>Data</th>
+          <th>Horário</th>
+          <th>Valor</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in data">
+          <td ng-bind="item.cartao | cardMask"></td>
+          <td ng-bind="item.aut"></td>
+          <td ng-bind="item.data | date : 'dd/MM/yyyy'"></td>
+          <td ng-bind="item.data | date : 'HH:mm'"></td>
+          <td ng-bind="item.valor | currency : 'R$ '"></td>
+        </tr>
+        </tbody>
+      </table>
+
+      <nav class="text-center">
+        <div vr-pagination page="pagina" page-quantity="pageQuantity" page-limit="pageLimit"
+          page-change-request="changePage"></div>
+      </nav>
+
+      <section class="bottom-bar">
+        TOTAL
+        <div class="pull-right" ng-bind="getTotal() | currency : 'R$ '"></div>
+      </section>
+    </div>
+
+  </div>
+</section>

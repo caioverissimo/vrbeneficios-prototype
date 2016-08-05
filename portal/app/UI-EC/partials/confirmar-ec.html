@@ -1,0 +1,98 @@
+<section class="panel-body">
+
+  <form class="form row" name="confirmacaoestabelecimentos" novalidate ng-controller="confirmarECController"
+        vr-enter-key-form-interceptor="">
+
+    <div vr-alert="error.message" ng-if="error.message" vr-alert-type="'danger'"></div>
+
+    <div class="col-sm-8 row">
+      <div class="vr-item-list-checked" ng-repeat="establishment in establishments">
+        <!-- Mensagens de feedback -->
+        <div vr-alert="'Estabelecimento adicionado com sucesso.'" ng-if="establishment.message"></div>
+        <div class="form-group col-sm-5">
+          <label class="form-label-gray">
+            CNPJ
+          </label>
+          <input type="text" ng-disabled="true" placeholder="Digite seu CNPJ" name="CNPJ-{{$index}}"
+                 class="form-control"
+                 ng-model="establishment.CNPJ" ui-options="{clearOnBlur:false}" ui-mask="99.999.999/9999-99"
+                 ui-mask-placeholder
+                 ui-mask-placeholder-char="_" ng-cnpj required>
+          <div ng-messages class="error-messages" for="confirmacaoestabelecimentos['CNPJ-' + $index].$error"
+               ng-if="confirmacaoestabelecimentos['CNPJ-' + $index].$dirty && confirmacaoestabelecimentos['CNPJ-' + $index].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CNPJ</p>
+            <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CNPJ</p>
+            <p ng-message when="cnpj" class="text-right text-danger">Por favor, digite um CNPJ válido</p>
+          </div>
+        </div>
+        <div class="form-group col-sm-5">
+          <label class="form-label-gray">
+            Filiação
+          </label>
+          <input type="text" ng-disabled="true" name="filiacao-{{$index}}" class="form-control"
+                 ng-model="establishment.filiacao" required>
+          <div ng-messages class="error-messages" for="confirmacaoestabelecimentos['filiacao-' + $index].$error"
+               ng-if="confirmacaoestabelecimentos['filiacao-' + $index].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe a filiação</p>
+          </div>
+        </div>
+        <div class="form-group col-sm-2">
+          <i class="fa-check fa-2x"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-sm-8 row">
+      <!-- current input -->
+      <div class="form-group col-sm-5">
+        <label class="form-label-gray">
+          CNPJ
+        </label>
+        <input type="text" placeholder="Digite seu CNPJ" name="CNPJcurrent" class="form-control"
+               ng-model="currentCNPJ" ui-mask="99.999.999/9999-99" ui-mask-placeholder
+               ui-mask-placeholder-char="_" ng-cnpj required>
+        <div ng-messages class="error-messages" for="confirmacaoestabelecimentos['CNPJcurrent'].$error"
+             ng-if="confirmacaoestabelecimentos['CNPJcurrent'].$dirty && confirmacaoestabelecimentos['CNPJcurrent'].$touched">
+          <p ng-message when="required" ng-show="confirmacaoestabelecimentos.CNPJcurrent.$error.required"
+             class="text-right">Por favor, informe o CNPJ</p>
+          <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CNPJ</p>
+          <p ng-message when="cnpj" class="text-right text-danger">Por favor, digite um CNPJ válido</p>
+        </div>
+      </div>
+      <div class="form-group col-sm-5">
+        <label class="form-label-gray">
+          Filiação
+        </label>
+        <input type="text" placeholder="Digite sua filiação" name="filiacao-current" class="form-control"
+               ng-model="currentFiliacao" maxlength="20" required>
+        <div ng-messages class="error-messages" for="confirmacaoestabelecimentos['filiacao-current'].$error"
+             ng-if="confirmacaoestabelecimentos['filiacao-current'].$dirty">
+          <p ng-message when="required" class="text-right">Por favor, informe a filiação</p>
+        </div>
+      </div>
+      <!-- current input -->
+    </div>
+
+
+    <div class="col-sm-8 row">
+
+      <div class="form-group col-sm-12 top-10">
+        <button type="button" ng-disabled="confirmacaoestabelecimentos.$invalid" class="btn btn-default"
+                ng-click="addFields()">Adicionar um estabelecimento
+        </button>
+      </div>
+    </div>
+
+    <!-- Separador -->
+    <div class="col-sm-12">
+      <small class="text-gray">* Campos obrigatórios</small>
+      <hr class="hr"/>
+    </div>
+
+    <div class="form-group col-sm-4 col-sm-offset-4 top-10 text-center" ng-if="showButtonGoToDashboard">
+      <button class="btn btn-default active"
+              ng-click="Navigation.setLocation('/estabelecimentos/dashboard.html', hasEstablishment)">Ir para dashboard
+      </button>
+    </div>
+  </form>
+</section>

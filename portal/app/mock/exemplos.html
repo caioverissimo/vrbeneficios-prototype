@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2015 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/full-slider.css">
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <![endif]-->
+
+  <!-- Vendor -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body class="body" ng-app="ui-comum-app">
+
+<main class="container main-content">
+  <div class="row">
+    <article class="col-sm-10 col-sm-offset-1">
+
+      <!-- Título da pagina -->
+      <h2 class="subTitle text-gray-brand">Diretiva vr-alert:</h2>
+
+      <!-- Linha separadora -->
+      <hr class="hr-sm">
+
+      <!--Diretiva vr-alert com texto simples-->
+      <div class="row">
+        <div class="col-md-4">
+          <p>Diretiva vr-alert com texto simples:</p>
+        </div>
+        <div class="col-md-8">
+          <div vr-alert="'Texto simples'"></div>
+        </div>
+      </div>
+
+      <!-- Linha separadora -->
+      <hr class="hr">
+
+      <!--Diretiva vr-alert com template url-->
+      <div class="row top-80">
+        <div class="col-md-4">
+          <p>Diretiva vr-alert com template html customizado via url vr-alert-type="warning":</p>
+        </div>
+        <div class="col-md-8">
+          <div vr-alert="true" template-url="/portal/app/mock/outro-exemplo-template-vr-alert.html"
+               vr-alert-type="'warning'"></div>
+        </div>
+      </div>
+
+      <!-- Linha separadora -->
+      <hr class="hr">
+
+      <!--Diretiva vr-alert-->
+      <div class="row top-80">
+        <div class="col-md-4">
+          <p>Diretiva vr-alert com template html customizado inline e vr-alert-type="danger":</p>
+        </div>
+        <div class="col-md-8">
+          <div vr-alert="true"
+               vr-alert-type="'danger'"
+               template-inline="<strong>Texto marcado</strong>, <a href='http://www.google.com'>link</a>, texto simples e ícone: <i class='fa fa-rocket'></i> <p>Múltiplas linhas: <br> Primeira linha. <br> Segunda linha. </p>"></div>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <div class="row top-80" ng-controller="ExemploTutorialController">
+    <article class="col-sm-10 col-sm-offset-1">
+
+      <!-- Título da pagina -->
+      <h2 class="subTitle text-gray-brand" id="tutorial2">Tutorial</h2>
+
+      <!-- Linha separadora -->
+      <hr class="hr-sm">
+
+      <!--Avatar de beneficiário-->
+      <div class="row">
+        <div class="col-md-4" id="tutorial3">
+          <p id="tutorial1">
+            Tutorial fluido powered by
+            <a href="http://daftmonk.github.io/angular-tour/" target="_blank">Angular Tour</a>
+          </p>
+        </div>
+        <div class="col-md-8">
+          <tour step="currentStep">
+            <virtual-step tourtip-step="1"
+                          tourtip="true"
+                          tourtip-placement="left"
+                          tourtip-offset-horizontal="30"
+                          on-show="markElement('#tutorial1')"
+                          tourtip-element="#tutorial1"/>
+            <virtual-step tourtip-step="2"
+                          tourtip="true"
+                          tourtip-placement="bottom"
+                          tourtip-offset-vertical="-20"
+                          on-show="markElement('#tutorial2')"
+                          tourtip-element="#tutorial2"/>
+            <virtual-step tourtip-step="3"
+                          tourtip="true"
+                          tourtip-placement="right"
+                          tourtip-offset-horizontal="-35"
+                          on-show="markElement('#tutorial3')"
+                          tourtip-element="#tutorial3"/>
+
+            <button class="btn btn-primary" ng-click="iniciarTutorial();openTour();">
+              Iniciar Tutorial
+            </button>
+          </tour>
+
+          <script id="tour/tour.tpl.html" type="text/ng-template">
+            <div class="tour-tip">
+              <span class="tour-arrow tt-{{ ttPlacement }}" ng-hide="centered"></span>
+              <div class="tour-content-wrapper">
+                <h2 ng-bind="stepContent[currentStep - 1].title"></h2>
+
+                <ul ng-if="stepContent[currentStep - 1].items.length > 1">
+                  <li ng-repeat="item in stepContent[currentStep - 1].items" ng-bind="item"></li>
+                </ul>
+
+                <p ng-if="stepContent[currentStep - 1].items.length === 1"
+                   ng-bind="stepContent[currentStep - 1].items[0]"></p>
+
+                <div class="text-center">
+                  <i class="fa fa-circle" ng-repeat="indicator in stepContent"
+                     ng-class="{ 'tour-indicator-inactive': $index !== (currentStep - 1) }"></i>
+                </div>
+
+                <a ng-click="proceed()" class="btn btn-primary btn-block">
+                  <span ng-show="currentStep < stepContent.length">Próximo</span>
+                  <span ng-show="currentStep === stepContent.length">Começar agora!</span>
+                </a>
+
+                <a ng-click="closeTour()" class="btn btn-default btn-block" ng-show="currentStep < stepContent.length">
+                  <span>Pular apresentação</span>
+                </a>
+              </div>
+            </div>
+          </script>
+
+        </div>
+      </div>
+
+    </article>
+
+  </div>
+
+  <div class="row top-80">
+    <article class="col-sm-10 col-sm-offset-1">
+      <h2 class="subTitle text-gray-brand">Filtros</h2>
+
+      <hr class="hr-sm">
+
+      <!-- dateSlashFilter  -->
+      <div class="row">
+        <div class="col-md-4">1/1/1980 | dateSlashFilter</div>
+        <div class="col-md-8"> {{"1/1/1980" | dateSlashFilter}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">01/01/1980 | dateSlashFilter</div>
+        <div class="col-md-8"> {{"01/01/1980" | dateSlashFilter}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">10/10/1980 | dateSlashFilter</div>
+        <div class="col-md-8"> {{"10/10/1980" | dateSlashFilter}}</div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">10101980 | dateSlashFilter:true</div>
+        <div class="col-md-8"> {{"10101980" | dateSlashFilter:true}}</div>
+      </div>
+    </article>
+
+  </div>
+
+  <div class="row top-80">
+    <article class="col-sm-10 col-sm-offset-1">
+
+      <!-- Título da pagina -->
+      <h2 class="subTitle text-gray-brand">ng-include</h2>
+
+      <!-- Linha separadora -->
+      <hr class="hr-sm">
+
+      <!--Partial #1 -->
+      <div class="row">
+        <div class="col-md-4">
+          <p>ng-include dentro de um div (recomendado):</p>
+        </div>
+        <div class="col-md-8">
+          <div ng-include="'/portal/app/mock/hello-partial.html'"></div>
+        </div>
+      </div>
+
+
+      <!--Partial #2 -->
+      <div class="row">
+        <div class="col-md-4">
+          <p>ng-include como elemento:</p>
+        </div>
+        <div class="col-md-8">
+          <ng-include src="'/portal/app/mock/hello-partial.html'"/>
+        </div>
+      </div>
+
+      <!--Partial #3 -->
+      <div class="row">
+        <div class="col-md-4">
+          <p>ng-include como classe (não recomendado):</p>
+        </div>
+        <div class="col-md-8">
+          <div class="ng-include: '/portal/app/mock/hello-partial.html'"></div>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+  <div class="row top-80">
+    <article class="col-sm-10 col-sm-offset-1">
+      <h2 class="subTitle text-gray-brand">Propagação de mudanças com ng-change</h2>
+
+      <hr class="hr-sm">
+      <form name="testForm">
+        <div class="row">
+          <div class="col-md-4">inputTest: {{ inputTest }}</div>
+          <div class="col-md-4">
+            <input type="text" ng-model="inputTest" name="inputTest"
+                   ng-change="propagateInputChange('input[name=inputTest]', inputTest)"/>
+          </div>
+          <div class="col-md-4">
+            Aqui tem um input hidden.
+            <input type="hidden" name="inputTest"/>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">dateInputTest: {{ dateInputTest }}</div>
+          <div class="col-md-4">
+            <input type="text" ng-model="dateInputTest" name="dateInputTest" ui-mask="99/99/9999"
+                   ng-change="propagateInputChange('input[name=dateInputTest]', dateInputTest, 'dateSlashFilter:true')"/>
+          </div>
+          <div class="col-md-4">
+            Aqui tem um input hidden.
+            <input type="hidden" name="dateInputTest"/>
+          </div>
+        </div>
+      </form>
+    </article>
+
+  </div>
+
+  <div class="row top-80">
+    <article class="col-sm-10 col-sm-offset-1">
+
+      <!-- Título da pagina -->
+      <h2 class="subTitle text-gray-brand">Avatares</h2>
+
+      <!-- Linha separadora -->
+      <hr class="hr-sm">
+
+      <!--Avatar de beneficiário-->
+      <div class="row">
+        <div class="col-md-4">
+          <p>Avatar beneficiário, classe 'icon-icon_avatar_beneficiario'</p>
+        </div>
+        <div class="col-md-8">
+          <div class="icon icon-icon_avatar_beneficiario"></div>
+        </div>
+      </div>
+
+
+      <!--Avatar de beneficiário-->
+      <div class="row top-30">
+        <div class="col-md-4">
+          <p>Avatar ec, classe 'icon-icon_avatar_ec'</p>
+        </div>
+        <div class="col-md-8">
+          <div class="icon icon-icon_avatar_ec"></div>
+        </div>
+      </div>
+
+    </article>
+  </div>
+
+
+</main>
+
+</body>
+</html>
+
+
+
+

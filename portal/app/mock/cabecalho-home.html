@@ -1,0 +1,58 @@
+<div ng-controller="CabecalhoController">
+  <header class="header-default">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation"
+         ng-class="headerBackgroundClass">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+
+          <a class="navbar-brand" href="{{homeLinkPrefix}}#homeCarousel" du-smooth-scroll>
+            <img src="/portal/img/logo.png"/>
+          </a>
+
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+                  data-target="#bs-example-navbar-collapse-1" ng-click="setNavbarState()">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a class="transition-500ms" href="{{homeLinkPrefix}}#produtos" du-smooth-scroll du-scrollspy>
+                Produtos
+              </a>
+            </li>
+            <li>
+              <a class="transition-500ms" href="{{homeLinkPrefix}}#rh" du-smooth-scroll du-scrollspy>
+                Empresas
+              </a>
+            </li>
+            <li>
+              <a class="transition-500ms" href="{{homeLinkPrefix}}#ec" du-smooth-scroll du-scrollspy>
+                Estabelecimentos
+              </a>
+            </li>
+            <li>
+              <a class="transition-500ms" href="{{homeLinkPrefix}}#vc" du-smooth-scroll du-scrollspy>
+                Você
+              </a>
+            </li>
+            <li>
+              <a id="register" href="/comum/registro.html" class="btn btn-primary">
+                Cadastre-se
+              </a>
+            </li>
+            <li>
+              <a id="myAccount" href="/comum/login.html" class="btn btn-primary">
+                Minha Conta
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+</div>

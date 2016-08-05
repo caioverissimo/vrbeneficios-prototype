@@ -1,0 +1,28 @@
+<section class="panel-body" ng-show="hasContent()" ng-controller="DadosBancariosQualificacaoFormController">
+
+  <!-- Feedback das ações disparadas pelo usuário -->
+  <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+
+  <form name="dadosBancQualifForm" vr-enter-key-form-interceptor="">
+    <div class="row">
+      <div class="col-md-6" ng-include="'/portal/app/UI-EC/partials/dados-bancarios.html'"></div>
+      <div class="col-md-6" ng-include="'/portal/app/UI-EC/partials/qualificacao-estabelecimento.html'"></div>
+
+      <!-- Separador -->
+      <div class="col-sm-12">
+        <small class="text-gray">* Campos obrigatórios</small>
+        <hr class="hr"/>
+      </div>
+
+      <div class="col-md-12">
+        <button type="button" class="btn btn-primary center-block"
+                ng-disabled="dadosBancQualifForm.$invalid"
+                ng-click="saveProfile()">
+          Salvar alterações
+        </button>
+      </div>
+
+    </div>
+  </form>
+</section>

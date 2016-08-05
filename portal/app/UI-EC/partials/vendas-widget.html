@@ -1,0 +1,63 @@
+<div class="col-sm-6 col-md-4" ng-controller="SellsCardController">
+  <h2 class="title">VENDAS</h2>
+  <article class="panel panel-default panel-min-heigth-530" id="tutorialEC4">
+
+    <!-- Loading -->
+    <section vr-loading-panel="LOADING"></section>
+
+    <!-- Include de mensagem de loader -->
+    <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+    <!-- Include de mensagem de ausencia de conteudo -->
+    <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+    <!-- Form -->
+    <section class="panel-body" ng-show="hasContent()">
+      <!-- Formulário das estatisticas para gerar o dado -->
+      <form class="form" name="sells" novalidate vr-enter-key-form-interceptor="">
+        <div class="form-group">
+          <!-- Seletor com dados do calendário -->
+          <div class="input-group">
+            <span class="input-group-addon"><i class="icon icon-icon_cartao"></i></span>
+            <select class="form-control" name="produto" ng-model="produto"
+                    ng-change="consultar()"
+                    ng-options="item.id as item.nome for item in produtos">
+            </select>
+          </div>
+        </div>
+      </form>
+
+      <!-- Gráfico -->
+      <div class="row" ng-if="chartist != null">
+        <div class="col-xs-offset-1 col-xs-11">
+          <chartist class="ct-chart ct-minor-seventh"
+                    chartist-data="chartist.data"
+                    chartist-chart-type="Line"
+                    chartist-chart-options="chartist.options"></chartist>
+        </div>
+      </div>
+
+
+      <p class="title" ng-bind="data.value"></p>
+
+      <table class="table table-borders">
+        <tr>
+          <td class="text-left">
+            Média semanal
+          </td>
+          <td class="text-right" ng-bind="data.weeklyMean"></td>
+        </tr>
+      </table>
+
+      <small class="text-gray">Período: últimas 4 semanas.</small>
+
+      <div class="row panel-footer-row">
+        <div class="col-xs-12">
+          <hr class="hr">
+          <a class="btn btn-default btn-block" href="vendas.html">Ver mais</a>
+        </div>
+      </div>
+
+    </section>
+  </article>
+</div>

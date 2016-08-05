@@ -1,0 +1,555 @@
+<section class="panel-body">
+  <div class="col-sm-4 col-md-4 col-lg-4" ng-show="currentStep !== 5">
+    <i class="icon icon-icon_cartoes"></i>
+  </div>
+  <div class="col-sm-8 col-md-8 col-lg-8 text-gray text-font-21" ng-show="currentStep !== 5">
+    <p>Faça seu credenciamento online.</p>
+
+    <p>Aceite os cartões VR Refeição, VR Alimentação, VR Auto e VR Cultura.</p>
+
+    <p>Basta preencher os dados solicitados e você receberá o extrato do seu credenciamento por email.</p>
+  </div>
+  <div class="col-xs-12 col-sm-12 top-30" ng-show="currentStep !== 5">
+    CADASTRE AGORA O SEU ESTABELECIMENTO
+  </div>
+
+  <!-- Breadcrumbs processo de cadastro -->
+  <div class="row hidden-xs hidden-sm" ng-show="currentStep !== 5">
+    <div class="col-md-3 breadcrumbs-col-md-3 breadcrumbs-first breadcrumbs-well text-center"
+         ng-class="breadCrumbClass(1)">
+      1
+    </div>
+    <div class="col-md-3 breadcrumbs-col-md-3 breadcrumbs-well text-center" ng-class="breadCrumbClass(2)">
+      2
+    </div>
+    <div class="col-md-3 breadcrumbs-col-md-3 breadcrumbs-well text-center" ng-class="breadCrumbClass(3)">
+      3
+    </div>
+    <div class="col-md-3 breadcrumbs-col-md-3 breadcrumbs-well text-center" ng-class="breadCrumbClass(4)">
+      4
+    </div>
+  </div>
+
+
+  <div ng-show="currentStep === 1" ng-controller="CredenciamentoPasso_1_Controller">
+
+    <form class="form col-sm-12" name="ctrlNovoCred.filiacao" novalidate>
+      <p class="text-gray top-10">
+        Selecione pelo menos um produto e um número de estabelecimento
+      </p>
+
+      <p class="text-secundary top-10 form-label-required"
+         ng-class="{'subTitle-summary': (Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')) ,'form-label text-uppercase': !(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+        Selecione os produtos desejados
+      </p>
+
+      <div class="form-group row">
+        <div class="text-primary col-md-2" ng-repeat="p in productsAvailable">
+          <input id="product_{{$index}}" type="checkbox" ng-model="p.selected">
+          <label for="product_{{$index}}" class="text-nowrap text-ellipsis">
+            {{p.nome}}
+          </label>
+        </div>
+      </div>
+
+      <p class="text-secundary top-10 form-label-required"
+         ng-class="{'subTitle-summary': (Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')) ,'form-label text-uppercase': !(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+        Número do Estabelecimento
+      </p>
+
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Número da filiação Cielo
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="cielo-1" ng-model="filiacoes[0].numero">
+        </div>
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Número da filiação Elavon
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="elavon-1" ng-model="filiacoes[1].numero">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Número da filiação Rede
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="rede-1" ng-model="filiacoes[2].numero">
+        </div>
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Número da filiação Getnet
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="getnet-1" ng-model="filiacoes[3].numero">
+        </div>
+      </div>
+
+      <!-- Separador -->
+      <div class="row">
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+      </div>
+
+      <div class="form-group col-sm-4 col-sm-offset-4 top-10 text-center">
+        <button ng-disabled="stepFiliacaoIsInvalid()" type="button" class="btn btn-primary btn-block  btn-long-text"
+                ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"
+                ng-click="nextStep()">
+          <i class="icon icon-icon_seta_botao pull-left top-10"
+             ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"></i>
+          Avançar
+        </button>
+      </div>
+
+    </form>
+  </div>
+  <div ng-show="currentStep === 2" ng-controller="CredenciamentoPasso_2_Controller">
+    <form class="form col-sm-12" name="ctrlNovoCred.dadosEC" novalidate>
+
+      <p class="text-secundary top-10"
+         ng-class="{'subTitle-summary': (Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')) ,'form-label text-uppercase': !(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+        Dados do estabelecimento
+      </p>
+
+      <div class="form-group row">
+        <div class="col-sm-6 col-md-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            CNPJ
+          </label>
+          <input type="text" class="form-control" id="cnpj" name="cnpj" ng-model="formNovoCred.cnpj" placeholder=" "
+                 ui-options="{clearOnBlur:false}" ui-mask="99.999.999/9999-99" ui-mask-placeholder
+                 ui-mask-placeholder-char="_" required ng-cnpj ng-blur="consultarCNPJ($event)">
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['cnpj'].$error"
+               ng-if="ctrlNovoCred.dadosEC['cnpj'].$dirty && ctrlNovoCred.dadosEC['cnpj'].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CNPJ</p>
+            <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CNPJ</p>
+            <p ng-message when="cnpj" class="text-right text-danger">Por favor, digite um CNPJ válido</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Razão Social
+          </label>
+          <input maxlength="40" type="text" class="form-control" name="razaosocial" ng-model="formNovoCred.razaoSocial"
+                 required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['razaosocial'].$error"
+               ng-if="ctrlNovoCred.dadosEC['razaosocial'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe a Razão Social</p>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Nome Fantasia
+          </label>
+          <input maxlength="40" type="text" class="form-control" name="nomefantasia"
+                 ng-model="formNovoCred.nomeFantasia" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['nomefantasia'].$error"
+               ng-if="ctrlNovoCred.dadosEC['nomefantasia'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe o nome fantasia</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Nome do contato
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="nomedocontato"
+                 ng-model="formNovoCred.contato.nome" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['nomedocontato'].$error"
+               ng-if="ctrlNovoCred.dadosEC['nomedocontato'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe o nome do contato</p>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Cargo
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="cargo" ng-model="formNovoCred.contato.cargo"
+                 required>
+        </div>
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Telefone
+          </label>
+          <input type="text" class="form-control" name="telefone" ng-model="formNovoCred.contato.telefone"
+                 placeholder=" "
+                 ui-options="{clearOnBlur:false}" ui-mask="(99) 9999-9999?9" ui-mask-placeholder
+                 ui-mask-placeholder-char="_" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['telefone'].$error"
+               ng-if="ctrlNovoCred.dadosEC['telefone'].$dirty && ctrlNovoCred.dadosEC['telefone'].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o telefone</p>
+            <p ng-message when="mask" class="text-right">Por favor digite um número de telefone válido</p>
+          </div>
+        </div>
+        <div class="col-sm-1">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Ramal
+          </label>
+          <input maxlength="6" type="text" class="form-control" name="ramal" ng-model="formNovoCred.contato.ramal">
+        </div>
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Email
+          </label>
+          <input maxlength="20" type="email" class="form-control" name="email"
+                 ng-model="formNovoCred.contato.emailPrincipal" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['email'].$error"
+               ng-if="ctrlNovoCred.dadosEC['email'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe o email</p>
+            <p ng-message when="email" class="text-right text-danger">Por favor, informe um email válido</p>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            CEP
+          </label>
+          <input type="text" class="form-control" name="CEP" ng-model="formNovoCred.endereco.cep"
+                 ui-options="{clearOnBlur:false}"
+                 ui-mask="99999-999"
+                 ui-mask-placeholder
+                 ui-mask-placeholder-char="_" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['CEP'].$error"
+               ng-if="ctrlNovoCred.dadosEC['CEP'].$dirty && ctrlNovoCred.dadosEC['CEP'].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CEP</p>
+            <p ng-message when="mask" class="text-right">Por favor, complete o CEP</p>
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Endereço
+          </label>
+          <input maxlength="50" type="text" class="form-control" name="endereco"
+                 ng-model="formNovoCred.endereco.logradouro" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['endereco'].$error"
+               ng-if="ctrlNovoCred.dadosEC['endereco'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe o endereço</p>
+          </div>
+        </div>
+        <div class="col-sm-2">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Número
+          </label>
+          <input maxlength="6" type="text" class="form-control" name="numero" ng-model="formNovoCred.endereco.numero"
+                 required>
+        </div>
+        <div class="col-sm-2">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Complemento
+          </label>
+          <input maxlength="30" type="text" class="form-control" name="complemento"
+                 ng-model="formNovoCred.endereco.complemento">
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-2">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            UF
+          </label>
+          <select class="form-control" name="uf" ng-model="formNovoCred.endereco.uf"
+                  ng-change="changeUf(formNovoCred.endereco.uf)" required>
+            <option selected="" disabled="">Selecione</option>
+            <option value="AC">AC</option>
+            <option value="AL">AL</option>
+            <option value="AP">AP</option>
+            <option value="AM">AM</option>
+            <option value="BA">BA</option>
+            <option value="CE">CE</option>
+            <option value="DF">DF</option>
+            <option value="ES">ES</option>
+            <option value="GO">GO</option>
+            <option value="MA">MA</option>
+            <option value="MT">MT</option>
+            <option value="MS">MS</option>
+            <option value="MG">MG</option>
+            <option value="PA">PA</option>
+            <option value="PB">PB</option>
+            <option value="PR">PR</option>
+            <option value="PE">PE</option>
+            <option value="PI">PI</option>
+            <option value="RJ">RJ</option>
+            <option value="RN">RN</option>
+            <option value="RS">RS</option>
+            <option value="RO">RO</option>
+            <option value="RR">RR</option>
+            <option value="SC">SC</option>
+            <option value="SP">SP</option>
+            <option value="SE">SE</option>
+            <option value="TO">TO</option>
+          </select>
+        </div>
+        <div class="col-sm-4">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Cidade
+          </label>
+          <select class="form-control" ng-model="formNovoCred.endereco.cidade"
+                  ng-options="m.nome as m.nome for m in municipios" required>
+            <option value="">Selecione</option>
+          </select>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['cidade'].$error"
+               ng-if="ctrlNovoCred.dadosEC['cidade'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, selecione a cidade</p>
+          </div>
+        </div>
+      </div>
+
+      <p class="text-secundary top-10"
+         ng-class="{'subTitle-summary': (Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')) ,'form-label text-uppercase': !(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+        Dados do representante
+      </p>
+
+      <div class="form-group row">
+        <div class="col-sm-4">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            Nome do representante
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="representante"
+                 ng-model="formNovoCred.representante.nome" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['representante'].$error"
+               ng-if="ctrlNovoCred.dadosEC['representante'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe o representante</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            RG
+          </label>
+          <input maxlength="20" type="text" class="form-control" name="rg" ng-model="formNovoCred.representante.rg"
+                 required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['rg'].$error"
+               ng-if="ctrlNovoCred.dadosEC['rg'].$dirty">
+            <p ng-message when="required" class="text-right">Por favor, informe um RG válido</p>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <label class="text-nowrap form-label-gray"
+                 ng-class="{'text-font-15 form-label-gray-brand text-uppercase':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            CPF
+          </label>
+          <input type="text" class="form-control" name="cpf" ng-model="formNovoCred.representante.cpf"
+                 ui-options="{clearOnBlur:false}" ui-mask="999.999.999-99" ng-cpf ui-mask-placeholder
+                 ui-mask-placeholder-char="_" required>
+          <div ng-messages class="error-messages" for="ctrlNovoCred.dadosEC['cpf'].$error"
+               ng-if="ctrlNovoCred.dadosEC['cpf'].$dirty && ctrlNovoCred.dadosEC['cpf'].$touched">
+            <p ng-message when="required" class="text-right">Por favor, informe o CPF do representante</p>
+            <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CPF</p>
+            <p ng-message when="cpf" class="text-right text-danger">Por favor, informe um CPF válido</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+      </div>
+
+      <div class="form-group col-md-3 col-md-offset-3 top-10 text-center ">
+        <button type="button" class="btn btn-default btn-block" ng-click="previousStep()"
+                ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+          <svg width="37px" height="25px" viewBox="0 0 37 25" class="pull-left top-10"
+               ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            <polygon id="Shape"
+                     points="36.9512712 10.4583333 7.95960452 10.4583333 15.3096045 3.10833333 12.4512712 0.25 0.201271186 12.5 12.4512712 24.75 15.3096045 21.8916667 7.95960452 14.5416667 36.9512712 14.5416667"></polygon>
+          </svg>
+          Voltar
+        </button>
+      </div>
+
+      <div class="form-group col-md-3 top-10 text-center">
+        <button ng-disabled="ctrlNovoCred.dadosEC.$invalid" type="button"
+                class="btn btn-primary btn-block btn-block"
+                ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"
+                ng-click="nextStep()">
+          <i class="icon icon-icon_seta_botao pull-left top-10"
+             ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"></i>
+          Avançar
+        </button>
+      </div>
+
+    </form>
+  </div>
+
+  <div ng-show="currentStep === 3" ng-controller="CredenciamentoPasso_3_Controller">
+
+    <form class="form col-sm-12" name="ctrlNovoCred.dadosBancariosQualif" novalidate>
+      <div ng-include="'/portal/app/UI-EC/partials/dados-bancarios.html'"></div>
+
+      <div ng-include="'/portal/app/UI-EC/partials/qualificacao-estabelecimento.html'"></div>
+
+      <div class="row">
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+      </div>
+
+      <div class="form-group col-md-3 col-md-offset-3 top-10 text-center">
+        <button type="button" class="btn btn-default btn-block" ng-click="previousStep()"
+                ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+          <svg width="37px" height="25px" viewBox="0 0 37 25" class="pull-left top-10"
+               ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            <polygon id="Shape"
+                     points="36.9512712 10.4583333 7.95960452 10.4583333 15.3096045 3.10833333 12.4512712 0.25 0.201271186 12.5 12.4512712 24.75 15.3096045 21.8916667 7.95960452 14.5416667 36.9512712 14.5416667"></polygon>
+          </svg>
+          Voltar
+        </button>
+      </div>
+
+      <div class="form-group col-md-3 top-10 text-center">
+        <button ng-disabled="ctrlNovoCred.dadosBancariosQualif.$invalid" type="button"
+                class="btn btn-primary btn-block"
+                ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"
+                ng-click="nextStep()">
+          <i class="icon icon-icon_seta_botao pull-left top-10"
+             ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"></i>
+          Avançar
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div ng-show="currentStep === 4" ng-controller="CredenciamentoPasso_4_Controller">
+    <form class="form col-sm-12" name="ctrlNovoCred.termoadesao" novalidate>
+      <p class="text-secundary">CONTRATO DE ADESÃO AO SISTEMA VR BENEFÍCIOS</p>
+      <section class="modal-body text-center">
+        <canvas id="termoAdesaoCanvas"></canvas>
+      </section>
+      <div class="row">
+        <div class="col-sm-12 text-center">
+          <button class="btn btn-default" ng-click="currentPage = currentPage - 1" ng-disabled="currentPage == 1">
+            <i class="fa fa-chevron-left"></i>
+          </button>
+          <span class="text-primary">Página {{currentPage}} / {{totalPages}}</span>
+          <button class="btn btn-default" ng-click="currentPage = currentPage + 1"
+                  ng-disabled="currentPage == totalPages">
+            <i class="fa fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="row top-30">
+        <div class="col-sm-12">
+          <a class="text-font-21" href="javascript:void(0)" ng-click="downloadFile();">
+            <i class="icon icon-icon_dowload"></i>
+            Clique aqui para baixar o contrato (.pdf)
+          </a>
+        </div>
+      </div>
+      <div class="row top-50">
+        <div class="col-sm-12 padding-left-30">
+          <div class="checkbox">
+            <input type="checkbox" ng-model="accepted" id="accepted-checkbox" required>
+            <label class="text-primary text-font-21" for="accepted-checkbox">
+              Li e concordo com as condições apresentadas.
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="form-group row top-10">
+        <div class="form-group col-sm-offset-4 col-sm-8" ng-if="!isInConfirmation()">
+          <div class="form-group" vc-recaptcha key="recaptchaKey" size="recapchaSize()"></div>
+        </div>
+      </div>
+      <div class="form-group row top-10 bottom-0">
+        <div class="form-group col-sm-offset-3 col-sm-3">
+          <button type="button" class="btn btn-default btn-block" ng-click="previousStep()"
+                  ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            <svg width="37px" height="25px" viewBox="0 0 37 25" class="pull-left top-10"
+                 ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+              <polygon id="Shape"
+                       points="36.9512712 10.4583333 7.95960452 10.4583333 15.3096045 3.10833333 12.4512712 0.25 0.201271186 12.5 12.4512712 24.75 15.3096045 21.8916667 7.95960452 14.5416667 36.9512712 14.5416667"></polygon>
+            </svg>
+            Voltar
+          </button>
+        </div>
+        <div class="form-group col-sm-3">
+          <button type="button" class="btn btn-default btn-block" ng-click="goHome(Navigation)"
+                  ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+            <svg width="37px" height="25px" viewBox="0 0 37 25" class="pull-left top-10"
+                 ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+              <polygon id="Shape-Copy-2"
+                       transform="translate(7.554167, 12.250000) scale(-1, 1) translate(-7.554167, -12.250000) "
+                       points="15.1083333 2.85833333 12.25 0 0 12.25 12.25 24.5 15.1083333 21.6416667 5.60833311 12"></polygon>
+              <polygon id="Shape-Copy-3"
+                       points="25.1083333 2.85833333 22.25 0 10 12.25 22.25 24.5 25.1083333 21.6416667 15.6083331 12"></polygon>
+            </svg>
+            Cancelar
+          </button>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="form-group  col-sm-offset-3 col-sm-6">
+          <button type="button" class="btn btn-primary btn-block" ng-click="enviarCredenciamento()"
+                  ng-class="{'btn-xg':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"
+                  ng-disabled="ctrlNovoCred.termoadesao.$invalid">
+            <i class="icon icon-icon_seta_botao pull-left top-10"
+               ng-class="{'hidden':!(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}"></i>
+            Concluir credenciamento
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div ng-show="currentStep === 5" ng-controller="CredenciamentoPasso_5_Controller">
+    <form class="form col-sm-12" name="ctrlNovoCred.finalstep" novalidate>
+      <div class="row">
+        <div class="col-sm-10 col-md-10 col-lg-10 text-gray">
+          <span style="white-space:pre-wrap;">{{message}}</span>
+        </div>
+      </div>
+      <div class="form-group row top-10">
+        <div class="form-group col-sm-6 ">
+          <p class="text-primary" style="margin-top: 20px;margin-left: 15px;">ESCOLHA UMA OPÇÃO ABAIXO PARA
+            CONTINUAR</p>
+        </div>
+      </div>
+      <div class="form-group row ">
+        <div class="form-group col-sm-12 ">
+          <div class="form-group col-sm-3">
+            <button type="button" class="btn btn-default btn-block" ng-click="novoCredenciamento()">
+              Realizar novo credenciamento
+            </button>
+          </div>
+          <div class="form-group col-sm-3">
+            <button type="button" class="btn btn-default btn-block" ng-click="goHome(Navigation)">
+              Volta para a home
+            </button>
+          </div>
+          <div class="form-group col-sm-2 "/>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</section>

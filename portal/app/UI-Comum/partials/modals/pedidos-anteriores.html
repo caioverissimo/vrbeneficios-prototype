@@ -1,0 +1,107 @@
+<!-- Fechar o modal -->
+<button class="btn btn-close" ng-click="cancel()">&times;</button>
+
+<!-- Header do modal -->
+<section class="modal-header">
+  <h3 class="h3">
+    VOCÊ JÁ POSSUI PEDIDOS ANTERIORES COM O(S) PRODUTO(S) SELECIONADOS
+  </h3>
+</section>
+
+<!-- Corpo do modal -->
+<section class="modal-body">
+
+  <!-- Tabela de pedidos -->
+  <table class="table">
+    <thead class="table-header">
+    <tr>
+      <td>DESCRIÇÃO DO PEDIDO</td>
+      <td>QTE. DE FUNCIONÁRIOS</td>
+      <td>VALOR</td>
+      <td>&nbsp;</td>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr ng-repeat="contrato in contratos">
+      <td>
+        <span ng-bind="contrato.produto"></span>
+      </td>
+      <td class="text-center">
+        <span ng-bind="contrato.qteFuncionarios"></span>
+      </td>
+      <td>
+        <span ng-bind="contrato.valor"></span>
+      </td>
+      <td>
+        <a class="btn btn-default btn-block" href="{{contrato.boletoUri}}">
+          <i class="fa fa-print"></i>
+          Reimprimir boleto
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p>
+        Acesse o Portal RH e acompanhe seu pedido lorem ipsum dolor sit amet, consectetur adipiscing elit quisque
+        pulvinar ex a imperdiet mattis.
+      </p>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <p class="text-secundary">DESEJA CONTRATAR UM NOVO PRODUTO?</p>
+    </div>
+  </div>
+
+  <form name="novoProduto" class="row" vr-enter-key-form-interceptor="">
+
+    <div class="col-sm-4 max-height-90 bottom-10" ng-repeat="produto in produtosDisponiveis">
+      <div class="checkbox-inline text-primary">
+        <input id="modal_{{produto.id}}" type="checkbox" value="{{produto.nome}}" ng-model="produto.ativo">
+        <label for="modal_{{produto.id}}" ng-bind="produto.nome"></label>
+      </div>
+      <div uib-collapse="!produto.ativo">
+        <div class="form-group row" ng-if="produto.ativo" ng-show="produto.simulacao">
+          <div class="col-sm-6">
+            <label class="form-label-gray">Valor</label>
+            <input type="text" class="form-control-sm" name="{{produto.id}}_valor"
+                   ng-model="produto.valor" pformat prefix="R$ " cents=',' thousands='.'>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label-gray">Qtd. de cartões</label>
+            <input type="number" class="form-control-sm" name="{{produto.id}}_qte" ng-model="produto.qteCartoes"
+                   required>
+            <div ng-messages class="error-messages" for="novoProduto[produto.id + '_qte'].$error"
+                 ng-if="novoProduto[produto.id + '_qte'].$dirty">
+              <p ng-message when="required" class="text-right text-nowrap">Informe a quantidade</p>
+            </div>
+          </div>
+        </div>
+        <p ng-hide="produto.simulacao">
+          Informar que não haverá simulação e que a VR entrará em contato...
+        </p>
+      </div>
+    </div>
+
+    <!-- Separador -->
+    <div class="col-sm-12">
+      <small class="text-gray">* Campos obrigatórios</small>
+      <hr class="hr"/>
+    </div>
+  </form>
+
+</section>
+
+<section class="modal-footer">
+  <button class="btn btn-default" ng-click="cancel()">
+    Cancelar
+  </button>
+  <button class="btn btn-primary" ng-click="continue()" ng-disabled="!canContinue()">
+    Continuar com novo produto
+  </button>
+</section>

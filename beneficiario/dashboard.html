@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2016 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/main.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/angular-pickadate.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <script src="//cdn.polyfill.io/v2/polyfill.min.js" async defer></script>
+  <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+  <!-- build:js(.) /portal/js/main-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/portal/js/bower_components/ngmap/build/scripts/ng-map.js"></script>
+  <script src="/portal/js/bower_components/chartist/dist/chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+  <script src="/portal/js/bower_components/lodash/dist/lodash.js"></script>
+  <script src="/portal/js/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+  <script src="/portal/js/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+  <script src="/portal/js/bower_components/pdfjs-dist/build/pdf.combined.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+  <script src="/portal/app/UI-Comum/js/boas-vindas-controller.js"></script>
+  <script src="/portal/app/UI-Comum/js/exibicao-midia-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/ui-beneficiario-app.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/consulta-rapida-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/extrato-resumido-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/estatisticas-cartao-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/confirmar-cartao-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/saldo-cartoes-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/bloquear-cartao-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/alterar-senha-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/desbloquear-cartao-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/promocoes-usuario-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/rede-credenciada-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/beneficiario-dashboard-tutorial-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <script src='/portal/app/mock/ui-beneficiario-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+<body ng-app="ui-beneficiario-app" class="loading-pane">
+
+<!-- Inicio Escopo Tutorial -->
+<tour step="currentStep" ng-controller="BeneficiarioDashboardTutorialController">
+
+  <!-- LOADING -->
+  <section class="front-loading-wrapper">
+    <div class="front-loading-bar">
+      <section vr-loading-panel="true"></section>
+    </div>
+  </section>
+
+  <!-- Header -->
+  <div ng-include="'/portal/app/mock/cabecalho.html'"></div>
+
+  <!-- Inicio do DASHBOARD -->
+  <!-- Conteúdo principal -->
+  <div class="container main-content" ng-controller="NavigationController as Navigation" vr-default-view="mycards">
+
+    <main class="col-md-8">
+      <!-- Conteúdo principal -->
+      <h2 class="title">PAINEL VOCÊ</h2>
+      <nav>
+        <a href="" class="link-main" ng-click="Navigation.setView('mycards')"
+           ng-class="{'active': Navigation.isView('mycards')}">Meus cartões</a>
+        <a href="" class="link-main" ng-click="Navigation.setView('fastsearch')"
+           ng-class="{'active': Navigation.isView('fastsearch')}">Consulta rápida</a>
+        <a href="" class="link-main" ng-click="Navigation.setView('unlockcard')"
+           ng-class="{'active': Navigation.isView('unlockcard')}">Desbloquear cartão</a>
+      </nav>
+
+      <!-- Container 3o.  passo do tutorial de beneficiario -->
+      <div id="tutorialBeneficiario3">
+
+        <!-- INCLUDE CONFIRMAR CARTAO -->
+        <div ng-include="'/portal/app/UI-Beneficiario/partials/confirmar-cartao.html'"></div>
+
+        <!-- Painel principal que muda a cada iteração e é a continuação dessa view como principal -->
+        <!-- INCLUDE MEUS CARTÕES -->
+        <div ng-include="'/portal/app/UI-Beneficiario/partials/saldo-cartoes.html'"></div>
+
+        <!-- INCLUDE CONSULTA RAPIDA -->
+        <div ng-include="'/portal/app/UI-Beneficiario/partials/consulta-rapida.html'"></div>
+
+        <!-- INCLUDE DESBLOQUEAR CARTOES -->
+        <div ng-include="'/portal/app/UI-Beneficiario/partials/desbloquear-cartao.html'"></div>
+
+      </div>
+
+      <!-- Área dos 2 paineis inferiores -->
+      <div class="row">
+        <!-- Primeiro painel -->
+        <div class="col-sm-6">
+          <!-- INCLUDE EXTRATO RESUMIDO -->
+          <div ng-include="'/portal/app/UI-Beneficiario/partials/extrato-resumido.html'"></div>
+        </div>
+
+        <!-- Segundo painel -->
+        <div class="col-sm-6">
+          <!-- INCLUDE ESTATISTICAS -->
+          <div ng-include="'/portal/app/UI-Beneficiario/partials/estatisticas-cartao.html'"></div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Fim do main -->
+
+    <!-- Card rede credenciada -->
+    <div ng-include="'/portal/app/UI-Beneficiario/partials/rede-credenciada.html'"></div>
+
+    <!-- Tooltip lateral -->
+    <div ng-include="'/portal/app/components/partials/links-laterais.html'"></div>
+    <div ng-controller="BoasVindasController"></div>
+    <div ng-controller="ExibicaoMidiaController"></div>
+
+  </div>
+
+  <!-- Footer -->
+  <div ng-include="'/portal/app/mock/rodape.html'"></div>
+
+
+  <!--Posicionamento tutorial-->
+  <virtual-step tourtip-step="1"
+                tourtip="true"
+                tourtip-placement="bottom"
+                tourtip-offset-vertical="-25"
+                on-show="markElement('#tutorialMenuBeneficiario')"
+                tourtip-element="#tutorialMenuBeneficiario"/>
+  <virtual-step tourtip-step="2"
+                tourtip="true"
+                tourtip-placement="bottom"
+                tourtip-offset-vertical="-25"
+                on-show="markElement('#tutorialBeneficiario2')"
+                tourtip-element="#tutorialBeneficiario2"/>
+  <virtual-step tourtip-step="3"
+                tourtip="true"
+                tourtip-placement="right"
+                tourtip-offset-horizontal="-30"
+                on-show="markElement('#tutorialBeneficiario3')"
+                tourtip-element="#tutorialBeneficiario3"/>
+  <virtual-step tourtip-step="4"
+                tourtip="true"
+                tourtip-placement="left"
+                tourtip-offset-horizontal="30"
+                on-show="markElement('#tutorialBeneficiario4')"
+                tourtip-element="#tutorialBeneficiario4"/>
+  <virtual-step tourtip-step="5"
+                tourtip="true"
+                tourtip-placement="right"
+                tourtip-offset-horizontal="-30"
+                on-show="markElement('#tutorialBeneficiario5')"
+                tourtip-element="#tutorialBeneficiario5"/>
+  <virtual-step tourtip-step="6"
+                tourtip="true"
+                tourtip-placement="right"
+                tourtip-offset-horizontal="-30"
+                on-show="markElement('#tutorialBeneficiario6')"
+                tourtip-element="#tutorialBeneficiario6"/>
+  <virtual-step tourtip-step="7"
+                tourtip="true"
+                tourtip-placement="left"
+                tourtip-offset-horizontal="30"
+                on-show="markElement('#tutorialFinal')"
+                tourtip-element="#tutorialFinal"/>
+
+
+  <!--Fim Escopo tutorial -->
+  <script id="tour/tour.tpl.html" type="text/ng-template">
+    <div class="tour-tip">
+      <span class="tour-arrow tt-{{ ttPlacement }}" ng-hide="centered"></span>
+      <div class="tour-content-wrapper">
+        <h2 ng-bind="stepContent[currentStep - 1].title"></h2>
+
+        <ul ng-if="stepContent[currentStep - 1].items.length > 1">
+          <li ng-repeat="item in stepContent[currentStep - 1].items" ng-bind="item"></li>
+        </ul>
+
+        <p ng-if="stepContent[currentStep - 1].items.length === 1"
+           ng-bind="stepContent[currentStep - 1].items[0]"></p>
+
+        <div class="text-center">
+          <i class="fa fa-circle" ng-repeat="indicator in stepContent"
+             ng-class="{ 'tour-indicator-inactive': $index !== (currentStep - 1) }"></i>
+        </div>
+
+        <a ng-click="proceed();nextStep();" class="btn btn-primary btn-block">
+          <span ng-show="currentStep < stepContent.length">Próximo</span>
+          <span ng-show="currentStep === stepContent.length">Começar agora!</span>
+        </a>
+
+        <a ng-click="closeTour()" class="btn btn-default btn-block" ng-show="currentStep < stepContent.length">
+          <span>Pular apresentação</span>
+        </a>
+      </div>
+    </div>
+  </script>
+</tour>
+</body>
+</html>

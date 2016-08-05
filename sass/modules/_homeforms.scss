@@ -1,0 +1,193 @@
+// Forms
+
+.form-control {
+  font-family: "Gill-Sans-Light";
+  font-size: 26px;
+  padding-bottom: 14px;
+  padding-left: 0;
+  border: 0;
+  height: 55px;
+  border-bottom: 1px solid #E3E3E3;
+  box-shadow: none;
+  outline-color: transparent;
+  background: transparent;
+}
+
+.form-control-sm {
+  @extend .form-control;
+  font-size: 17px;
+  height: 38px;
+}
+
+.input-group-addon {
+  color: $gray-light;
+  border: 0;
+  padding: 6px 16px;
+
+  &:first-child {
+    padding-left: 0;
+  }
+  &:last-child {
+    padding-right: 0;
+  }
+}
+
+.form-label {
+  @extend label;
+  font-size: 17px;
+  color: #31363d;
+  font-weight: normal;
+
+  &.with-addon {
+    padding-left: 45px;
+  }
+}
+
+.error-messages {
+  height: 0;
+}
+
+.checkbox {
+  font-size: 22px;
+  font-family: "Gill-Sans-Light";
+  input[type=checkbox] {
+    margin-top: 10px;
+  }
+  span {
+    cursor: pointer;
+  }
+}
+
+// Remover os arrows do type=Number
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+// Colorização dos formulários
+.ng-dirty {
+  &.ng-valid {
+    color: $brand-success;
+    border-bottom-color: $brand-success;
+  }
+}
+
+// Base for label styling
+[type="checkbox"]:not(:checked),
+[type="checkbox"]:checked,
+[type="radio"]:not(:checked),
+[type="radio"]:checked {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="checkbox"]:not(:checked) + label,
+[type="checkbox"]:checked + label,
+[type="radio"]:not(:checked) + label,
+[type="radio"]:checked + label {
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+}
+
+// checkbox aspect + radios
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before,
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 20px;
+  height: 20px;
+}
+
+[type="checkbox"]:not(:checked) + label:before,
+[type="checkbox"]:checked + label:before {
+  background: #10ba54;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, .3);
+}
+
+//estilo para radios
+[type="radio"]:not(:checked) + label:before,
+[type="radio"]:checked + label:before {
+  border-radius: 100%;
+  background: white;
+  border: 2px solid $brand-primary;
+}
+
+[type="radio"]:checked + label:before {
+  background: $brand-primary;
+}
+
+// checked mark aspect
+[type="checkbox"]:not(:checked) + label:after,
+[type="checkbox"]:checked + label:after,
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  content: '\f00c';
+  position: absolute;
+  top: 9px;
+  left: 2px;
+  font-size: 16px;
+  line-height: 0.8;
+  color: white;
+  transition: all .2s;
+  font-family: 'FontAwesome';
+}
+
+[type="radio"]:not(:checked) + label:after,
+[type="radio"]:checked + label:after {
+  content: '\f111';
+  font-size: 12px;
+  top: 10px;
+  left: 5px;
+  box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.2);
+  text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.4);
+  background: $brand-primary;
+}
+
+//animação
+[type="checkbox"]:not(:checked) + label:after,
+[type="radio"]:not(:checked) + label:after {
+  opacity: 0;
+  transform: scale(0);
+}
+
+[type="checkbox"]:checked + label:after,
+[type="radio"]:checked + label:after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+//desabilitadas
+[type="checkbox"]:disabled:not(:checked) + label:before,
+[type="checkbox"]:disabled:checked + label:before,
+[type="radio"]:disabled:not(:checked) + label:before,
+[type="radio"]:disabled:checked + label:before {
+  box-shadow: none;
+  background-color: #ddd;
+}
+
+[type="checkbox"]:disabled:checked + label:after,
+[type="radio"]:disabled:checked + label:after {
+  color: #999;
+}
+
+[type="checkbox"]:disabled + label,
+[type="radio"]:disabled + label {
+  color: #aaa;
+}
+
+//acessibilidade
+[type="checkbox"]:checked:focus + label:before,
+[type="checkbox"]:not(:checked):focus + label:before,
+[type="radio"]:checked:focus + label:before,
+[type="radio"]:not(:checked):focus + label:before {
+  border: 1px dotted green;
+}

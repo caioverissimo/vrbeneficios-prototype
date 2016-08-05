@@ -1,0 +1,101 @@
+<!-- Article 2: Promoções -->
+<article class="panel panel-default" ng-controller="PromotionsController">
+
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- Promoções -->
+  <div class="panel-body">
+    <!-- Texto explicativo -->
+    <section>
+      <p class="text-gray">A VR criou este espaço para sugerir as melhores promoções.</br>
+        Com as promoções dos estabelecimentos parceiros da VR, além de você ter acesso aos melhores
+        estabelecimentos, você também economiza!</p>
+      <!-- Separador -->
+      <hr class="hr"/>
+    </section>
+
+    <!-- Include de mensagem de loader -->
+    <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+    <!-- Quando nao tem conteudo -->
+    <section class="panel-body text-center panel-full" ng-show="hasNoContent()">
+
+      <!-- Icone substituir icone no font-awesome -->
+      <!-- Ponto de mudança -->
+      <i class="icon icon-icon_promocoes"></i>
+      <!-- Texto principal -->
+      <span class="text-secundary col-sm-12 top-10">OPS</span>
+      <!-- Texto menor secundário -->
+      <!-- Alteração de small para "p" -->
+      <p class="text-gray col-sm-12">No momento não temos promoções disponíveis.</p>
+
+    </section>
+
+    <!-- ALTERAÇÃO: Promoções! Agora com contador lateral e exemplo cheio -->
+    <section ng-show="hasContent()">
+      <ul class="list-inline aside-list">
+
+        <div ng-repeat="item in promotionsTable">
+
+          <!-- Campos numéricos -->
+          <li class="hidden-xs col-sm-1">
+            <div class="aside-list-count">
+              <span>{{item.row}}</span>
+            </div>
+          </li>
+
+          <!-- Colunas -->
+          <li class="col-sm-11 row">
+            <!-- Inicio da promoção - Duplicar esta div -->
+            <div class="col-sm-6" ng-repeat="subitem in item.promotions">
+              <!-- Espaço do ícone -->
+              <div class="col-sm-2 col-xs-3 text-secundary text-center text-lg">
+                <!-- Alteração para icone -->
+                <i class="icon {{subitem.iconClass}}"></i>
+              </div>
+              <div class="col-sm-10 col-xs-9">
+                <p>
+                  {{subitem.textPrefix}}
+                  <span class="text-secundary">{{subitem.place}}</span>
+                  {{subitem.textSuffix}}
+                </p>
+                <!-- Dados de validade - Eu usaria um filter de 'date' do angular para fazer talvez: Válido até {{ val|date:'dd/MM/yyy' }} -->
+                <small class="text-block">Válido até {{subitem.expires}}</small>
+              </div>
+
+              <div class="hidden-sm hidden-xs">
+                <div class="col-sm-12">
+                  <!-- Botão de busca de rotas -->
+                  <button type="button" class="btn btn-default" ng-click="goToMap(subitem)">Mapa</button>
+                  <!-- Botão de busca de interesses -->
+                  <button type="button" class="btn btn-default" ng-click="removeFromTable(subitem)">
+                    Não tenho interesse
+                  </button>
+                </div>
+              </div>
+
+              <div class="hidden-md hidden-lg">
+                <button type="button" class="btn btn-default btn-block" ng-click="goToMap(subitem)">
+                  Mapa
+                </button>
+                <button type="button" class="btn btn-default btn-block" ng-click="removeFromTable(subitem)">
+                  Não tenho interesse
+                </button>
+              </div>
+
+              <!-- Separador tem que estar no repeat -->
+              <div class="col-sm-12">
+                <hr class="hr">
+              </div>
+            </div>
+            <!-- Fim da promoção -->
+          </li>
+
+        </div>
+      </ul>
+    </section>
+
+    <!-- TODO Paginação para listas extensas -->
+
+  </div>
+</article>

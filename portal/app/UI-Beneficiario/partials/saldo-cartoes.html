@@ -1,0 +1,45 @@
+<article class="panel panel-default panel-min-heigth-420"
+         ng-if=" Navigation.isCardChecked() && Navigation.isView('mycards')"
+         ng-controller="saldoCartoesController">
+
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- TABS -->
+  <nav class="tabs" role="navigation" ng-show="hasContent()">
+    <div class="tabs-wrapper">
+      <div class="tab" ng-repeat="tab in tabs" ng-class="{'active' : isTabActive($index)}"
+           ng-show="tabIterator <= $index"
+           ng-click="setActiveTab($index)">{{tab.nome}}
+      </div>
+    </div>
+
+    <!-- Botão de navegação pra esquerda -->
+    <div class="tab-scroll-button left" ng-click="showPreviousTab()" ng-show="tabIterator > 0">
+
+      <button type="button" class="btn btn-default btn-sm">
+        <i class="fa fa-angle-left"></i>
+      </button>
+    </div>
+
+    <!-- botão de navegação pra direita -->
+    <div class="tab-scroll-button right" ng-click="showNextTab()"
+         ng-show="tabIterator < (tabs.length - 1) && isTabsOversized()">
+      <button type="button" class="btn btn-default btn-sm">
+        <i class="fa fa-angle-right"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Include de mensagem de loader -->
+  <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+  <!-- Include de mensagem de ausencia de conteudo -->
+  <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+  <section class="panel-body" ng-show="hasContent()">
+    <div ng-if="isTabActive($index)" ng-repeat="tab in tabs">
+      <div ng-include="'/portal/app/UI-Beneficiario/partials/detalhes-cartao.html'"></div>
+    </div>
+  </section>
+
+</article>

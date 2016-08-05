@@ -1,0 +1,114 @@
+<div class="col-sm-6 col-md-4 title-overflow" ng-controller="RefundAnticipationController" ng-init="init()">
+  <h2 class="title vr-long-title top-10 bottom-15" ng-hide="extraRefundPurchased">
+    ANTECIPAÇÃO
+    <br>
+    <small class="text-gray-brand text-block">DE REEMBOLSO</small>
+  </h2>
+
+  <h2 class="title vr-long-title top-10 bottom-15" ng-show="extraRefundPurchased">
+    ANTECIPAÇÃO
+    <br>
+    <small class="text-gray-brand text-block">CONFIRMADA</small>
+  </h2>
+
+  <article class="panel panel-default panel-min-heigth-530" id="tutorialEC5">
+
+    <!-- Loading -->
+    <section vr-loading-panel="LOADING"></section>
+
+    <!-- Include de mensagem de loader -->
+    <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+    <!-- Include de mensagem de ausencia de conteudo -->
+    <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+    <!-- Alteração para nova historia de antecipação de reembolso -->
+    <section class="panel-body vr-panel-body-fix"
+             ng-show="hasContent() && !extraRefundPanelModal && !extraRefundPurchased">
+
+      <div ng-show="data.valorTotalDisponivel">
+        <label class="text-gray">Valor disponível</label>
+        <p class="text-lg">{{data.valorTotalDisponivel | currency : "R$ "}}</p>
+        <hr>
+      </div>
+
+      <div ng-show="data.dataPagamento && data.valorTotalDisponivel">
+        <button type="button" class="btn btn-default btn-information pull-right hidden"></button>
+        <label class="text-gray text-block">Data do crédito</label>
+        <p ng-bind="data.dataPagamento |date: 'dd/MM/yyyy'"></p>
+        <hr>
+      </div>
+
+      <div ng-show="data.dadosBancarios.length > 0 && data.valorTotalDisponivel">
+        <label class="text-gray">Dados para depósito</label>
+        <div ng-class="{ 'panel-scroll-36': isResume }">
+          <p ng-repeat="bankAccount in data.dadosBancarios | limitTo:10">
+            Banco {{bankAccount.banco}} - Ag {{bankAccount.agencia}} | Ct {{bankAccount.conta}}
+          </p>
+        </div>
+        <hr>
+      </div>
+
+      <div class="text-center" ng-show="!data.valorTotalDisponivel && data.status == 1">
+        <i class="icon icon-icon_cifrao3 top-50"></i><br>
+        <span class="text-secundary col-sm-12 top-30">ANTECIPAÇÃO AUTOMÁTICA CONTRATADA</span>
+        <p class="text-gray col-sm-12">
+          Para cancelamento, entre em contato com a Central de Atendimento VR Benefícios.
+        </p>
+        <span class="text-secundary col-sm-12 top-10">4004-4938</span>
+        <p class="text-gray col-sm-12">(Capitais e regiões metropolitanas)</p>
+        <span class="text-secundary col-sm-12 top-10">0800-596-3838</span>
+        <p class="text-gray col-sm-12">(Demais localidades)</p>
+        <p class="text-no-wrap col-sm-12">De 2ª a 6ª, das 9h às 18h</p>
+      </div>
+
+      <div class="text-center panel-message" ng-show="!data.valorTotalDisponivel && data.status == 3">
+        <i class="icon icon-icon_cifrao3"></i><br>
+        <span class="text-secundary col-sm-12 top-10">OPS</span>
+        <p class="text-gray col-sm-12">Antecipação indisponível para contratação.</p>
+      </div>
+
+      <div ng-show="!data.valorTotalDisponivel && data.status == 2">
+        <label class="text-gray">Contrate a antecipação automática e aproveite nossas taxas especiais.</label>
+      </div>
+
+      <form class="antecipacaodashboard" novalidate
+            ng-hide="!data.valorTotalDisponivel && (!data.status || data.status == 1)" vr-enter-key-form-interceptor="">
+
+        <div class="checkbox" ng-show="data.status != 3">
+          <div tooltip-closeable="'Habilite a antecipação do seu crédito de forma automática'"
+               ng-if="data.status == 2"></div>
+          <input id="antecipacao-automatica" type="checkbox"
+                 ng-model="antecipacaoAutomatica" ng-disabled="data.status == 1"/>
+          <label class="text-primary" for="antecipacao-automatica">Antecipação automática</label>
+        </div>
+
+        <div class="checkbox" ng-hide="!data.valorTotalDisponivel && data.status == 3">
+          <input type="checkbox" ng-model="acordo" id="antecipacao-acordo" required>
+          <label class="text-primary" for="antecipacao-acordo">
+            Estou de acordo com as condições comerciais de contratação do serviço.
+          </label>
+        </div>
+
+        <div class="row panel-footer-row" ng-hide="!data.valorTotalDisponivel && data.status == 3">
+          <div class="col-xs-12">
+            <hr class="hr">
+            <button type="button" ng-disabled="!acordo" class="btn btn-default btn-block"
+                    ng-click="getExtraRefundDashboard('start')">
+              Contrate agora
+            </button>
+          </div>
+        </div>
+
+      </form>
+
+    </section>
+
+    <div ng-include="'/portal/app/UI-EC/partials/modals/confirmacao-reembolso.html'"
+         ng-show="extraRefundPanelModal"></div>
+
+    <div ng-include="'/portal/app/UI-EC/partials/modals/reembolso-confirmado.html'"
+         ng-show="extraRefundPurchased"></div>
+
+  </article>
+</div>

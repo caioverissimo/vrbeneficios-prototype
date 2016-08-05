@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2016 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/main.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/base.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/angular-pickadate.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <script src="//cdn.polyfill.io/v2/polyfill.min.js" async defer></script>
+  <script src="//www.google.com/recaptcha/api.js?onload=vcRecaptchaApiLoaded&render=explicit" async defer></script>
+  <!-- build:js(.) /portal/js/main-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-loading-bar/build/loading-bar.js"></script>
+  <script src="/portal/js/bower_components/ngmap/build/scripts/ng-map.js"></script>
+  <script src="/portal/js/bower_components/chartist/dist/chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-chartist.js/dist/angular-chartist.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-recaptcha/release/angular-recaptcha.js"></script>
+  <script src="/portal/js/bower_components/lodash/dist/lodash.js"></script>
+  <script src="/portal/js/bower_components/angular-simple-logger/dist/angular-simple-logger.js"></script>
+  <script src="/portal/js/bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.js"></script>
+  <script src="/portal/js/bower_components/pdfjs-dist/build/pdf.combined.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/ui-beneficiario-app.js"></script>
+  <script src="/portal/app/UI-Beneficiario/js/minha-conta-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <script src='/portal/app/mock/ui-beneficiario-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+<body ng-app="ui-beneficiario-app" class="loading-pane">
+
+<!-- LOADING -->
+<section class="front-loading-wrapper">
+  <div class="front-loading-bar"></div>
+</section>
+
+<!-- Header -->
+<div ng-include="'/portal/app/mock/cabecalho.html'"></div>
+
+<!-- Inicio do DASHBOARD -->
+<!-- Conteúdo principal -->
+<div class="container main-content" ng-controller="NavigationController as Navigation">
+
+  <!-- Main -->
+  <main class="col-md-12">
+
+    <!-- Conteúdo principal -->
+    <h2 class="title">MINHA CONTA</h2>
+
+    <!-- Navegação -->
+    <nav>
+      <a href="" class="link-main" ng-click="Navigation.setView('mydata')"
+         ng-class="{'active': Navigation.isView('mydata')}">Meus dados pessoais</a>
+      <a href="" class="link-main" ng-click="Navigation.setView('myfavs')"
+         ng-class="{'active': Navigation.isView('myfavs')}">Meus favoritos</a>
+      <a href="" class="link-main" ng-click="Navigation.setView('changeaccess')"
+         ng-class="{'active': Navigation.isView('changeaccess')}">Alterar senha de acesso</a>
+    </nav>
+
+    <!-- Minha Conta - Meus dados pessoais -->
+    <article class="panel panel-default" ng-if="Navigation.isView('mydata')" ng-controller="MinhaContaController">
+
+      <!-- LOADING -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Mensagens de feedback -->
+      <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+      <!-- Panel Heading -->
+      <section class="panel-heading">
+        INFORMAÇÕES GERAIS
+      </section>
+
+      <!-- Corpo do painel -->
+      <section class="panel-body">
+
+        <!-- Inicio do formulário -->
+        <form name="generalInfoForm" novalidate vr-enter-key-form-interceptor="openConfirmationModal()">
+          <!-- Campos do formulário -->
+          <div class="row">
+
+            <!-- Upload de imagem de profile -->
+            <div class="col-xs-12 col-sm-3 col-md-12 col-lg-2 text-center form-group">
+              <div ng-show="hasPicture()">
+                <a class="badge badge-primary badge-remove" ng-click="removePicture()">&times;</a>
+                <div class="avatar-selection center-block">
+                  <img class="img-responsive" ng-src="{{getPicture()}}"/>
+                </div>
+              </div>
+              <div ng-hide="hasPicture()">
+                <button type="button" class="btn btn-default btn-avatar-upload" ng-click="insertPicture()">
+                  <i class="icon icon-icon_camera_off center-block"></i>
+                  <i class="icon icon-icon_camera_on center-block"></i>
+                </button>
+              </div>
+
+              <button class="btn btn-default top-10" type="button" ng-click="insertPicture()">
+                Alterar foto
+              </button>
+
+              <input ng-value="!hasPicture()" id="profileImage.delete" name="profileImage.delete" type="hidden"/>
+
+              <input value="xxx" name="profileImage.userId" type="hidden"/>
+
+              <input type="file" accept="image/*" class="hidden" id="accountImageUpload"
+                     name="profileImage.profileImage" vr-transient-image="transientPicture" resize-max-height="300"
+                     resize-max-width="300"/>
+
+              <input type="hidden" vr-initial="/portal/img/avatar-dft.jpg" ng-model="picture"/>
+
+            </div>
+
+            <!-- Campos do formulário -->
+            <div class="col-xs-12 col-lg-10">
+              <!-- Primeira linha -->
+              <div class="row">
+                <!-- Campo Nome -->
+                <div class="form-group col-sm-7 col-md-3">
+                  <label class="form-label-gray">
+                    Nome
+                  </label>
+                  <input type="text" name="nome" vr-initial="Gustavo Ziller" class="form-control" maxlength="255"
+                         ng-model="generalInfo.nome" required>
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.nome.$error"
+                       ng-if="generalInfoForm.nome.$dirty">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                  </div>
+                </div>
+
+                <!-- Campo CPF -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-2">
+                  <label class="form-label-gray">
+                    CPF
+                  </label>
+                  <input type="text" name="CPF" vr-initial="48020371559" class="form-control" ng-model="generalInfo.cpf"
+                         ng-cpf ui-options="{clearOnBlur:false}" ui-mask="999.999.999-99" required>
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.CPF.$error"
+                       ng-if="generalInfoForm.CPF.$dirty && generalInfoForm.CPF.$touched">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                    <p ng-message when="mask" class="text-right text-nowrap">Complete o CPF</p>
+                    <p ng-message when="cpf" class="text-right text-danger text-nowrap">CPF inválido</p>
+                  </div>
+                </div>
+
+                <!-- Campo data de nascimento -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-3">
+                  <label class="form-label-gray">
+                    Data de nascimento
+                  </label>
+                  <input type="text" name="dataNascimento.date" vr-initial="1/1/1980 | dateSlashFilter"
+                         class="form-control" ng-model="generalInfo.dataNascimento" ui-options="{clearOnBlur:false}"
+                         ui-mask="99/99/9999" date-validation required>
+
+                  <div ng-messages class="error-messages" for="generalInfoForm['dataNascimento.date'].$error"
+                       ng-if="generalInfoForm['dataNascimento.date'].$dirty && generalInfoForm['dataNascimento.date'].$touched">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                    <p ng-message when="mask" class="text-right text-nowrap">Complete a data</p>
+                    <p ng-message when="dateValidation" class="text-right text-danger text-nowrap">Data inválida</p>
+                  </div>
+                </div>
+
+                <!-- Radio buttons de sexo -->
+                <div class="form-group col-sm-12 col-md-4">
+                  <label class="form-label-gray text-block form-label-required">
+                    Sexo
+                  </label>
+
+                  <div class="top-10">
+                    <!-- Rádio button de dado do valor -->
+                    <div class="radio-inline">
+                      <input id="sexo-masculino" type="radio" name="sexo" vr-initial="checked"
+                             ng-model="generalInfo.sex" value="masculino" ng-required="!generalInfo.sex">
+                      <label for="sexo-masculino">Masculino</label>
+                    </div>
+
+                    <!-- Rádio button de dado do valor -->
+                    <div class="radio-inline">
+                      <input id="sexo-feminino" type="radio" name="sexo" vr-initial=""
+                             ng-model="generalInfo.sex" value="feminino" ng-required="!generalInfo.sex">
+                      <label for="sexo-feminino">Feminino</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Segunda linha -->
+              <div class="row">
+
+                <!-- Email -->
+                <div class="form-group col-sm-12 col-md-5">
+                  <label class="form-label-gray">
+                    Email
+                  </label>
+
+                  <a href="javascript:void(0)" class="btn btn-block btn-get-location text-left padding-left-0">
+                    <span class="text-gray" ng-bind="'Ziller@gmail.com'"></span>
+                    <i class="fa fa-pencil pull-right hidden"></i>
+                  </a>
+                </div>
+
+                <!-- Celular -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-3">
+                  <label class="form-label-gray">
+                    Celular
+                  </label>
+                  <input type="text" name="cel" class="form-control" vr-initial="31994949388"
+                         ng-model="generalInfo.cellphone" ui-options="{clearOnBlur:false}" ui-mask="(99) 99999-9999">
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.cel.$error"
+                       ng-if="generalInfoForm.cel.$dirty && generalInfoForm.cel.$touched">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                    <p ng-message when="mask" class="text-right text-nowrap">Complete o celular</p>
+                  </div>
+                </div>
+
+                <!-- Telefone Fixo -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-3">
+                  <label class="form-label-gray">
+                    Telefone fixo
+                  </label>
+                  <input type="text" name="tel" class="form-control" vr-initial="3133459388"
+                         ng-model="generalInfo.phone" ui-options="{clearOnBlur:false}" ui-mask="(99) 9999-9999">
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.tel.$error"
+                       ng-if="generalInfoForm.tel.$dirty && generalInfoForm.tel.$touched">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                    <p ng-message when="mask" class="text-right text-nowrap">Complete o telefone</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Terceira linha -->
+              <div class="row">
+
+                <!-- Cep -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-2">
+                  <label class="form-label-gray">
+                    Cep
+                  </label>
+                  <input type="text" name="cep" class="form-control" vr-initial="30575130" ng-model="generalInfo.cep"
+                         ui-options="{clearOnBlur:false}" ui-mask="99999-999">
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.cep.$error"
+                       ng-if="generalInfoForm.cep.$dirty && generalInfoForm.cep.$touched">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                    <p ng-message when="mask" class="text-right text-nowrap">Complete o Cep</p>
+                  </div>
+                </div>
+
+                <!-- Logradouro -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-2">
+                  <label class="form-label-gray">
+                    Logradouro
+                  </label>
+                  <input type="text" name="logradouro" class="form-control" ng-model="generalInfo.address1"
+                         vr-initial="Rua" maxlength="20" required>
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.logradouro.$error"
+                       ng-if="generalInfoForm.logradouro.$dirty">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                  </div>
+                </div>
+
+                <!-- Endereco -->
+                <div class="form-group col-sm-12 col-md-4">
+                  <label class="form-label-gray">
+                    Endereço
+                  </label>
+                  <input type="text" name="endereco" class="form-control" ng-model="generalInfo.address2"
+                         vr-initial="Clementino Viana" maxlength="255" required>
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.endereco.$error"
+                       ng-if="generalInfoForm.endereco.$dirty">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                  </div>
+                </div>
+
+                <!-- Número -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-2">
+                  <label class="form-label-gray">
+                    Número
+                  </label>
+                  <input type="text" name="numero" class="form-control" ng-model="generalInfo.addressNumber"
+                         vr-initial="393" ui-options="{clearOnBlur:false}" ui-mask="99?9?9?9" required>
+                  <div ng-messages class="error-messages" for="generalInfoForm.numero.$error"
+                       ng-if="generalInfoForm.numero.$dirty">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Quarta linha -->
+              <div class="row">
+
+                <!-- Complemento -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-2">
+                  <label class="form-label-gray">
+                    Complemento
+                  </label>
+                  <input type="text" name="complemento" class="form-control" ng-model="generalInfo.address3"
+                         vr-initial="Apto 901" maxlength="15">
+                </div>
+
+                <!-- Estado -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-2">
+                  <label class="form-label-gray">
+                    Estado
+                  </label>
+                  <select class="form-control" name="uf" ng-model="generalInfo.uf" required>
+                    <option value="" disabled>Selecione</option>
+                    <option value="AC">AC</option>
+                    <option value="AL">AL</option>
+                    <option value="AP">AP</option>
+                    <option value="AM">AM</option>
+                    <option value="BA">BA</option>
+                    <option value="CE">CE</option>
+                    <option value="DF">DF</option>
+                    <option value="ES">ES</option>
+                    <option value="GO">GO</option>
+                    <option value="MA">MA</option>
+                    <option value="MT">MT</option>
+                    <option value="MS">MS</option>
+                    <option value="MG" vr-initial="selected">MG</option>
+                    <option value="PA">PA</option>
+                    <option value="PB">PB</option>
+                    <option value="PR">PR</option>
+                    <option value="PE">PE</option>
+                    <option value="PI">PI</option>
+                    <option value="RJ">RJ</option>
+                    <option value="RN">RN</option>
+                    <option value="RS">RS</option>
+                    <option value="RO">RO</option>
+                    <option value="RR">RR</option>
+                    <option value="SC">SC</option>
+                    <option value="SP">SP</option>
+                    <option value="SE">SE</option>
+                    <option value="TO">TO</option>
+                  </select>
+                </div>
+
+                <!-- Cidade -->
+                <div class="form-group col-xs-12 col-sm-12 col-md-3">
+                  <label class="form-label-gray">
+                    Cidade
+                  </label>
+                  <input type="text" name="cidade" class="form-control" vr-initial="Belo Horizonte"
+                         ng-model="generalInfo.city" maxlength="255" required>
+
+                  <div ng-messages class="error-messages" for="generalInfoForm.cidade.$error"
+                       ng-if="generalInfoForm.cidade.$dirty">
+                    <p ng-message when="required" class="text-right text-nowrap">Campo obrigatório</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Recebimento de ofertas -->
+            <div class="form-group col-md-offset-2 col-md-10">
+              <div class="checkbox">
+                <input id="offers" name="offers" type="checkbox" ng-model="generalInfo.offers" checked>
+                <label class="text-primary" for="offers">
+                  Quero receber promoções, descontos e benefícios da VR e seus parceiros.
+                </label>
+              </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="col-sm-12">
+              <small class="text-gray">* Campos obrigatórios</small>
+              <hr class="hr"/>
+            </div>
+          </div>
+
+
+          <!-- Botões -->
+          <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+              <button type="button" class="btn btn-primary btn-block" ng-click="openConfirmationModal()"
+                      ng-disabled="generalInfoForm.$invalid || LOADING">
+                Salvar alterações
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </article>
+    <!-- Fim do article -->
+
+    <!-- Minha Conta - Meus favoritos -->
+    <article class="panel panel-default panel-min-heigth-420" ng-if="Navigation.isView('myfavs')"
+             ng-controller="FavsController">
+
+      <!-- LOADING -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Include de mensagem de loader -->
+      <div ng-include="'/portal/app/components/partials/carregando.html'"></div>
+
+      <!-- Include de mensagem de ausencia de conteudo -->
+      <div ng-include="'/portal/app/components/partials/sem-conteudo.html'"></div>
+
+      <section class="panel-body" ng-show="hasContent()">
+        <!-- Texto explicativo -->
+        <p class="text-gray">
+          Com as promoções dos estabelecimentos parceiros da VR, além de você ter acesso aos melhores estabelecimentos,
+          você também economiza!
+        </p>
+        <!-- Separador -->
+        <hr class="hr"/>
+
+        <ul class="list-inline aside-list" ng-show="data.length > 0">
+          <div ng-repeat="item in data" class="row">
+
+            <!-- Campos numéricos -->
+            <li class="hidden-xs col-sm-1">
+              <div class="aside-list-count">
+                <span>{{item.row}}</span>
+              </div>
+            </li>
+
+            <!-- Colunas -->
+            <li class="col-sm-11 row">
+              <!-- Inicio da promoção - Duplicar esta div -->
+              <div class="col-sm-6 top-10" ng-repeat="fav in item.favs">
+                <!-- Espaço do ícone -->
+                <div class="col-sm-2 col-xs-3 text-secundary text-center" uib-tooltip="Adicionar favorito"
+                     ng-click="toggleFav(fav)" ng-if="!fav.active">
+                  <!-- Alteração para icone -->
+                  <i class="icon icon-icon_favoritos_off"></i>
+                </div>
+
+                <div class="col-sm-2 col-xs-3 text-secundary text-center" uib-tooltip="Remover favorito"
+                     ng-click="toggleFav(fav)" ng-if="fav.active">
+                  <!-- Alteração para icone -->
+                  <i class="icon icon-icon_favoritos_on"></i>
+                </div>
+                <div class="col-sm-10 col-xs-9">
+                  <span class="text-block">{{fav.title}}</span>
+                  <span class="text-gray text-block">{{fav.place}}</span>
+                </div>
+
+                <div class="col-sm-12 top-10">
+                  <a href="javascript:void(0)" class="btn btn-default" ng-click="goToMap(item)">Mapa</a>
+                </div>
+
+                <!-- Separador tem que estar no repeat -->
+                <div class="col-sm-12">
+                  <hr class="hr">
+                </div>
+              </div>
+              <!-- Fim da promoção -->
+            </li>
+
+          </div>
+        </ul>
+
+      </section>
+    </article>
+    <!-- Fim do article -->
+
+    <!-- Minha conta - Dados de acesso -->
+    <article class="panel panel-default" ng-if="Navigation.isView('changeaccess')"
+             ng-controller="MinhaContaController">
+
+      <!-- LOADING -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Mensagens de feedback -->
+      <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+      <!-- Corpo do painel -->
+      <section class="panel-body">
+
+        <!-- Inicio do formulário -->
+        <form name="changeAccessForm" vr-enter-key-form-interceptor="">
+          <!-- Primeira linha -->
+          <div class="row">
+
+            <!-- Senha atual -->
+            <div class="form-group col-sm-6 col-md-4">
+              <label class="form-label-gray">
+                Senha atual
+              </label>
+              <input type="password" name="oldpassword" class="form-control" ng-model="oldpassword" required>
+
+              <div ng-messages class="error-messages" for="changeAccessForm.oldpassword.$error"
+                   ng-if="changeAccessForm.oldpassword.$dirty && changeAccessForm.oldpassword.$touched">
+                <p ng-message when="required" class="text-right">Por favor, digite a senha atual</p>
+              </div>
+            </div>
+          </div>
+          <!-- Segunda linha -->
+          <div class="row">
+
+            <!-- Nova senha -->
+            <div class="form-group col-sm-6 col-md-4">
+              <label class="form-label-gray">
+                Nova senha
+              </label>
+              <input type="password" name="newpassword" class="form-control" ng-model="newpassword"
+                     required>
+
+              <div ng-messages class="error-messages" for="changeAccessForm.newpassword.$error"
+                   ng-if="changeAccessForm.newpassword.$dirty">
+                <p ng-message when="required" class="text-right">Por favor, digite a nova senha</p>
+              </div>
+            </div>
+
+            <!-- Confirmacao senha -->
+            <div class="form-group col-sm-6 col-md-4">
+              <label class="form-label-gray">
+                Confirmar nova senha
+              </label>
+              <input type="password" name="newpasswordconfirmation" class="form-control"
+                     ng-model="newpasswordconfirmation" compare-to="newpassword"
+                     no-cut-copy-paste required>
+
+              <div ng-messages class="error-messages" for="changeAccessForm.newpasswordconfirmation.$error"
+                   ng-if="changeAccessForm.newpasswordconfirmation.$dirty">
+                <p ng-message when="required" class="text-right">Por favor, digite a confirmação de senha</p>
+                <p ng-message when="compareTo" class="text-right text-danger">Senha não correspondente</p>
+              </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="col-sm-12">
+              <small class="text-gray">* Campos obrigatórios</small>
+              <hr class="hr"/>
+            </div>
+          </div>
+
+          <!-- Dicas -->
+          <div class="col-sm-12 top-10">
+            <div class="row">
+              <div class="col-sm-1">
+                <i class="icon icon-icon_dicas pull-left"></i>
+              </div>
+              <div class="col-sm-11 padding-left-0">
+                <span class="text-black">Dicas de senha:</span>
+                <ul class="text-gray padding-left-20">
+                  <li>
+                    Crie uma senha com no mínimo 8 caracteres (letras e números).
+                  </li>
+                  <li>
+                    Utilize números e letras para um senha mais segura.
+                  </li>
+                  <li>
+                    Evite senhas com números e letras repetidas e de fácil identificação como 12345678, 22224444, ou seu
+                    nome.
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <hr class="hr">
+
+          <!-- Botões -->
+          <div class="row">
+            <div class="col-xs-12 col-md-4 col-md-offset-4">
+              <button class="btn btn-primary btn-block" type="button" ng-disabled="changeAccessForm.$invalid"
+                      ng-click="changePassword()">
+                Salvar alterações
+              </button>
+            </div>
+          </div>
+        </form>
+      </section>
+    </article>
+    <!-- Fim do article -->
+
+  </main>
+</div>
+
+<div class="hide">
+
+  <!-- Modal de alteração do email no mesmo arquivo por requisito do Lumis -->
+  <div id="emailChangeModalTemplate">
+    <!-- Fechar o modal -->
+    <button class="btn btn-close" ng-click="cancel()">&times;</button>
+
+    <!-- Formulário de criação de número -->
+    <form class="form" name="formAlterarEmail" ng-show="!FINAL_STATE" vr-enter-key-form-interceptor="">
+      <section class="modal-header" ng-show="!FINAL_STATE">
+        <h3 class="h3 title">ALTERAR EMAIL</h3>
+
+        <p class="lead">Siga as instruções abaixo para alterar seu email de acesso.</p>
+      </section>
+
+      <section class="modal-body">
+        <div class="row">
+          <!--CPF-->
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="text-gray">CPF</label>
+              <input type="text" name="CPF" class="form-control" ng-cpf ng-model="emailChangeCpf"
+                     ui-options="{clearOnBlur:false}" ui-mask="999.999.999-99"
+                     required>
+
+              <div ng-messages class="error-messages" for="formAlterarEmail.CPF.$error"
+                   ng-if="formAlterarEmail.CPF.$dirty && formAlterarEmail.CPF.$touched">
+                <p ng-message when="required" class="text-right">Informe seu CPF</p>
+                <p ng-message when="mask" class="text-right text-danger">Por favor, complete o CPF</p>
+                <p ng-message when="cpf" class="text-right text-danger">CPF inválido</p>
+              </div>
+            </div>
+          </div>
+
+          <!--Data de nascimento-->
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="text-gray">Data de nascimento</label>
+              <input type="text" name="birth" class="form-control" ng-model="emailChangeBirth"
+                     ui-options="{clearOnBlur:false}" ui-mask="99/99/9999"
+                     date-validation required>
+
+              <div ng-messages class="error-messages" for="formAlterarEmail.birth.$error"
+                   ng-if="formAlterarEmail.birth.$dirty && formAlterarEmail.birth.$touched">
+                <p ng-message when="required" class="text-right">Informe seu nascimento</p>
+                <p ng-message when="dateValidation" class="text-right text-danger">Por favor, preencha uma data
+                  válida</p>
+                <p ng-message when="mask" class="text-right">Por favor, complete a data de seu nascimento</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Email -->
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="text-gray">Novo email</label>
+              <input type="email" class="form-control" name="email" ng-model="email" required>
+              <div ng-messages class="error-messages" for="formAlterarEmail.email.$error"
+                   ng-if="formAlterarEmail.email.$dirty">
+                <p ng-message when="required" class="text-right">Por favor, informe o email</p>
+                <p ng-message when="email" class="text-right text-danger">Por favor, informe um email válido</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Confirmação email -->
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label class="text-gray">Confirmar novo email</label>
+              <input type="email" class="form-control" name="emailConfirmation" ng-model="emailConfirmation"
+                     compare-to="email" no-cut-copy-paste required>
+              <div ng-messages class="error-messages" for="formAlterarEmail.emailConfirmation.$error"
+                   ng-if="formAlterarEmail.emailConfirmation.$dirty">
+                <p ng-message when="required" class="text-right">Por favor, informe o email</p>
+                <p ng-message when="email" class="text-right text-danger">Por favor, informe um email válido</p>
+                <p ng-message when="compareTo" class="text-right">O email não corresponde ao digitado</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Separador -->
+        <div class="col-sm-12">
+          <small class="text-gray">* Campos obrigatórios</small>
+          <hr class="hr"/>
+        </div>
+      </section>
+
+      <!-- Footer com botões -->
+      <section class="modal-footer">
+        <button type="button" class="btn btn-default" ng-click="cancel()">Cancelar</button>
+        <button type="button" class="btn btn-primary" ng-click="alterarEmail()"
+                ng-disabled="formAlterarEmail.$invalid || LOADING ">
+          Confirmar alteração
+        </button>
+      </section>
+    </form>
+
+    <div ng-show="FINAL_STATE">
+      <section class="modal-header text-center">
+        <p class="lead top-30">O seu e-mail foi alterado com sucesso!</p>
+      </section>
+
+      <!-- Footer com botões -->
+      <section class="modal-footer">
+        <button type="button" class="btn btn-primary" ng-click="cancel()">
+          Fechar e voltar
+        </button>
+      </section>
+    </div>
+  </div>
+
+
+  <!-- Modal de confirmacao no mesmo arquivo por requisito do Lumis -->
+  <div id="confirmationModalTemplate">
+    <section class="modal-header text-center">
+      <p class="lead top-30">
+        Confirma alterações de seus dados pessoais?
+      </p>
+      <p class="lead" ng-show="changedImportantData">
+        Seu CPF e/ou Data e Nascimento foi alterado. Será necessário confirmar novamente seu cartão.
+      </p>
+    </section>
+
+    <!-- Footer com botões -->
+    <section class="modal-footer">
+      <button type="button" class="btn btn-default" ng-click="cancel()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-primary" ng-click="ok('confirm')">
+        Confirmar
+      </button>
+    </section>
+  </div>
+</div>
+
+<!-- Footer -->
+<div ng-include="'/portal/app/mock/rodape.html'"></div>
+</body>
+</html>

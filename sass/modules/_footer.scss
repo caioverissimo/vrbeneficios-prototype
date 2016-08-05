@@ -1,0 +1,48 @@
+.footer {
+  background: $gray-brand;
+  padding: 60px 0;
+  color: $gray-light;
+  font-family: 'Gill-Sans-Light';
+  a {
+    color: $gray-light;
+  }
+
+  .text-lg {
+    font-size: 26px;
+    line-height: 1.2;
+  }
+
+  .copyright {
+    a {
+      text-decoration: underline;
+    }
+  }
+
+  @media screen and (max-width: $screen-sm) {
+
+    .vr-footer-links-list {
+
+      margin-bottom: 50px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+    }
+
+    .social-icons {
+      margin-bottom: 50px;
+    }
+
+    .vr-footer-icon {
+      width: 50%;
+    }
+
+  }
+
+}
+
+.social-icons {
+  margin-top: 60px;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2016 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/home.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/full-slider.css">
+  <link rel="stylesheet" type="text/css" href="/portal/js/bower_components/animate.css/animate.min.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <!-- build:js(.) /portal/js/home-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body class="body" ng-app="ui-comum-app">
+
+<!-- Header -->
+<div ng-include="'/portal/app/mock/cabecalho-home.html'"></div>
+
+<main class="container main-content" ng-controller="NavigationController as Navigation">
+
+  <article class="col-sm-10 col-sm-offset-1 top-80">
+    <!-- Título da pagina -->
+    <h2 class="subTitle text-gray-brand">FAQ</h2>
+
+    <!-- Linha separadora -->
+    <hr class="hr-sm">
+
+    <p class="text-summary">
+      Aqui você encontra as principais perguntas e respostas sobre os nossos produtos e site.<br/>
+      Entre em contato com o <a href="fale-conosco.html">Fale conosco</a> sempre que precisar.
+    </p>
+
+    <div class="accordion-list">
+
+      <nav class="tabs tabs" ng-init="Navigation.setView('voce')">
+        <div class="tabs-wrapper">
+          <div class="tab active" ng-click="Navigation.setView('voce')"
+               ng-class="{'active': Navigation.isView('voce')}">Você
+          </div>
+          <div class="tab" ng-click="Navigation.setView('estab')" ng-class="{'active': Navigation.isView('estab')}">
+            Estabelecimentos
+          </div>
+        </div>
+      </nav>
+
+      <!-- conteudo para aba 'Beneficiario' -->
+      <section class="panel-body" ng-if="Navigation.isView('voce')">
+
+        <div class="accordion-item">
+          <div class="accordion-header" ng-click="isCollapsed1 = !isCollapsed1">
+            <span>1 - Quais são os cartões VR Benefícios?</span>
+          </div>
+          <div uib-collapse="isCollapsed1">
+            <p>VR Refeição: para pagamento refeições prontas em restaurantes, cafeterias, lanchonetes, fast food e
+              similares.</p>
+            <p>VR Alimentação: para pagamento de alimentos: supermercados, hipermercados, mercearia, padaria e
+              similares.</p>
+            <p>VR Auto: para pagamento de combustíveis e serviços em postos de combustível, serviços automotivos e
+              similares.</p>
+            <p>VR Cultura: adquirir livros, comprar jornais e revistas, assistir a filmes e shows, entre outros em
+              livrarias, cinemas, teatros e similares.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" ng-init="isCollapsed2 = true">
+          <div class="accordion-header" ng-click="isCollapsed2 = !isCollapsed2">
+            <span>2 - Como faço para consultar o saldo do meu cartão VR Benefícios?</span>
+          </div>
+          <div uib-collapse="isCollapsed2">
+            <p>VR Refeição: para pagamento refeições prontas em restaurantes, cafeterias, lanchonetes, fast food e
+              similares.</p>
+            <p>VR Alimentação: para pagamento de alimentos: supermercados, hipermercados, mercearia, padaria e
+              similares.</p>
+            <p>VR Auto: para pagamento de combustíveis e serviços em postos de combustível, serviços automotivos e
+              similares.</p>
+            <p>VR Cultura: adquirir livros, comprar jornais e revistas, assistir a filmes e shows, entre outros em
+              livrarias, cinemas, teatros e similares.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" ng-init="isCollapsed3 = true">
+          <div class="accordion-header" ng-click="isCollapsed3 = !isCollapsed3">
+            <span>3 - Perdi o meu cartão, como faço para bloqueá-lo e solicitar outro?</span>
+          </div>
+          <div uib-collapse="isCollapsed3">
+            <p>VR Refeição: para pagamento refeições prontas em restaurantes, cafeterias, lanchonetes, fast food e
+              similares.</p>
+            <p>VR Alimentação: para pagamento de alimentos: supermercados, hipermercados, mercearia, padaria e
+              similares.</p>
+            <p>VR Auto: para pagamento de combustíveis e serviços em postos de combustível, serviços automotivos e
+              similares.</p>
+            <p>VR Cultura: adquirir livros, comprar jornais e revistas, assistir a filmes e shows, entre outros em
+              livrarias, cinemas, teatros e similares.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" ng-init="isCollapsed4 = true">
+          <div class="accordion-header" ng-click="isCollapsed4 = !isCollapsed4">
+            <span>4 - Perdi ou bloqueei a senha do meu cartão, como faço para recuperá-la?</span>
+          </div>
+          <div uib-collapse="isCollapsed4">
+            <p>VR Refeição: para pagamento refeições prontas em restaurantes, cafeterias, lanchonetes, fast food e
+              similares.</p>
+            <p>VR Alimentação: para pagamento de alimentos: supermercados, hipermercados, mercearia, padaria e
+              similares.</p>
+            <p>VR Auto: para pagamento de combustíveis e serviços em postos de combustível, serviços automotivos e
+              similares.</p>
+            <p>VR Cultura: adquirir livros, comprar jornais e revistas, assistir a filmes e shows, entre outros em
+              livrarias, cinemas, teatros e similares.</p>
+          </div>
+        </div>
+      </section>
+      <!-- #conteudo para aba 'Beneficiario' -->
+
+      <!-- conteudo para aba 'Você' -->
+      <section class="panel-body" ng-if="Navigation.isView('estab')">
+
+        <div class="accordion-item">
+          <div class="accordion-header" ng-click="isCollapsed1 = !isCollapsed1">
+            <span>1 - Question 1</span>
+          </div>
+          <div uib-collapse="isCollapsed1">
+            <p>Answer 1.</p>
+          </div>
+        </div>
+
+        <div class="accordion-item" ng-init="isCollapsed2 = true">
+          <div class="accordion-header" ng-click="isCollapsed2 = !isCollapsed2">
+            <span>2 - Question 2</span>
+          </div>
+          <div uib-collapse="isCollapsed2">
+            Answer 2
+          </div>
+        </div>
+
+      </section>
+      <!-- #conteudo para aba 'Você' -->
+
+    </div>
+  </article>
+
+</main>
+
+<!-- Footer -->
+<div ng-include="'/portal/app/mock/rodape.html'"></div>
+
+</body>
+</html>

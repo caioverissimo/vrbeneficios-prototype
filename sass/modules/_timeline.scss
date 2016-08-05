@@ -1,0 +1,93 @@
+.timeline {
+	position: relative;
+	clear: both;
+	.row {
+		padding-top: 1em;
+	}
+	[class^="col-"] {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+	.legend {
+		text-transform: initial;
+
+    @media screen and (max-width: $screen-sm) {
+      width: 250px;
+    }
+
+	}
+}
+
+.timeline-section {
+	position: relative;
+	padding: 2em 0;
+	p {
+		color: #969696;
+		br {
+			display: none;
+	    @media screen and (min-width: 1200px) {
+	      display: initial;
+	    }
+	  }
+	}
+	span {
+		font-size: 24px;
+		color: #10ba54;
+	}
+  @media screen and (max-width: 992px){
+    padding-bottom: 4em;
+  }
+  img {
+  	max-width: 100%;
+  }
+}
+
+.timeline-tag {
+	margin: 0;
+	font-size: 40px;
+	color: #10ba54;
+	text-align: center;
+	font-family: 'Gill-Sans-Semibold';
+}
+
+
+.timeline-floating-tag {
+  width: 100%;
+  height: 40px;
+  max-height: 40px;
+  max-height: 0;
+  display: block;
+  position: fixed;
+  top: 51px;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  background: rgba(230,230,230,0.7);
+  font-size: 30px;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.5s ease-in-out;
+  &.active {
+  	max-height: 40px;
+  	opacity: 1;
+	  @media screen and (min-width: 992px) {
+	  	max-height: 0;
+	  	opacity: 0;
+	  }
+  }
+}
+
+.timeline-section::before {
+  background: #10ba54;
+  bottom: 0;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 6px;
+  @media screen and (min-width: 992px) {
+    left: 50%;
+    margin-left: -3px;
+    right: 50%;
+  }
+}

@@ -1,0 +1,50 @@
+[
+    {
+        "cnpj": "000000000000000",
+        "nome": "TST EXCELTOCI 280915-02",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    },
+    {
+        "cnpj": "000000000000001",
+        "nome": "EMPRESA CLX ANUIDADE",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    },
+    {
+        "cnpj": "000000000000002",
+        "nome": "TONI S",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    },
+    {
+        "cnpj": "000000000000003",
+        "nome": "TESTE WEB",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    },
+    {
+        "cnpj": "000000000000004",
+        "nome": "db - teste canal",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    },
+    {
+        "cnpj": "000000000000005",
+        "nome": "TESTE EXCELTOCI FR001",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    },
+    {
+        "cnpj": "000000000000006",
+        "nome": "DB - DOC TED REDE",
+        "pathLogotipo": null,
+        "tipo": "Rede"
+    },
+    {
+        "cnpj": "000000000000007",
+        "nome": "teste freddy tpcntr001",
+        "pathLogotipo": null,
+        "tipo": "Normal"
+    }
+]

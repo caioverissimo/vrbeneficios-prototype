@@ -1,0 +1,271 @@
+<!-- Article 1: Encontre um estabelecimento -->
+<article class="panel panel-default" ng-controller="NetworkSearcherController">
+
+  <section vr-loading-panel="LOADING"></section>
+
+  <!-- MAPA -->
+  <section class="panel-body">
+    <div class="col-sm-7 col-md-9">
+      <!-- texto principal -->
+      <p>Saiba onde usar os cartões VR Benefícios.</p>
+      <!-- subtitulo informativo -->
+      <p class="text-gray">
+        Selecione o produto e informe o ponto de referência/endereço para encontrar os estabeleciomentos mais
+        próximos de você. Informe também o nome do estabelecimento para encontrar um local específico.
+      </p>
+    </div>
+    <div class="col-sm-5 col-md-3">
+      <a class="btn btn-default btn-block" ng-click="Navigation.setView('addplace')">Indique um estabelecimento</a>
+    </div>
+  </section>
+  <!-- Mapa carregado com lazy loading - Usando a diretiva np-map para angularJS - Maps V3 -->
+  <section map-lazy-load="https://maps.google.com/maps/api/js">
+    <!-- Inicio da diretiva -->
+    <ng-map center="[10,2]" zoom="6" class="vr-searchmap">
+
+      <!-- Formulário de busca -->
+      <article class="panel panel-default vr-searchmap-leftcontroller" ng-class="{'active': menuMapDisplay}">
+        <div class="panel-body row">
+          <!-- Toggle -->
+          <button class="btn btn-map-toggle" ng-click="toggleMapMenu()" ng-class="{'active': menuMapDisplay}">
+            <i class="fa fa-bars fa-2x text-white"></i>
+          </button>
+          <!-- Inicio do formulário de busca no mapa -->
+          <form class="form" name="map-search" novalidate vr-enter-key-form-interceptor="">
+            <div class="form-group">
+              <!-- Label - texto explicando o input -->
+              <label class="form-label" for="form-card-type">TIPO DE CARTÃO</label>
+
+              <div class="input-group">
+                <span class="input-group-addon"><i class="icon icon-icon_cartao"></i></span>
+                <select class="form-control" id="form-card-type" name="cardtype" required>
+                  <!-- Criar options para listar o tipo de cartão  - Provavelmente um ng-repeat aqui em algum elemento -->
+                  <option disabled="" selected="">Selecione</option>
+                  <option disabled="" >Tipo 1</option>
+                  <option disabled="">Tipo 2</option>
+                  <option disabled="">Tipo 3</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- Label representa o nome do campo -->
+              <label class="form-label" for="form-reference-point">PONTO DE REFERÊNCIA</label>
+
+              <div class="input-group input-group-location">
+                <span class="input-group-addon"><i class="icon icon-icon_rota"></i></span>
+                <!-- Dado do estabelecimento para busca -->
+                <input class="form-control" id="form-reference-point" name="reference"
+                       placeholder="Digite seu endereço"/>
+                <i class="icon icon-icon_localizacao"></i>
+              </div>
+            </div>
+            <div class="form-group">
+              <!-- Label representa o nome do campo -->
+              <label class="form-label" for="form-place-name">NOME DO ESTABELECIMENTO</label>
+
+              <div class="input-group">
+                <!-- Icone -->
+                <span class="input-group-addon"><i class="icon icon-icon_empresa"></i></span>
+                <!-- Dado do estabelecimento para busca -->
+                <input class="form-control" id="form-place-name" name="place"
+                       placeholder="Nome do estabelecimento"/>
+              </div>
+            </div>
+
+            <!-- Separador -->
+            <div class="col-sm-12">
+              <small class="text-gray">* Campos obrigatórios</small>
+              <hr class="hr"/>
+            </div>
+
+            <button type="button" class="btn btn-default btn-block" ng-click="getSearchResults()"
+                    ng-disabled="LOADING">
+              Buscar
+            </button>
+          </form>
+          <!-- Área de resultados - usar um hidden aqui -->
+          <!-- <section ng-if="displayResults"> -->
+          <section>
+            <hr class="hr">
+            <!-- Resultados -->
+            <p class="response-block-title">
+              <i class="fa fa-map-marker fa-fw"></i>
+              RESULTADOS
+            </p>
+            <!-- Tabela de resultados inicia aqui -->
+            <div style="
+              max-height: 220px;
+              overflow-y: scroll;
+            ">
+              <table class="table table-listing">
+                <tr ng-repeat="item in data">
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    {{item.place}}
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    Fogo de chão
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    Sorveteria da cidade
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    Vila Àrabe
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    Fogo de chão
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    Sorveteria da cidade
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+                <tr>
+                  <!-- Primeiro TD é o nome do campo -->
+                  <td>
+                    Vila Àrabe
+                  </td>
+                  <!-- Botão que vai para as rotas " -->
+                  <td class="text-right">
+                    <button type="button" class="btn btn-default btn-sm" ng-click="searchForRoute(item)">Mapa</button>
+                  </td>
+                </tr>
+              </table>
+            </div>
+          </section>
+        </div>
+      </article>
+      <!-- Painel do Mapa - Superior com os botões -->
+      <article class="vr-searchmap-topcontroller" ng-class="{'active': menuMapDisplay}">
+        <!-- Header -->
+        <section class="vr-searchmap-top-heading">
+          ESTABELECIMENTOS ENCONTRADOS POR RADIO DE DISTÂNCIA
+        </section>
+        <!-- Botões tem que ter btn-map para estilização unica deles -->
+        <section class="vr-searchmap-top-body" ng-if="data">
+          <button type class="btn btn-default btn-map" ng-repeat="item in data">
+            <small class="text-block">{{item.distance}}</small>
+            <span class="text-lg">{{item.places.length}}</span>
+          </button>
+        </section>
+      </article>
+
+      <article class="vr-searchmap-topcontroller" ng-class="{'active': menuMapDisplay}">
+        <!-- Header -->
+        <section class="vr-searchmap-top-heading">
+          ESTABELECIMENTOS ENCONTRADOS POR RADIO DE DISTÂNCIA
+        </section>
+        <!-- Botões tem que ter btn-map para estilização unica deles -->
+        <section class="vr-searchmap-top-body">
+          <button type class="btn btn-default btn-map">
+            <small class="text-block">1km</small>
+            <span class="text-lg">5</span>
+          </button>
+          <button type class="btn btn-default btn-map">
+            <small class="text-block">5km</small>
+            <span class="text-lg">206</span>
+          </button>
+          <button type class="btn btn-default btn-map">
+            <small class="text-block">10m</small>
+            <span class="text-lg">1052</span>
+          </button>
+        </section>
+      </article>
+
+      <div class="vr-location-info">
+        <div style="color: white">
+          <div class="row vr-location-info-heading">
+              <div class="col-sm-12">
+                  <div class="display-info">
+                    <span class="title-location">
+                        Super Nosso Buritis F 401
+                    </span>
+                    <p>
+                        <span class="clearfix">Av. Professor Mário Werneck 2641.</span>
+                        <small>Belo Horizonte</small>
+                    </p>
+                  </div>
+                  <button class="btn btn-favorite icon-icon_favoritos_off pull-right"
+                    style="background-color: transparent"></button>
+              </div>
+
+
+
+
+          </div>
+          <hr class="hr">
+          <div class="results-list">
+            <div class="results-item">
+              <img src="http://placehold.it/42x42" alt="">
+              <span>Vr Refeicao</span>
+            </div>
+            <div class="results-item">
+              <img src="http://placehold.it/42x42" alt="">
+              <span>Vr Refeicao</span>
+            </div>
+            <div class="results-item">
+              <img src="http://placehold.it/42x42" alt="">
+              <span>Vr Refeicao</span>
+            </div>
+            <div class="results-item">
+              <img src="http://placehold.it/42x42" alt="">
+              <span>Vr Refeicao</span>
+            </div>
+          </div>
+          <hr class="hr">
+          <div class="paginacao">
+              <div class="row">
+                <div class="col-sm-12 text-center">
+                  <button class="btn btn-default btn-map" ng-click="currentPage = currentPage - 1" ng-disabled="currentPage == 1">
+                    <i class="fa fa-chevron-left"></i>
+                  </button>
+                  <span class="text-primary"><em class="text-underlined">{{currentPage}}</em> - {{totalPages}}</span>
+                  <button class="btn btn-default btn-map" ng-click="currentPage = currentPage + 1" ng-disabled="currentPage == totalPages">
+                    <i class="fa fa-chevron-right"></i>
+                  </button>
+                </div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </ng-map>
+  </section>
+</article>

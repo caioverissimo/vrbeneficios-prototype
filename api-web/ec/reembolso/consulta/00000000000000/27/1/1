@@ -1,0 +1,15 @@
+{
+   "guias":[
+      {
+         "numero":"111",
+         "cnpj":"00000000000000",
+         "contrato":"1234",
+         "status":"Pago",
+         "dataCorte":1466606474221,
+         "dataPagamento":1466606474221,
+         "valorBruto":10000,
+         "valorLiquido":1000
+      }
+   ],
+   "rows":1
+}

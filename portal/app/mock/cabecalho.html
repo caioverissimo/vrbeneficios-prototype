@@ -1,0 +1,277 @@
+<!-- Inicio do header -->
+<div ng-controller="CabecalhoController" class="hdr-main">
+  <header class="header">
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <!-- Logo lateral -->
+        <h1 class="brand col-sm-3 col-md-2 col-xs-2">
+          <img src="/portal/img/logo.png" title="VR" alt="VR Benefícios">
+        </h1>
+
+        <!-- Navegação superior -->
+        <section class="hidden-xs col-sm-6">
+          <ul class="nav navbar-nav nav-header-spacer">
+            <li class="hidden">
+              <a href="">VR e Empresas</a>
+            </li>
+            <li>
+              <a href="/estabelecimentos/dashboard-ec.html" ng-class="{'active':isContextPath('/estabelecimentos')}">
+                Estabelecimentos
+              </a>
+            </li>
+            <li>
+              <a href="/beneficiario/dashboard.html" ng-class="{'active':isContextPath('/beneficiario')}">
+                Você
+              </a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Área de notificações -->
+        <section class="hidden-xs col-sm-1 text-right nav-header-spacer">
+          <span class="badge badge-primary badge-overtop hidden" ng-bind="notifications.length"></span>
+
+          <!-- Botão de notificações -->
+          <button type="button" class="drop-button btn btn-rounded btn-notifications" ng-disabled="true"
+                  dropdown-hover="notification">
+            <i class="icon icon-icon_notificacao_on"></i>
+          </button>
+
+          <!-- Menu de dropdown de notificação -->
+          <div class="drop-wrapper" id="notification">
+            <div class="drop-content">
+              <!-- Quantidade de notificações -->
+              <div class="drop-content-header">
+                <!-- Button -->
+                <a class="config pull-right btn btn-default"
+                   href="/minhaconta/notificacoes.html#managenotifications">
+                  <i class="fa fa-cog"></i>
+                </a>
+                <p class="text-white">
+                  <span ng-bind="notifications.length"></span> Notificações
+                </p>
+              </div>
+
+              <!-- Inicio da lista -->
+              <ul class="list-unstyled">
+                <li ng-repeat="notification in notifications">
+                  <a href="#">
+                    <!-- Alteração no icone -->
+                    <i class="icon"
+                       ng-class="{'icon-icon_notificacao_on':notification.unread === true, 'icon-icon_notificacao_off':notification.unread !== true}"></i>
+
+                    <div class="inline middle">
+                      <span class="text" ng-bind="notification.text"></span>
+                      <small class="time" ng-bind="notification.time"></small>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+
+              <a class="btn btn-default btn-block" href="/minhaconta/notificacoes.html#notifications">
+                Ver Todos
+              </a>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- Dados do usuário logado -->
+        <section class="hidden-xs col-sm-2 col-md-3 navbar-right nav-header-spacer" id="tutorialBeneficiario2">
+          <button type="button" class="drop-button btn btn-block profile-button" dropdown-hover="useroptions">
+            <!-- Imagem do usuario -->
+            <div class="profile-img">
+              <img src="{{user.imgUri}}"/>
+            </div>
+
+            <!-- Nome do usuário logado -->
+            <p class="profile-name">
+              <span ng-bind="user.name"></span>
+              <i class="icon icon-icon_seta_drop_off pull-right"></i>
+            </p>
+          </button>
+
+          <!-- Wrapper -->
+          <div class="drop-wrapper" id="useroptions">
+            <div class="drop-content">
+              <ul class="list-unstyled">
+                <li>
+                  <a href="/minhaconta/minha-conta.html#mydata" ng-click="setView('mydata')">
+                    <!-- Icone -->
+                    <!-- Alteração de icone -->
+                    <i class="icon icon-icon_meus_ajustes"></i>
+                    <!-- Texto -->
+                    <span class="center-link">Meus ajustes</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/minhaconta/minha-conta.html#myfavs" ng-click="setView('myfavs')">
+                    <!-- Icone -->
+                    <!-- Alteração de icone -->
+                    <i class="icon icon-icon_favoritos_off"></i>
+                    <!-- Texto -->
+                    <span class="center-link">Meus favoritos</span>
+                  </a>
+                </li>
+                <li>
+                  <a href="/minhaconta/minha-conta.html#changeaccess" ng-click="setView('changeaccess')">
+                    <!-- Icone -->
+                    <i class="icon icon-icon_senha"></i>
+                    <!-- Texto -->
+                    <span class="center-link">Alterar senha de acesso</span>
+                  </a>
+                </li>
+              </ul>
+              <a class="btn btn-default btn-block" href="#" ng-click="logout()">Sair</a>
+            </div>
+          </div>
+        </section>
+
+        <section class="sb-toggle-right navbar-right col-xs-9" ng-click="showMenu()">
+          <div class="navicon-line"></div>
+          <div class="navicon-line"></div>
+          <div class="navicon-line"></div>
+        </section>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-inverse hidden-xs" ng-controller="SubNavigation as Navigation">
+
+      <!-- submenu do painel beneficiario -->
+      <div class="container" ng-show="isContextPath('/beneficiario')">
+        <section class="hidden-xs col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2">
+          <ul class="nav navbar-nav" id="tutorialMenuBeneficiario">
+            <li ng-class="{'active': Navigation.pageView('dashboard')}">
+              <a href="/beneficiario/dashboard.html">Painel</a>
+            </li>
+            <li ng-class="{'active': Navigation.pageView('extrato')}">
+              <a href="/beneficiario/extrato.html">Extrato</a>
+            </li>
+            <li ng-class="{'active': Navigation.pageView('guia-vr')}">
+              <a href="/beneficiario/guia-vr.html#network">Guia VR</a>
+            </li>
+          </ul>
+        </section>
+      </div>
+
+      <!-- submenu do painel estabelecimentos -->
+      <div class="container" ng-show="isContextPath('/estabelecimentos')">
+        <section class="hidden-xs col-sm-6 col-sm-offset-3 col-md-8 col-md-offset-2">
+          <ul class="nav navbar-nav navbar-text-small" id="tutorialMenuEC">
+            <li ng-class="{'active': Navigation.pageView('dashboard-ec')}">
+              <a href="/estabelecimentos/dashboard-ec.html">Painel</a>
+            </li>
+            <li ng-class="{'active': Navigation.pageView('vendas')}">
+              <a href="/estabelecimentos/vendas.html">Vendas</a>
+            </li>
+            <li ng-class="{'active': Navigation.pageView('reembolso')}">
+              <a href="/estabelecimentos/reembolso.html">Reembolso</a>
+            </li>
+            <li ng-class="{'active': Navigation.pageView('estabelecimento')}">
+              <a href="/estabelecimentos/estabelecimento.html">Dados do estabelecimento</a>
+            </li>
+            <li ng-class="{'active': Navigation.pageView('informederendimentos')}">
+              <a href="/estabelecimentos/informe-rendimentos.html">Informe de rendimentos</a>
+            </li>
+          </ul>
+        </section>
+
+        <!-- Dados do estabelecimento selecionado -->
+        <div ng-include="'/portal/app/UI-EC/partials/estabelecimento.html'"></div>
+      </div>
+
+    </nav>
+  </header>
+
+  <!-- Navegação mobile -->
+  <!-- Adicionado os links -->
+  <nav class="navcontent-mobile" ng-style="menuContent">
+    <ul>
+      <li class="menu-item profile-mobile" ng-click="showProfile()">
+        <!-- Imagem do usuario -->
+        <div class="profile-img">
+          <!-- Trocar aqui no src -->
+          <img src="{{user.imgUri}}"/>
+        </div>
+
+        <!-- Nome do usuário logado -->
+				<span class="profile-name">
+					<span ng-bind="user.name"></span>
+          <i class="fa fa-plus pull-right"></i>
+				</span>
+      </li>
+      <ul class="sub-menu" ng-style="_sprofile">
+        <li>
+          <a href="/minhaconta/minha-conta.html#mydata">
+            Meus ajustes
+          </a>
+        </li>
+        <li>
+          <a href="/minhaconta/minha-conta.html#myfavs">
+            Meus favoritos
+          </a>
+        </li>
+        <li>
+          <a href="/minhaconta/minha-conta.html#changeaccess">
+            Alterar senha de acesso
+          </a>
+        </li>
+        <li>
+          <a href="/minhaconta/notificacoes.html#notifications">
+            Minhas notificações
+          </a>
+        </li>
+      </ul>
+      <li class="menu-item" ng-click="showMenu1()">
+        VR e Você
+        <i class="fa fa-plus pull-right"></i>
+      </li>
+      <ul class="sub-menu" ng-style="_menu1">
+        <li>
+          <a href="/beneficiario/dashboard.html">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="/beneficiario/extrato.html">
+            Extrato
+          </a>
+        </li>
+        <li>
+          <a href="/beneficiario/guia-vr.html">
+            Guia VR
+          </a>
+        </li>
+      </ul>
+      <li class="menu-item" ng-click="showMenu2()">
+        VR e Estabelecimentos
+        <i class="fa fa-plus pull-right"></i>
+      </li>
+      <ul class="sub-menu" ng-style="_menu2">
+        <li>
+          <a href="/estabelecimentos/dashboard-ec.html">
+            Dashboard
+          </a>
+        </li>
+        <li>
+          <a href="/estabelecimentos/vendas.html">
+            Vendas
+          </a>
+        </li>
+        <li>
+          <a href="/estabelecimentos/reembolso.html">
+            Reembolso
+          </a>
+        </li>
+        <li>
+          <a href="/estabelecimentos/estabelecimento.html">
+            Estabelecimento
+          </a>
+        </li>
+      </ul>
+      <li>
+        <a href="#" ng-click="logout()">Sair</a>
+      </li>
+    </ul>
+  </nav>
+</div>

@@ -1,0 +1,38 @@
+[
+	{
+		"descricao": "Vendas VR Refeição",
+		"valor": "8000.00"
+	},
+	{
+		"descricao": "Taxa de Serviços (6%)",
+		"valor": "480.00"
+	},
+	{
+		"descricao": "Tarifa de Adesão",
+		"valor": "100.00"
+	},
+	{
+		"descricao": "Tarifas Operacionais",
+		"valor": "100.00"
+	},
+	{
+		"descricao": "Tarifa de Anuidade",
+		"valor": "300.00"
+	},
+	{
+		"descricao": "Tarifa de emissao de Extrato",
+		"valor": "-5.00"
+	},
+	{
+		"descricao": "Tarifa de emissão de Relatório",
+		"valor": "-5.00"
+	},
+	{
+		"descricao": "Ajustes",
+		"valor": "10.00"
+	},
+	{
+		"descricao": "Taxa de serviço de Antecipação (4%)",
+		"valor": "-520.00"
+	}
+]

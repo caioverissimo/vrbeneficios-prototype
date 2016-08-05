@@ -1,0 +1,70 @@
+<!-- Conteúdo principal -->
+<div class="container main-content" ng-class="{'top-80-sm':(hasURI('comum/') || hasURI('area-publica/'))}"
+     vr-default-view="newcredential"
+     ng-controller="NavigationController as Navigation">
+  <main class="col-md-12" ng-class="{'top-80-sm':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/'))}">
+    <!-- Conteúdo principal -->
+    <nav>
+      <a href="javascript:void(0)"
+         ng-hide="Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')" class="link-main"
+         ng-click="Navigation.setView('confirmation')"
+         ng-class="{'active': Navigation.isView('confirmation')}">CONFIRMAR ESTABELECIMENTO</a>
+      <a href="javascript:void(0)" class="link-main" ng-click="Navigation.setView('newcredential')"
+         ng-class="{'active': Navigation.isView('newcredential'), 'text-subtitle':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')) }">
+        NOVO CREDENCIAMENTO
+      </a>
+      <a href="javascript:void(0)" class="link-main" ng-click="Navigation.setView('newcontact')"
+         ng-class="{'active': Navigation.isView('newcontact'), 'text-subtitle':(Navigation.hasURI('comum/') || Navigation.hasURI('area-publica/')) }">
+        SOLICITAR CONTATO
+      </a>
+    </nav>
+
+    <!-- Article 1: Confirmar estabelecimento -->
+    <article class="panel panel-default" ng-if="Navigation.isView('confirmation')">
+
+      <!-- Loading -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Heading -->
+      <!-- Heading contém o título -->
+      <section class="panel-heading">
+        VOCÊ JÁ TEM ESTABELECIMENTOS CREDENCIADOS? INFORME OS DADOS ABAIXO:
+      </section>
+
+      <!-- Form -->
+      <!-- Include de painel de solicitar contato -->
+      <div ng-include="'/portal/app/UI-EC/partials/confirmar-ec.html'"></div>
+
+    </article>
+    <!-- Fim do Article 1 -->
+
+    <!-- Article 2 -->
+    <article class="panel panel-default" ng-if="Navigation.isView('newcredential')"
+             ng-controller="NovoCredenciamentoController as ctrlNovoCred">
+
+      <!-- Diretiva de loading -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Feedback das áreas disparadas pelo usuário -->
+      <div ng-include="'/portal/app/components/partials/avisos.html'"></div>
+
+      <!-- Include de painel de novo credenciamento -->
+      <div ng-include="'/portal/app/UI-Comum/partials/novo-credenciamento.html'"></div>
+
+    </article>
+    <!-- Fim do Article 2 -->
+
+    <!-- Article 3 -->
+    <article class="panel panel-default" ng-if="Navigation.isView('newcontact')"
+             ng-controller="solicitarContatoController as ctrl">
+
+      <!-- Loading -->
+      <section vr-loading-panel="LOADING"></section>
+
+      <!-- Include de painel de solicitar contato -->
+      <div ng-include="'/portal/app/UI-Comum/partials/solicitar-contato.html'"></div>
+
+    </article>
+    <!-- Fim do Article 3 -->
+  </main>
+</div>

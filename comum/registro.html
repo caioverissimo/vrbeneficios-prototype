@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <!-- Metas - Dados para browser -->
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+
+  <!-- Meta Colors para mobile -->
+  <meta name="theme-color" content="#32353E">
+  <meta name="apple-mobile-web-app-status-bar-style" content="#32353E">
+  <meta name="msapplication-navbutton-color" content="#32353E">
+
+  <!-- Meta Social -->
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="description"
+        content="Empresa que desenvolve e promove benefícios para trabalhadores, estudantes e consumidores e serviços para empresas e estabelecimentos. Adquira VR Benefícios para seus funcionários, você escolhe o canal de vendas">
+  <meta name="keywords"
+        content="benefícios, benefícios Trabalhadores, benefícios Consumidores, Serviços Empresas, Serviços Estabelecimentos">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <meta property="og:title" content="VR Benefícios">
+  <meta property="og:type" content="website">
+  <meta name="revisit-after" content="4 days">
+  <meta name="Author" content="VR Benefícios- www.vr.com.br">
+  <meta name="Email" content="relacionamento@vr.com.br">
+  <meta name="Copyright" content="Copyright © 2015 VR Benefícios e Serviços">
+  <meta name="Distribution" content="Global">
+  <meta name="Rating" content="General">
+  <meta http-equiv="Content-Script-Type" content="text/javascript">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+
+  <!-- CSS -->
+  <!-- build:css(.) /portal/css/home.min.css -->
+  <link rel="stylesheet" type="text/css" href="/portal/css/home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-painel.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/icons-home.css">
+  <link rel="stylesheet" type="text/css" href="/portal/css/full-slider.css">
+  <link rel="stylesheet" type="text/css" href="/portal/js/bower_components/animate.css/animate.min.css">
+  <!-- endbuild -->
+
+  <!-- Título -->
+  <title>VR Benefícios e Serviços</title>
+
+  <!-- JS -->
+  <!--[if lt IE 9]>
+  <!-- build:js(.) /portal/js/compatibility.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/html5shiv/dist/html5shiv.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+  <![endif]-->
+
+  <!-- Vendor -->
+  <!-- build:js(.) /portal/js/home-dependencies.min.js -->
+  <!-- bower:js -->
+  <script src="/portal/js/bower_components/jquery/jquery.js"></script>
+  <script src="/portal/js/bower_components/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+  <script src="/portal/js/bower_components/angular/angular.js"></script>
+  <script src="/portal/js/bower_components/angular-messages/angular-messages.js"></script>
+  <script src="/portal/js/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+  <script src="/portal/js/bower_components/angular-pickadate/dist/angular-pickadate.js"></script>
+  <script src="/portal/js/bower_components/angular-i18n/angular-locale_pt-br.js"></script>
+  <script src="/portal/js/bower_components/angular-ui-mask/dist/mask.js"></script>
+  <script src="/portal/js/bower_components/cpf_cnpj/build/cpf_cnpj.js"></script>
+  <script src="/portal/js/bower_components/ng-cpf-cnpj/lib/ngCpfCnpj.js"></script>
+  <script src="/portal/js/bower_components/angular-cookies/angular-cookies.js"></script>
+  <script src="/portal/js/bower_components/angular-animate/angular-animate.js"></script>
+  <script src="/portal/js/bower_components/angular-scroll/angular-scroll.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/jquery-price-format.js"></script>
+  <script src="/portal/js/bower_components/angular-price-format/js/angular-price-format.js"></script>
+  <script src="/portal/js/bower_components/ngAutocomplete/src/ngAutocomplete.js"></script>
+  <script src="/portal/js/bower_components/angular-tour/dist/angular-tour.js"></script>
+  <!-- endbower -->
+  <!-- endbuild -->
+
+  <!-- Scripts VR -->
+  <script src="/portal/app/components/js/ui-components-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/ui-comum-app.js"></script>
+  <script src="/portal/app/UI-Comum/js/login-controller.js"></script>
+  <script src="/portal/app/UI-Comum/js/termos-de-uso-controller.js"></script>
+  <script src="/portal/app/UI-Comum/js/cabecalho-controller.js"></script>
+
+  <!-- @if DEVELOPMENT -->
+  <!-- Development scripts -->
+  <script src='/portal/app/mock/ui-comum-app-development.js'></script>
+  <!-- @endif -->
+
+</head>
+
+<body class="body" ng-app="ui-comum-app">
+
+<!-- Header -->
+<div ng-include="'/portal/app/mock/cabecalho-home.html'"></div>
+
+<main class="container main-content top-80-sm" ng-controller="LoginController">
+  <article class="col-sm-12 col-md-offset-1 col-md-10">
+    <!-- Título da pagina -->
+    <h2 class="subTitle text-gray-brand">
+      CADASTRE-SE
+    </h2>
+
+    <!-- Linha separadora -->
+    <hr class="hr-sm">
+
+    <a href="/comum/login.html" class="vr-novo-usuario-link link">
+      <i class="icon icon-icon_cadastrar"></i>
+      Já sou cadastrado
+    </a>
+
+    <!-- Form Inicio -->
+    <form class="form row" name="register" novalidate vr-enter-key-form-interceptor="">
+
+      <!-- Nome -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">NOME</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_usuario"></i>
+          </span>
+          <input type="text" placeholder="Digite seu nome" class="form-control" name="name" ng-model="name" required>
+        </div>
+
+        <div ng-messages class="error-messages" for="register.name.$error" ng-if='register.name.$dirty'>
+          <p ng-message when="required" class="text-right">Por favor, digite seu nome completo</p>
+        </div>
+      </div>
+
+      <!-- CPF -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">CPF</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_usuario"></i>
+          </span>
+          <input type="text" placeholder="Digite seu CPF" ui-options="{clearOnBlur:false}" ui-mask="999.999.999-99"
+                 ui-mask-placeholder
+                 ui-mask-placeholder-char="_" class="form-control" name="cpf" ng-model="cpf" ng-cpf required>
+        </div>
+
+        <div ng-messages class="error-messages" for="register.cpf.$error"
+             ng-if='register.cpf.$dirty && register.cpf.$touched'>
+          <p ng-message when="required" class="text-right">Por favor, digite o CPF</p>
+          <p ng-message when="mask" class="text-right">Por favor, complete o CPF</p>
+          <p ng-message when="cpf" class="text-right text-danger">Por favor digite um CPF válido</p>
+        </div>
+      </div>
+
+      <!-- Celular -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">CELULAR</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+             <i class="fa fa-mobile fa-2x"></i>
+          </span>
+          <input type="text" class="form-control left-10" name="celular" ng-model="celular"
+                 ui-options="{clearOnBlur:false}" ui-mask="(99)9999-9999?9" ui-mask-placeholder
+                 ui-mask-placeholder-char="_" required>
+        </div>
+
+        <div ng-messages class="error-messages" for="register.celular.$error"
+             ng-if='register.celular.$dirty && register.celular.$touched'>
+          <p ng-message when="required" class="text-right">Por favor, digite seu número de celular</p>
+          <p ng-message when="mask" class="text-right">Por favor, complete seu número de celular</p>
+        </div>
+      </div>
+
+      <!-- BIRTH -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">DATA DE NASCIMENTO</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="icon icon-icon_data"></i>
+          </span>
+          <input type="text" placeholder="Digite sua data de nascimento" class="form-control" name="birth"
+                 ng-model="birth" ui-options="{clearOnBlur:false}" ui-mask="99/99/9999" ui-mask-placeholder
+                 ui-mask-placeholder-char="_" date-validation
+                 required>
+        </div>
+
+        <div ng-messages class="error-messages" for="register.birth.$error"
+             ng-if='register.birth.$dirty && register.birth.$touched'>
+          <p ng-message when="required" class="text-right">Por favor, digite sua data de nascimento</p>
+          <p ng-message when="mask" class="text-right">Por favor, complete sua data de nascimento</p>
+          <p ng-message when="dateValidation" class="text-right text-danger">Por favor, preencha uma data válida</p>
+        </div>
+      </div>
+
+      <!-- EMAIL -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">EMAIL</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_email"></i>
+          </span>
+          <input type="email" placeholder="Digite seu email" class="form-control" name="email" ng-model="email"
+                 required>
+        </div>
+
+        <div ng-messages class="error-messages" for="register.email.$error" ng-if='register.email.$dirty'>
+          <p ng-message when="required" class="text-right">Por favor, digite seu endereço de email</p>
+          <p ng-message when="email" class="text-right text-danger">Por favor, digite um email válido</p>
+        </div>
+      </div>
+
+      <!-- Confirmação EMAIL -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">CONFIRMAR EMAIL</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+             <i class="icon icon-icon_email"></i>
+          </span>
+          <input type="email" placeholder="Confirme seu email" class="form-control" name="emailConfirmation"
+                 ng-model="emailConfirmation" compare-to="email" no-cut-copy-paste required>
+        </div>
+
+        <div ng-messages class="error-messages" for="register.emailConfirmation.$error"
+             ng-if='register.emailConfirmation.$dirty'>
+          <p ng-message when="required" class="text-right">Por favor, confirme o seu endereço de email</p>
+          <p ng-message when="email" class="text-right text-danger">Por favor, digite um email válido</p>
+          <p ng-message when="compareTo" class="text-right text-danger">O email não corresponde ao digitado</p>
+        </div>
+      </div>
+
+
+      <!-- PASS -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">DEFINIR SENHA</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="icon icon-icon_senha"></i>
+          </span>
+          <input type="password" placeholder="Digite sua nova senha" class="form-control" ng-model="password"
+                 name="password" required>
+        </div>
+
+        <!-- Mensagens de validação -->
+        <div class="error-messages" ng-messages for="register.password.$error" ng-if='register.password.$dirty'>
+          <p ng-message when="required" class="text-right">Digite uma senha conforme as dicas abaixo</p>
+        </div>
+      </div>
+
+      <!-- Confirm -->
+      <div class="form-group col-sm-6">
+        <label class="form-label with-addon">CONFIRMAR SENHA</label>
+
+        <div class="input-group">
+          <span class="input-group-addon">
+            <i class="icon icon-icon_senha"></i>
+          </span>
+          <input type="password" placeholder="Confirme sua senha" class="form-control" name="confirmpassword"
+                 ng-model="confirmpassword" compare-to="password" no-cut-copy-paste required>
+        </div>
+        <!-- Mensagens de validação -->
+        <div class="error-messages" ng-messages for="register.confirmpassword.$error"
+             ng-if='register.confirmpassword.$dirty'>
+          <p ng-message when="required" class="text-right">Por favor, digite a confirmação da senha</p>
+          <p ng-message when="compareTo" class="text-right text-danger">Senha não corresponde a digitada</p>
+        </div>
+      </div>
+
+      <!-- Separador -->
+      <div class="col-sm-12">
+        <small class="text-gray">* Campos obrigatórios</small>
+        <hr class="hr"/>
+      </div>
+
+      <!-- Dicas -->
+      <div class="col-sm-12 top-10">
+        <div class="row">
+          <div class="col-sm-1">
+            <i class="icon icon-icon_dicas pull-left"></i>
+          </div>
+          <div class="col-sm-11 padding-left-0">
+            <span class="text-black">Dicas de senha:</span>
+            <ul class="text-gray padding-left-20">
+              <li>
+                Crie uma senha com no mínimo 8 caracteres (letras e números).
+              </li>
+              <li>
+                Utilize números e letras para um senha mais segura.
+              </li>
+              <li>
+                Evite senhas com números e letras repetidas e de fácil identificação como 12345678, 22224444, ou seu
+                nome.
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Aceitação dos termos -->
+      <div class="form-group col-sm-12 top-10 bottom-10">
+        <div class="checkbox">
+          <input id="acceptance" name="acceptance" ng-model="acceptance" type="checkbox" name="accept" required>
+          <label for="acceptance" class="text-primary padding-left-25"></label>
+          <span class="text-primary" ng-click="openTermsModal('acceptance')">Aceito os termos de uso.</span>
+        </div>
+      </div>
+
+      <!-- Recebimento de ofertas -->
+      <div class="form-group col-sm-12">
+        <div class="checkbox">
+          <input id="offers" name="offers" ng-model="offers" type="checkbox">
+          <label class="text-primary" for="offers">
+            Quero receber promoções, descontos e benefícios da VR e seus parceiros.
+          </label>
+        </div>
+      </div>
+
+
+      <!-- Botão de cadastro -->
+      <div class="form-group col-sm-offset-4 col-sm-4 top-10">
+        <button class="btn btn-primary btn-xg btn-block btn-left top-10"
+                ng-disabled="register.$invalid">
+          <div class="text-center">
+            <i class="icon icon-icon_seta_botao pull-left top-10"></i>
+            Cadastrar
+          </div>
+        </button>
+      </div>
+
+    </form>
+  </article>
+</main>
+
+<!-- Footer -->
+<div ng-include="'/portal/app/mock/rodape.html'"></div>
+
+</body>
+</html>

@@ -1,0 +1,141 @@
+{
+  "watch": {
+    "html": "./**/*.html",
+    "js": "./portal/app/**/*.js",
+    "img": "./portal/img/*.{png,jpg}",
+    "scss": "./sass/**/*.scss",
+    "sprites": {
+      "home": [
+        "./portal/img/icons-home/**/*.png",
+        "!./portal/img/icons-home/**/*-*.png"
+      ],
+      "painel": [
+        "./portal/img/icons-painel/**/*.png",
+        "!./portal/img/icons-painel/**/*-*.png"
+      ],
+      "generated": [
+        "./portal/img/icons-home/icons-home.png",
+        "./portal/img/icons-painel/icons-painel.png"
+      ]
+    }
+  },
+  "html": {
+    "src": "./**/*.html"
+  },
+  "scripts": {
+    "src": "./portal/**/*.js"
+  },
+  "styles": {
+    "scss": {
+      "autoprefixer": {
+        "browsers": [
+          "last 5 versions"
+        ]
+      },
+      "src": "sass/*.scss"
+    },
+    "css": {
+      "dest": "portal/css"
+    }
+  },
+  "sprites": {
+    "home": {
+      "src": "portal/img/icons-home/*.png",
+      "img": {
+        "name": "../img/icons-home/icons-home.png",
+        "dest": "portal/img/"
+      },
+      "css": {
+        "name": "icons-home.css",
+        "dest": "portal/css/"
+      }
+    },
+    "painel": {
+      "src": "portal/img/icons-painel/*.png",
+      "img": {
+        "name": "../img/icons-painel/icons-painel.png",
+        "dest": "portal/img/"
+      },
+      "css": {
+        "name": "icons-painel.css",
+        "dest": "portal/css/"
+      }
+    }
+  },
+  "build": {
+    "html": {
+      "src": [
+        "index.html",
+        "comum/**/*.html",
+        "beneficiario/**/*.html",
+        "estabelecimentos/**/*.html",
+        "minhaconta/**/*.html"
+      ],
+      "dest": "build"
+    },
+    "usemin": {
+      "src": "build/**/*.html",
+      "dest": "build"
+    },
+    "rename": {
+      "comum": {
+        "src": "build/comum/**/*",
+        "dest": "build/home"
+      },
+      "css": {
+        "src": "build/portal/css/**/*",
+        "dest": "build/css"
+      },
+      "js": {
+        "src": "build/portal/js/**/*",
+        "dest": "build/js"
+      }
+    },
+    "app": {
+      "src": "portal/app/**/*",
+      "dest": "build/app"
+    },
+    "fonts": {
+      "src": "portal/fonts/**/*",
+      "dest": "build/fonts"
+    },
+    "img": {
+      "src": "portal/img/*",
+      "dest": "build/img"
+    },
+    "imgSprites": {
+      "src": "portal/img/icons-*/*-*.png",
+      "dest": "build/img"
+    },
+    "minify": {
+      "images": {
+        "src": "build/img/**/*",
+        "dest": "build/img/"
+      },
+      "css": {
+        "src": "build/css/**/*.css",
+        "dest": "build/css"
+      },
+      "js": {
+        "src": "build/js/**/*.js",
+        "dest": "build/js"
+      }
+    },
+    "clean": {
+      "src": [
+        "build/comum",
+        "build/portal"
+      ]
+    }
+  },
+  "browserSync": {
+    "proxy": "http://localhost:3030",
+    "open": false
+  },
+  "server": {
+    "script": "server.js",
+    "ignore": [
+      "*"
+    ]
+  }
+}

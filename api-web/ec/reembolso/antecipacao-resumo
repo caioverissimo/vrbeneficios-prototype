@@ -1,0 +1,23 @@
+{
+  "cnpjEC": "01132478000642",
+  "razaoSocialEC": "IRMÃOS ANDREAZZA LTDA",
+  "tipoEC": "Loja",
+  "valorTotalDisponivel": 0,
+  "taxaDiaEventual": 1,
+  "taxaDiaAutomatica": 1,
+  "valorTarifa": 100.0,
+  "valorLiquido": 100.0,
+  "valorBrutoTotal": 100.0,
+  "valorTotalDescontos": 100.0,
+  "dataPagamento": null,
+  "status": 1,
+  "dadosBancarios": [
+    {
+      "produto": "Alimentação - Pg Rede",
+      "banco": "1",
+      "agencia": "111",
+      "conta": "23123123"
+    }
+  ],
+  "dadosGuiaReembolso": []
+}

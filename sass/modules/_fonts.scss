@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'Gill-Sans-MT';
+  src: url('../fonts/Gill-Sans-MT.ttf');
+}
+
+@font-face {
+  font-family: 'Gill-Sans-MT-Bold';
+  src: url('../fonts/Gill-Sans-MT-Bold.ttf');
+}
+
+@font-face {
+  font-family: 'Gill-Sans-Light';
+  src: url('../fonts/gill_sans_light-webfont.eot');
+  src: url('../fonts/gill_sans_light-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gill_sans_light-webfont.woff2') format('woff2'),
+  url('../fonts/gill_sans_light-webfont.woff') format('woff'),
+  url('../fonts/gill_sans_light-webfont.ttf') format('truetype'),
+  url('../fonts/gill_sans_light-webfont.svg#gill_sans_lightregular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gill-Sans-Semibold';
+  src: url('../fonts/gillsans-semibold-webfont.eot');
+  src: url('../fonts/gillsans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
+  url('../fonts/gillsans-semibold-webfont.woff2') format('woff2'),
+  url('../fonts/gillsans-semibold-webfont.woff') format('woff'),
+  url('../fonts/gillsans-semibold-webfont.ttf') format('truetype'),
+  url('../fonts/gillsans-semibold-webfont.svg#gill_sanssemibold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

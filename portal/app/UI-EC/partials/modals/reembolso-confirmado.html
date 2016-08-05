@@ -1,0 +1,29 @@
+<section class="panel-body">
+
+  <div ng-show="data.valorTotalDisponivel">
+    <label class="text-gray">Valor a receber</label>
+    <p class="text-lg">{{data.valorTotalDisponivel | currency : "R$ "}}</p>
+    <hr>
+  </div>
+
+  <div ng-show="data.dataPagamento && data.valorTotalDisponivel">
+    <button type="button" class="btn btn-default btn-information pull-right hidden"></button>
+    <label class="text-gray text-block">Data do crédito</label>
+    <p ng-bind="data.dataPagamento |date: 'dd/MM/yyyy'"></p>
+    <hr>
+  </div>
+
+  <div ng-show="antecipacaoConfirmada.id">
+    <label class="text-gray">N. de protocolo</label>
+    <p ng-bind="antecipacaoConfirmada.id"></p>
+  </div>
+
+  <div class="well" ng-show="extraRefundPurchased">
+    <div class="text-secundary">Contratação automática confirmada!</div>
+    <p>O serviço começa a valer a partir do próximo ciclo.</p>
+    <small class="top-10 text-gray">
+      Para cancelar o serviço entre em contato com a VR pelo telefone (11) 9999.0099
+    </small>
+  </div>
+
+</section>

@@ -1,0 +1,66 @@
+<!-- Fechar o modal -->
+<button class="btn btn-close" ng-click="cancel()">&times;</button>
+
+<!-- Modal de motivo de bloqueio -->
+
+<!-- Tela Inicial -->
+<!-- Área de Títulos -->
+<section class="modal-header" ng-if="onstate == 'awaiting'">
+  <h3 class="h3 title">CONFIRMAR BLOQUEIO</h3>
+  <!-- Mudança na class lead não mais necessária -->
+  <p class="text-gray">Você deseja confirmar o bloqueio do cartão <span class="text-secundary">Final {{activeCard.finalCartao}}</span>?
+  </p>
+</section>
+<section class="modal-body" ng-if="onstate == 'awaiting'">
+  <!-- Formulário de motivos-->
+  <form class="form" vr-enter-key-form-interceptor="">
+    <!-- Classe de radio que deve ser duplicada sempre / Alterar id e motifo e o for do label -->
+    <div class="radio" ng-repeat="item in motivosBloqueio" >
+      <input type="radio" name="optionsRadios" id="optionsRadios{{$index+1}}" value="opt{{$index+1}}" ng-click="setOption(item.id)">
+      <!-- Label para clicar -->
+      <label class="text-primary" for="optionsRadios{{$index+1}}">
+        <!-- Valor tem que ser passado dentro do input -->
+        <!-- Texto de motivo -->
+        {{item.label}} (Definir texto a ser exibido.)
+      </label>
+    </div>
+  </form>
+
+  <div class="clearfix">
+    <div class="pull-left top-10">
+      <i class="icon icon-icon_msg_bloqueio"></i>
+    </div>
+    <div class="col-sm-9 top-10">
+      <p>O cartão será bloqueado e substituído por um novo cartão, que será entregue ao RH da sua empresa. O seu saldo
+        será automaticamente transferido para o novo cartão.</p>
+    </div>
+  </div>
+</section>
+<section class="modal-footer" ng-if="onstate == 'awaiting'">
+  <!-- Botão de dismiss -->
+  <button type="button" class="btn btn-default" ng-click="cancel()">Cancelar</button>
+  <!-- Btão de bloqueio -->
+  <button type="button" class="btn btn-default" ng-click="blockCard()" ng-disabled="isBlockDisabled()">
+    Confirmar bloqueio
+    <i class="fa fa-circle-o-notch fa-spin" ng-class="{invisible:!LOADING}"></i>
+  </button>
+</section>
+
+<!-- Tela de Sucesso -->
+<section class="modal-header" ng-if="onstate == 'success'">
+  <h3 class="h3 title">:)</h3>
+
+  <p class="lead">O cartão <span class="text-secundary">Final {{activeCard.finalCartao}}</span> foi bloqueado com sucesso!
+  </p>
+</section>
+<section class="modal-header" ng-if="onstate == 'error'">
+  <h3 class="h3 title">:(</h3>
+
+  <p class="lead">Não foi possível bloquear este cartão. {{errorMessage}}
+  </p>
+</section>
+
+<section class="modal-footer" ng-if="onstate == 'success' || onstate == 'error'">
+  <!-- Botão de dismiss -->
+  <button type="button" class="btn btn-default" ng-click="ok('blocked')">Fechar e voltar</button>
+</section>

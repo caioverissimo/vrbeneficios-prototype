@@ -1,0 +1,50 @@
+
+.accordion-list {
+  .panel-body {
+    padding-left: 0;
+    padding-top: 60px;
+    font-size: 21px;
+    font-family: 'Gill-Sans-Light';
+    line-height: 28px;
+  }
+}
+
+.accordion-list {
+  .accordion-item {
+    padding-top: 18px;
+    box-shadow: inset 0 -2px 0 rgba(211, 211, 213, 0.5);
+    &:first-child {
+      margin-top: 0;
+    }
+    & .accordion-header + div {
+      padding-bottom: 18px;
+    }
+    &.collapsed {
+      & .accordion-header {
+        padding-bottom: 18px;
+      }
+    }
+  }
+  .accordion-header {
+    padding-bottom: 18px;
+    color: $chart-color-1;
+    cursor: pointer;
+  }
+  .tabs-wrapper {
+    padding-left: 0;
+  }
+  .tabs {
+    box-shadow: inset 0 -1px 0 rgba(211, 211, 213, 0.5);
+    .tab {
+      border-bottom: 1px solid transparent;
+      border-left: 1px solid transparent;
+      &.active {
+        border-top: 1px solid rgba(211, 211, 213, 0.5);
+        border-right: 1px solid rgba(211, 211, 213, 0.5);
+        border-bottom: 1px solid #f2f2f2;
+        border-left: 1px solid rgba(211, 211, 213, 0.5);
+      }
+    }
+  }
+}
+

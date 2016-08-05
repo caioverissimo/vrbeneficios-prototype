@@ -1,0 +1,68 @@
+{
+    "numeroFatura": null,
+    "referenciaFatura": null,
+    "rows": 30,
+    "transacoes": [
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        },
+        {
+            "autorizacao": "123456",
+            "cartao": "1234",
+            "dataTransacao": 1467641126448,
+            "valor": 1000
+        }
+    ],
+    "valorTotal": null
+}

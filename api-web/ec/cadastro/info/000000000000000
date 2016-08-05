@@ -1,0 +1,71 @@
+{
+    "cnpj": "89452615001134",
+    "contatos": [
+        {
+            "cargo": null,
+            "ddd": "011",
+            "emailPrincipal": "",
+            "emailSecundario": "",
+            "nome": "TESTE FREDDY 0001",
+            "nomeMeio": "",
+            "ramal": "",
+            "sobrenome": "TESTE",
+            "telefone": "12345678"
+        }
+    ],
+    "dadosBancarios": [
+        {
+            "digitoAgencia": "1",
+            "digitoConta": "1",
+            "idDadoBancario": "1",
+            "numeroAgencia": "0001",
+            "numeroBanco": "741",
+            "numeroConta": "32132111",
+            "produto": {
+                "id": 31,
+                "nome": "VR Refei\u00e7\u00e3o",
+                "produtoAlimentacao": false,
+                "produtoRefeicao": true
+            }
+        }
+    ],
+    "dadosQualificacao": {
+        "areaEstabelecimento": 0,
+        "categoria": "NAO_INFORM",
+        "dddDelivery": "",
+        "diasFuncionamento": 0,
+        "horaAbertura": "0000",
+        "horaFechamento": "0000",
+        "lugaresBalcao": 0,
+        "numeroCadeiras": 0,
+        "numeroMaximoRefeicaoDia": 0,
+        "numeroMesas": 0,
+        "numerosAtendentes": 0,
+        "possuiDelivery": false,
+        "quantidadeCaixasLoja": 0,
+        "subcategoria": "NAO_INFORM",
+        "telefoneDelivery": ""
+    },
+    "endereco": {
+        "cep": "04671-160",
+        "cidade": "S\u00e3o Paulo",
+        "complemento": null,
+        "logradouro": "Duque Costa",
+        "numero": 1,
+        "tipoLogradouro": "Rua",
+        "uf": "SP"
+    },
+    "inscricaoEstadual": "ISENTO",
+    "inscricaoMunicipal": "ISENTO",
+    "nomeFantasia": "teste freddy tpcntr001",
+    "razaoSocial": "teste freddy tpcntr001",
+    "representantes": [
+        {
+            "cpf": "11111111111",
+            "dataNascimento": "16/02/2016",
+            "nomeCompleto": "TESTE",
+            "rg": "111111111"
+        }
+    ],
+    "tipoEstabelecimento": "Normal"
+}

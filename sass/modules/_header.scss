@@ -1,0 +1,73 @@
+.header-establishment-container {
+  .btn-block {
+    white-space: nowrap;
+    background: transparent;
+    padding: {
+      bottom: 0;
+    }
+  }
+
+  .profile-img {
+    margin: {
+      top: 0;
+    }
+  }
+
+  .profile-name {
+    margin: {
+      top: -7px;
+    }
+    line-height: 1.7rem;
+
+    ul {
+      list-style-type: none;
+      padding: {
+        left: 0;
+      }
+      margin: {
+        bottom: 0;
+      }
+    }
+
+  }
+}
+
+.header-establishment-title, .header-establishment-cnpj {
+  font-size: 12px;
+}
+
+.header-print {
+  height: auto;
+  position: initial;
+  padding-bottom: 40px;
+  & .brand {
+    margin-bottom: initial;
+    & img {
+      position: initial;
+    }
+  }
+}
+
+.header-establishment-name {
+  color: $brand-primary;
+}
+
+.header-transparent-background {
+  background: transparent !important;
+}
+
+.header-solid-background {
+  background: $navbar-default-bg;
+}
+
+.navbar-text-small {
+  font-size: 1.4rem;
+}
+
+.navbar-nav {
+  li {
+    & > a:focus {
+      color: white;
+    }
+  }
+}
