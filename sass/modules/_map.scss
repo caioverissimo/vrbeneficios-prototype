@@ -51,6 +51,10 @@
     }
     & .btn-map {
         min-width: 99px;
+        outline: none;
+        &.active {
+            background-color: #10BA54;
+        }
     }
   }
 }
