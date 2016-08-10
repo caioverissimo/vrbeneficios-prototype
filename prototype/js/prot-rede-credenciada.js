@@ -18,11 +18,13 @@ $(function(){
         leftController.toggleClass('active');
         topController.toggleClass('active');
         if(infoController.css('right') === '450px') {
-          infoController.css('right', '10px' );
+          infoController.css('right', '226px' );
           centerAreaCircle();
+          $('.vr-searchmap').toggleClass('newposition');
         } else {
           centerAreaCircle();
           infoController.css('right', '450px' );
+          $('.vr-searchmap').toggleClass('newposition');
         }
       });
     };
@@ -121,6 +123,12 @@ $(function(){
       });
     };
 
+    var toggleInfo = function () {
+      $('#pin1').on('click', function () {
+        infoController.toggleClass('hidden');
+      });
+    };
+
     var toggleFavorite = function () {
       btnFavorite.on('click', function(){
         btnFavorite.toggleClass('icon-icon_favoritos_off');
@@ -169,9 +177,13 @@ $(function(){
         $('#displayResults').addClass('hidden');
         $('.map-overlay').removeClass('hidden');
         setTimeout(function () {
+          $('.vr-searchmap').addClass('bg');
           $('#displayResults').removeClass('hidden');
           $('#btnSearch').removeAttr('disabled');
           $('.map-overlay').addClass('hidden');
+          topController.removeClass('hidden');
+          $('.map-pin').removeClass('hidden');
+          $('.circle').removeClass('hidden');
         }, 1500);
       });
     };
@@ -182,8 +194,12 @@ $(function(){
       var areaWidth = 0;
       if (leftController.hasClass('active')) {
         areaWidth =  parseInt($('.wrap-map').css('width').split('px')[0]) - 450;
+        $('#pin1').css('left', '700px');
+        $('#pin2').css('left', '800px');
       } else {
         areaWidth =  parseInt($('.wrap-map').css('width').split('px')[0]);
+        $('#pin1').css('left', '477px');
+        $('#pin2').css('left', '602px');
       }
       var position = (areaWidth - circleWidth)/2;
       $('.circle').css('right', position+'px' );
@@ -196,6 +212,7 @@ $(function(){
       populateLocationInfo();
       setPagination();
       searchResults();
+      toggleInfo();
     };
 
     return {
