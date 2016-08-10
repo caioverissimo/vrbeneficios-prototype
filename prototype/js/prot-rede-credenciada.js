@@ -119,6 +119,7 @@ $(function(){
         self.addClass('active');
         $('.circle').css('width', self.find('small').attr('radius')+'px');
         $('.circle').css('height', self.find('small').attr('radius')+'px');
+        $('.circle').css('top', self.find('small').attr('top')+'px');
         centerAreaCircle();
       });
     };
